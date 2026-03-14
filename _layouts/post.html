@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="post-container">
+  <header class="post-header">
+    <div class="post-header-label">{{ page.category | default: "Secure ML" }}</div>
+    <h1 class="post-title-large">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      <span class="post-meta-dot">·</span>
+      <span>{{ page.read_time | default: "8 min read" }}</span>
+      {% if page.tags %}
+      <span class="post-meta-dot">·</span>
+      <span>
+        {% for tag in page.tags %}<span class="tag">{{ tag }}</span> {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>

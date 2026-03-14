@@ -1,0 +1,35 @@
+---
+layout: default
+title: Adversarial Minds
+---
+
+<div class="home-hero">
+  <div class="home-hero-label">Secure &amp; Trustworthy ML — Notes</div>
+  <h1>When your model<br><em>becomes the attack surface</em></h1>
+  <p>A running series on adversarial machine learning, privacy, and what it actually takes to deploy AI systems you can trust. Written in the margins of coursework, fixed in the gaps between papers.</p>
+</div>
+
+<div class="post-list-section">
+  <div class="section-label">All Posts</div>
+
+  {% for post in site.posts %}
+  <a class="post-item" href="{{ post.url | relative_url }}">
+    <div class="post-date-col">
+      {{ post.date | date: "%b %Y" }}
+    </div>
+    <div>
+      <div class="post-title">{{ post.title }}</div>
+      {% if post.excerpt %}
+      <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</div>
+      {% endif %}
+      {% if post.tags %}
+      <div class="post-tags">
+        {% for tag in post.tags %}
+        <span class="tag {% if tag == 'attacks' %}accent{% elsif tag == 'privacy' %}gold{% endif %}">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </a>
+  {% endfor %}
+</div>

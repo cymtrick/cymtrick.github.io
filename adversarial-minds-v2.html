@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adversarial Minds — Secure & Trustworthy ML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0d0f;--surface:#131517;--surface2:#1a1c20;--border:#252830;--accent:#e05c35;--accent2:#f0a040;--accent3:#5ba4cf;--text:#cec9c2;--dim:#6e6a63;--muted:#3f3d39;--head:#eae5de;--code-bg:#171921;--mono:'IBM Plex Mono',monospace;--serif:'Source Serif 4',Georgia,serif;--display:'Playfair Display',serif;--w:740px}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);line-height:1.82;-webkit-font-smoothing:antialiased}
+/* HEADER */
+.hdr{border-bottom:1px solid var(--border);padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(12,13,15,.93);backdrop-filter:blur(14px);z-index:200}
+.logo{font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.09em;color:var(--accent);text-decoration:none;text-transform:uppercase;cursor:pointer}
+.logo span{color:var(--dim)}
+.nav a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);text-decoration:none;margin-left:1.8rem;transition:color .2s}
+.nav a:hover{color:var(--head)}
+/* HOME */
+#home{display:block}
+.hero{max-width:900px;margin:0 auto;padding:5rem 2rem 2.5rem;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.7rem;margin-bottom:1.4rem}
+.hero-eyebrow::before{content:'';width:22px;height:1px;background:var(--accent);display:inline-block}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:var(--head);line-height:1.08;margin-bottom:1.2rem}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero p{color:var(--dim);font-size:1rem;max-width:520px;line-height:1.7}
+/* STATS ROW */
+.stats{max-width:900px;margin:0 auto;padding:2rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border-bottom:1px solid var(--border)}
+.stat{padding:1.2rem 0;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--mono);font-size:1.6rem;color:var(--accent);font-weight:500;display:block}
+.stat-l{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+/* POST LIST */
+.list-wrap{max-width:900px;margin:0 auto;padding:2.5rem 2rem 6rem}
+.list-hd{font-family:var(--mono);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:.7rem;border-bottom:1px solid var(--border);margin-bottom:0}
+.pitem{display:grid;grid-template-columns:72px 1fr;gap:0 2rem;padding:1.8rem 0;border-bottom:1px solid var(--border);cursor:pointer;text-decoration:none;color:inherit}
+.pitem:hover .pt{color:var(--accent)}
+.pdate{font-family:var(--mono);font-size:.66rem;color:var(--muted);padding-top:.25rem;line-height:1.5}
+.pt{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--head);line-height:1.22;margin-bottom:.4rem;transition:color .2s}
+.pex{font-size:.88rem;color:var(--dim);line-height:1.6;margin-bottom:.6rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;background:#181a1e;color:var(--muted);border:1px solid var(--border);padding:.12rem .5rem;border-radius:2px}
+.tag.a{color:var(--accent);border-color:var(--accent);background:rgba(224,92,53,.07)}
+.tag.b{color:var(--accent2);border-color:var(--accent2);background:rgba(240,160,64,.07)}
+.tag.c{color:var(--accent3);border-color:var(--accent3);background:rgba(91,164,207,.07)}
+/* POST VIEW */
+#post{display:none;max-width:var(--w);margin:0 auto;padding:3.5rem 2rem 8rem}
+.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);background:none;border:1px solid var(--border);padding:.45rem .9rem;cursor:pointer;transition:all .2s;margin-bottom:2rem}
+.back:hover{color:var(--head);border-color:var(--head)}
+.post-cat{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.55rem;margin-bottom:1.1rem}
+.post-cat::before{content:'//';color:var(--muted)}
+.post-h1{font-family:var(--display);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:900;color:var(--head);line-height:1.12;margin-bottom:1.3rem}
+.pmeta{display:flex;align-items:center;gap:1.4rem;font-family:var(--mono);font-size:.68rem;color:var(--muted);flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:3rem}
+.dot{color:var(--border)}
+/* ARTICLE CONTENT */
+.prose{font-size:1rem;line-height:1.86}
+.prose h2{font-family:var(--display);font-size:1.55rem;font-weight:700;color:var(--head);margin:3rem 0 .9rem;line-height:1.2}
+.prose h3{font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--accent2);margin:2.4rem 0 .7rem}
+.prose p{margin-bottom:1.35rem}
+.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.prose strong{color:var(--head);font-weight:600}
+.prose em{font-style:italic}
+.prose ul,.prose ol{padding-left:1.4rem;margin-bottom:1.35rem}
+.prose li{margin-bottom:.35rem}
+.prose blockquote{border-left:3px solid var(--accent);padding:.75rem 1.3rem;margin:1.8rem 0;background:var(--surface);color:var(--dim);font-style:italic;border-radius:0 4px 4px 0}
+.prose code{font-family:var(--mono);font-size:.8rem;background:var(--code-bg);border:1px solid var(--border);padding:.1em .38em;border-radius:3px;color:#9dd;white-space:nowrap}
+.prose pre{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:1.3rem 1.5rem;overflow-x:auto;margin:1.4rem 0 1.8rem;font-family:var(--mono);font-size:.78rem;line-height:1.72;color:#cdd9e5}
+/* COMPONENTS */
+.mbox{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:4px;padding:1.1rem 1.5rem;margin:1.7rem 0;font-family:var(--mono);font-size:.79rem;color:#cdd9e5;line-height:1.95;overflow-x:auto}
+.mbox .ml{font-size:.61rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem}
+.box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.5rem;margin:1.8rem 0;font-size:.91rem}
+.box-t{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
+/* FIGURE */
+.fig{margin:2.4rem 0;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1.5rem 2rem;text-align:center}
+.fig-cap{font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;text-align:left}
+/* REFERENCE LIST */
+.refs{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.refs-hd{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.ref-item{font-size:.82rem;color:var(--dim);margin-bottom:.7rem;padding-left:2rem;text-indent:-2rem;line-height:1.55}
+.ref-item a{color:var(--accent3);text-decoration:none}
+.ref-item a:hover{text-decoration:underline}
+/* TABLE */
+.prose table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.84rem}
+.prose th{font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--border);padding:.5rem .75rem;text-align:left}
+.prose td{padding:.55rem .75rem;border-bottom:1px solid var(--border);color:var(--dim)}
+.prose tr:hover td{background:var(--surface)}
+/* SERIES NAV */
+.series{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.3rem 1.7rem;margin:2.5rem 0}
+.series-t{font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.series ol{padding-left:1.1rem;margin:0}
+.series li{font-size:.86rem;color:var(--dim);margin-bottom:.28rem}
+.series li.cur{color:var(--accent);font-weight:600}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.06em}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+/* RESPONSIVE */
+@media(max-width:600px){.pitem{grid-template-columns:1fr;gap:.25rem 0}.stats{grid-template-columns:repeat(2,1fr)}.stat{border-right:none;border-bottom:1px solid var(--border)}.hdr{padding:1rem 1.2rem}.hero,.list-wrap,#post{padding-left:1.2rem;padding-right:1.2rem}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <span class="logo" onclick="showHome()">Adversarial<span>/</span>Minds</span>
+  <nav class="nav">
+    <a href="#" onclick="showHome()">Posts</a>
+    <a href="#" onclick="showAbout()">About</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<div id="home">
+<div class="hero">
+  <div class="hero-eyebrow">Secure &amp; Trustworthy ML — Notes from the Margins</div>
+  <h1>When your model<br><em>becomes the attack surface</em></h1>
+  <p>A running series on adversarial machine learning, privacy, fairness, and what it takes to deploy AI you can actually trust. Grounded in coursework, fixed against current NeurIPS research.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="stat-n">10</span><span class="stat-l">Posts</span></div>
+  <div class="stat"><span class="stat-n">6</span><span class="stat-l">Topics</span></div>
+  <div class="stat"><span class="stat-n">NeurIPS'24</span><span class="stat-l">Citations</span></div>
+  <div class="stat"><span class="stat-n">~90min</span><span class="stat-l">Total Reading</span></div>
+</div>
+
+<div class="list-wrap">
+  <div class="list-hd">All Posts — Most Recent First</div>
+
+  <div class="pitem" onclick="showPost('fairness')">
+    <div class="pdate">Jan 2026</div>
+    <div>
+      <div class="pt">Fairness Is Not One Number</div>
+      <div class="pex">Three incompatible fairness definitions. A court ruling. And why you can't satisfy them all at once — a mathematical impossibility, not an engineering problem.</div>
+      <div class="tags"><span class="tag b">fairness</span><span class="tag">ethics</span><span class="tag">bias</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('jailbreak')">
+    <div class="pdate">Jan 2026</div>
+    <div>
+      <div class="pt">Jailbreaking LLMs: The Attack Taxonomy Nobody Agrees On</div>
+      <div class="pex">From hand-crafted prompts to RL-driven token search, from GCG to embedding-space attacks. NeurIPS 2024 research shows the surface is bigger than you think.</div>
+      <div class="tags"><span class="tag a">attacks</span><span class="tag">LLMs</span><span class="tag">jailbreak</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('certified')">
+    <div class="pdate">Dec 2025</div>
+    <div>
+      <div class="pt">Certified Robustness: Proofs Instead of Benchmarks</div>
+      <div class="pex">Adversarial training only certifies what you tested. Certified defenses prove no adversarial example can exist. The gap between the two is where most deployed models live.</div>
+      <div class="tags"><span class="tag c">defenses</span><span class="tag">certification</span><span class="tag">theory</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('pac')">
+    <div class="pdate">Dec 2025</div>
+    <div>
+      <div class="pt">PAC Privacy: A Better Way to Measure What Your Model Leaks</div>
+      <div class="pex">Differential privacy has a painful utility cost. PAC Privacy asks what an attacker can actually compute under realistic constraints — and often the answer is far less than the worst case.</div>
+      <div class="tags"><span class="tag b">privacy</span><span class="tag">PAC-privacy</span><span class="tag">theory</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('dp')">
+    <div class="pdate">Dec 2025</div>
+    <div>
+      <div class="pt">Differential Privacy: What a Formal Guarantee Actually Looks Like</div>
+      <div class="pex">DP is the one privacy framework with genuine mathematical bite. Here's what (ε,δ) actually means, how DP-SGD works, and what the tradeoff costs you.</div>
+      <div class="tags"><span class="tag b">privacy</span><span class="tag">DP-SGD</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('privacy')">
+    <div class="pdate">Nov 2025</div>
+    <div>
+      <div class="pt">Your Model Remembers Things It Shouldn't</div>
+      <div class="pex">Membership inference, attribute reconstruction, model inversion. A trained model is a compressed version of its data — and that compression is leakier than you think.</div>
+      <div class="tags"><span class="tag b">privacy</span><span class="tag a">attacks</span><span class="tag">membership-inference</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('evasion')">
+    <div class="pdate">Nov 2025</div>
+    <div>
+      <div class="pt">Evasion Attacks and the Geometry of Adversarial Examples</div>
+      <div class="pex">FGSM, PGD, C&W. How imperceptible perturbations cross decision boundaries, and why the geometry of high-dimensional space makes this so hard to fix.</div>
+      <div class="tags"><span class="tag a">attacks</span><span class="tag">FGSM</span><span class="tag">evasion</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('poisoning')">
+    <div class="pdate">Nov 2025</div>
+    <div>
+      <div class="pt">Poisoning Attacks: Corrupting a Model Before It Exists</div>
+      <div class="pex">The attack that hides in your training set. Backdoors survive all your validation metrics. By the time you ship, the exploit is already baked in.</div>
+      <div class="tags"><span class="tag a">attacks</span><span class="tag">poisoning</span><span class="tag">backdoor</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('explainability')">
+    <div class="pdate">Nov 2025</div>
+    <div>
+      <div class="pt">Explainability: Why Knowing Isn't the Same as Understanding</div>
+      <div class="pex">SHAP, saliency maps, counterfactuals. The tools exist. Whether they actually explain anything — or just make us feel better — is a different question.</div>
+      <div class="tags"><span class="tag c">explainability</span><span class="tag">SHAP</span><span class="tag">XAI</span></div>
+    </div>
+  </div>
+
+  <div class="pitem" onclick="showPost('intro')">
+    <div class="pdate">Nov 2025</div>
+    <div>
+      <div class="pt">The Threat Model Nobody Talks About in Intro ML</div>
+      <div class="pex">You learn to train models. Nobody tells you that a well-trained model is also a well-optimized attack surface. Here's the framing that changes everything.</div>
+      <div class="tags"><span class="tag">foundations</span><span class="tag">threat-models</span></div>
+    </div>
+  </div>
+</div>
+</div><!-- /home -->
+
+<!-- POST VIEW -->
+<div id="post">
+  <button class="back" onclick="showHome()">← All Posts</button>
+  <div id="pcontent"></div>
+</div>
+
+<footer>© 2026 Adversarial Minds · XM 0179 · VU Amsterdam · Built with Jekyll</footer>
+
+<script>
+// ─────────────────────────────── POST DATA ───────────────────────────────
+
+const POSTS = {
+
+// ═══════════════════════════════════════════════════════════════════════════
+intro: {
+  cat:'Foundations', title:'The Threat Model Nobody Talks About in Intro ML',
+  date:'November 3, 2025', rt:'7 min read', tags:['foundations','threat-models'],
+  body:`
+<div class="series"><div class="series-t">Series: Adversarial ML — Start Here</div><ol>
+<li class="cur">The Threat Model Nobody Talks About</li>
+<li>Poisoning Attacks: Corrupting a Model Before It Exists</li>
+<li>Evasion Attacks and FGSM</li>
+<li>Your Model Remembers Things It Shouldn't</li>
+<li>Differential Privacy</li><li>PAC Privacy</li>
+<li>Explainability</li><li>Certified Robustness</li>
+<li>Jailbreaking LLMs</li><li>Fairness</li>
+</ol></div>
+
+<p>Let me start with something that bugged me for a long time: the standard ML curriculum treats a trained model as a finished product. You hit your target accuracy, you ship, done. Security people find this worldview slightly deranged.</p>
+
+<p>The distinction I keep coming back to is <strong>program correctness vs. program security</strong>. A correct program does what its specification says. A secure program does what its specification says <em>even when someone is actively trying to make it not do that</em>. These are genuinely different problems, and the second is harder in ways that don't show up on benchmark leaderboards.</p>
+
+<h2>What "Robust Intelligence" Actually Means</h2>
+<p>There's a useful framing: the difference between <em>artificial intelligence</em> and <em>robust intelligence</em>. Artificial intelligence reaches human-level performance on a task. Robust intelligence <em>maintains</em> that performance under distribution shift, perturbation, and adversarial pressure. We mostly train for the first and deploy the second.</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e05c35" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#e05c35" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ba4cf" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#5ba4cf" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="340" height="220" fill="url(#g1)" rx="4"/>
+  <rect x="340" y="0" width="340" height="220" fill="url(#g2)" rx="4"/>
+  <line x1="340" y1="20" x2="340" y2="200" stroke="#252830" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- Left side: AI -->
+  <text x="170" y="42" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle" letter-spacing="2">ARTIFICIAL INTELLIGENCE</text>
+  <text x="170" y="68" font-family="Source Serif 4,serif" font-size="13" fill="#cec9c2" text-anchor="middle">Maximize accuracy on</text>
+  <text x="170" y="88" font-family="Source Serif 4,serif" font-size="13" fill="#cec9c2" text-anchor="middle">held-out test set</text>
+  <rect x="90" y="108" width="160" height="28" rx="3" fill="#1a1c20" stroke="#252830"/>
+  <text x="170" y="127" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6e6a63" text-anchor="middle">IID data · benchmarks</text>
+  <text x="170" y="175" font-family="Source Serif 4,serif" font-size="12" fill="#6e6a63" text-anchor="middle" font-style="italic">What we train for</text>
+  <!-- Right side: Robust AI -->
+  <text x="510" y="42" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle" letter-spacing="2">ROBUST INTELLIGENCE</text>
+  <text x="510" y="68" font-family="Source Serif 4,serif" font-size="13" fill="#cec9c2" text-anchor="middle">Maintain performance under</text>
+  <text x="510" y="88" font-family="Source Serif 4,serif" font-size="13" fill="#cec9c2" text-anchor="middle">adversarial pressure</text>
+  <rect x="430" y="108" width="160" height="28" rx="3" fill="#1a1c20" stroke="#252830"/>
+  <text x="510" y="127" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6e6a63" text-anchor="middle">OOD · worst-case · attacks</text>
+  <text x="510" y="175" font-family="Source Serif 4,serif" font-size="12" fill="#6e6a63" text-anchor="middle" font-style="italic">What we need in deployment</text>
+</svg>
+<div class="fig-cap">fig.1 — The gap between artificial intelligence and robust intelligence. Most deployed systems live in the right half; most training optimizes for the left.</div>
+</div>
+
+<h2>The Attacker's Perspective</h2>
+<p>Think about who can touch your model and when:</p>
+
+<div class="box">
+  <div class="box-t">Threat Surfaces</div>
+  <strong>Training time</strong> — Can someone inject data into your training set? Poisoning attacks live here.<br><br>
+  <strong>Model weights</strong> — Can someone read or modify the model? Backdoor implantation, weight tampering.<br><br>
+  <strong>Inference time</strong> — Can someone craft inputs to fool predictions? Evasion attacks live here.<br><br>
+  <strong>Outputs</strong> — Can someone observe enough predictions to reconstruct private information? Privacy attacks.
+</div>
+
+<h2>Embeddings and Why They're Fragile</h2>
+<p>How does a model represent a word? Through embeddings — dense vectors trained so similar words are nearby in vector space. The word2vec intuition: train to predict context words from a center word. The hidden layer it learns captures semantic relationships.</p>
+
+<div class="mbox"><div class="ml">Softmax over vocabulary</div>P(w_o | w_c) = exp(u_o · v_c) / Σ_w exp(u_w · v_c)<br><br>∂log P(w_o|w_c)/∂v_c = u_o − Σ_w P(w|w_c)·u_w<br><span style="color:#6e6a63;font-size:.74rem">  ↑ observed context  −  ↑ expected context under current model</span></div>
+
+<p>The gradient pushes the center vector toward observed co-occurrences and away from what the model currently expects. This learned geometry is what semantic attacks exploit — synonym substitutions, embedding perturbations, and adversarial text all do surgery on this structure.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Goodfellow, I. J., Shlens, J., & Szegedy, C. (2015). Explaining and harnessing adversarial examples. <em>ICLR 2015</em>. <a href="https://arxiv.org/abs/1412.6572" target="_blank">arXiv:1412.6572</a></div>
+<div class="ref-item">[2] Mikolov, T. et al. (2013). Distributed representations of words and phrases. <em>NeurIPS 2013</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+poisoning: {
+  cat:'Attacks', title:'Poisoning Attacks: Corrupting a Model Before It Exists',
+  date:'November 10, 2025', rt:'9 min read', tags:['attacks','poisoning','backdoor'],
+  body:`
+<p>The most uncomfortable thing about poisoning attacks is the timeline. An evasion attack happens at inference time — you can detect it, rate-limit, filter inputs. A poisoning attack happens <em>before the model exists</em>. By the time you're deploying and monitoring, the attack is already baked into the weights.</p>
+
+<h2>Attack Taxonomy</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 310" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#3f3d39"/></marker></defs>
+  <!-- Timeline bar -->
+  <rect x="40" y="95" width="600" height="3" fill="#252830" rx="2"/>
+  <!-- Phase markers -->
+  <circle cx="120" cy="96" r="7" fill="#e05c35"/>
+  <circle cx="340" cy="96" r="7" fill="#e05c35"/>
+  <circle cx="560" cy="96" r="7" fill="#5ba4cf"/>
+  <!-- Labels top -->
+  <text x="120" y="72" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle">DATA COLLECTION</text>
+  <text x="120" y="85" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">← ATTACK WINDOW →</text>
+  <text x="340" y="72" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle">TRAINING</text>
+  <text x="560" y="72" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle">DEPLOYMENT</text>
+  <text x="560" y="85" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">attack already baked in</text>
+
+  <!-- 4 attack boxes below -->
+  <rect x="30" y="130" width="145" height="80" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="103" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle" letter-spacing="1">LABEL FLIPPING</text>
+  <text x="103" y="168" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Flip training labels.</text>
+  <text x="103" y="183" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Detectable via acc drop.</text>
+  <text x="103" y="198" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">blunt · noisy</text>
+
+  <rect x="188" y="130" width="145" height="80" rx="4" fill="#1a1c20" stroke="#e05c35" stroke-width="1.5"/>
+  <text x="261" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle" letter-spacing="1">BACKDOOR</text>
+  <text x="261" y="168" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Trigger pattern →</text>
+  <text x="261" y="183" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">target class. Silent.</text>
+  <text x="261" y="198" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">★ most dangerous</text>
+
+  <rect x="346" y="130" width="145" height="80" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="419" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle" letter-spacing="1">CLEAN-LABEL</text>
+  <text x="419" y="168" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Labels untouched.</text>
+  <text x="419" y="183" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Perturb features only.</text>
+  <text x="419" y="198" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">hard to detect</text>
+
+  <rect x="504" y="130" width="145" height="80" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="577" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle" letter-spacing="1">FL POISONING</text>
+  <text x="577" y="168" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Malicious gradient</text>
+  <text x="577" y="183" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">updates in federated.</text>
+  <text x="577" y="198" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">distributed threat</text>
+
+  <!-- NeurIPS badge -->
+  <rect x="30" y="235" width="620" height="55" rx="4" fill="#131517" stroke="#252830"/>
+  <text x="50" y="255" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf">NeurIPS 2024 ·</text>
+  <text x="140" y="255" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63">Gosch et al. certify GNNs against poisoning for the first time — using neural tangent kernels</text>
+  <text x="50" y="272" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63">and mixed-integer LP reformulation of the bilevel poisoning objective. Best Paper @ AdvML-Frontiers'24.</text>
+</svg>
+<div class="fig-cap">fig.2 — Poisoning attack taxonomy. Backdoor attacks (highlighted) are the most dangerous: invisible at eval time, triggered on demand.</div>
+</div>
+
+<h2>Why Backdoors Survive Training</h2>
+<p>The model is doing optimization — it finds features predictive of labels. If trigger-pattern reliably predicts class-A, the model learns that association. It has no way to know the trigger was planted; to the loss function, it's just a useful feature.</p>
+
+<div class="box">
+  <div class="box-t">The Sleeper Agent Problem</div>
+  A backdoored model is functionally identical to a clean model on all inputs without the trigger. Standard accuracy evaluation <em>cannot</em> distinguish them. The trigger exists only in the attacker's pocket — until they choose to use it.
+</div>
+
+<h2>NeurIPS 2024: Certifying GNNs Against Poisoning</h2>
+<p>NeurIPS 2024 saw the first certified robustness guarantees for graph neural networks against poisoning attacks, including backdoors targeting node features. The approach by Gosch et al. uses the neural tangent kernel to characterize training dynamics, then reformulates the bilevel poisoning optimization problem as a mixed-integer linear program — enabling certificates rather than just empirical evaluations.</p>
+
+<h2>The Evaluation Blind Spot</h2>
+<p>This is a general theme in adversarial ML: our metrics measure average-case performance, but adversaries live in the worst case. High accuracy on a clean test set tells you nothing about whether your model has a hidden trigger. When we say a model is "good," we need to be specific about good <em>for whom</em> and <em>under what conditions</em>.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Chen, X. et al. (2017). Targeted backdoor attacks on deep learning systems. <em>arXiv:1712.05526</em>.</div>
+<div class="ref-item">[2] Turner, A. et al. (2018). Clean-label backdoor attacks. <em>NeurIPS 2018 Workshop</em>.</div>
+<div class="ref-item">[3] Gosch, L., Sabanayagam, M., Ghoshdastidar, D., Günnemann, S. (2024). Provable Robustness of (Graph) Neural Networks Against Data Poisoning and Backdoor Attacks. <em>NeurIPS 2024 AdvML-Frontiers (Best Paper)</em>.</div>
+<div class="ref-item">[4] Bagdasaryan, E. et al. (2020). How to backdoor federated learning. <em>AISTATS 2020</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+evasion: {
+  cat:'Attacks', title:'Evasion Attacks and the Geometry of Adversarial Examples',
+  date:'November 18, 2025', rt:'11 min read', tags:['attacks','FGSM','PGD','evasion'],
+  body:`
+<p>In 2014, Szegedy et al. showed something genuinely unsettling: take an image correctly classified by a neural network, add a perturbation <em>invisible to the human eye</em>, and the network confidently misidentifies it. The perturbation is computed — designed to exploit the model's decision boundary.</p>
+
+<h2>Why Adversarial Examples Exist: The Geometry</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs>
+    <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4z" fill="#f0a040"/></marker>
+    <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4z" fill="#e05c35"/></marker>
+    <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4z" fill="#5ba4cf"/></marker>
+  </defs>
+  <!-- Decision boundary - wavy path -->
+  <path d="M 330 20 C 310 60 355 100 330 140 C 305 180 350 220 330 250" stroke="#252830" stroke-width="2" fill="none" stroke-dasharray="7,4"/>
+  <text x="330" y="14" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">decision boundary</text>
+  <!-- Region labels -->
+  <text x="170" y="130" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3f3d39" text-anchor="middle">CLASS A</text>
+  <text x="490" y="130" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3f3d39" text-anchor="middle">CLASS B</text>
+
+  <!-- Original point A -->
+  <circle cx="230" cy="130" r="9" fill="#e05c35"/>
+  <text x="230" y="115" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">x</text>
+  <text x="230" y="104" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">"panda"</text>
+
+  <!-- FGSM arrow -->
+  <line x1="240" y1="130" x2="352" y2="130" stroke="#f0a040" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="296" y="120" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">ε·sign(∇L)</text>
+
+  <!-- Adversarial point -->
+  <circle cx="365" cy="130" r="9" fill="#f0a040"/>
+  <text x="365" y="115" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">x+δ</text>
+  <text x="365" y="104" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">"gibbon" 99%</text>
+
+  <!-- Human perception ball -->
+  <circle cx="230" cy="130" r="55" fill="none" stroke="#e05c35" stroke-width="1" stroke-dasharray="3,3" opacity=".4"/>
+  <text x="145" y="200" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" opacity=".6">ε-ball (human</text>
+  <text x="145" y="212" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" opacity=".6">perception limit)</text>
+
+  <!-- PGD multi step -->
+  <circle cx="230" cy="130" r="3" fill="#5ba4cf"/>
+  <circle cx="255" cy="126" r="3" fill="#5ba4cf"/>
+  <circle cx="279" cy="128" r="3" fill="#5ba4cf"/>
+  <circle cx="302" cy="123" r="3" fill="#5ba4cf"/>
+  <circle cx="325" cy="126" r="3" fill="#5ba4cf"/>
+  <text x="278" y="190" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">PGD multi-step path</text>
+  <line x1="278" y1="183" x2="278" y2="140" stroke="#5ba4cf" stroke-width=".8" stroke-dasharray="3,3"/>
+</svg>
+<div class="fig-cap">fig.3 — FGSM takes a single step of size ε in the sign-gradient direction. PGD takes multiple smaller steps, staying within the ε-ball at each iteration. The perturbation is imperceptible to humans but crosses the decision boundary.</div>
+</div>
+
+<h2>FGSM: The One-Step Attack</h2>
+<div class="mbox"><div class="ml">Fast Gradient Sign Method (Goodfellow et al., 2015)</div>x_adv = x + ε · sign(∇_x L(θ, x, y))<br><br><span style="color:#6e6a63">Untargeted: maximize loss for true label y<br>Targeted:   x_adv = x − ε · sign(∇_x L(θ, x, y_target))</span></div>
+
+<h2>PGD: The Multi-Step Extension</h2>
+<p>Madry et al. (2018) showed that single-step FGSM doesn't certify anything — the adversary can do much better with projected gradient descent (PGD): multiple steps of gradient ascent, projected back into the ε-ball after each step.</p>
+<div class="mbox"><div class="ml">PGD attack (k steps)</div>x^(0) = x<br>x^(t+1) = Π_{x+S}[ x^(t) + α · sign(∇_x L(θ, x^(t), y)) ]<br><br><span style="color:#6e6a63">S = {δ : ‖δ‖_∞ ≤ ε},  Π projects back into S after each step<br>α = step size, typically ε/k</span></div>
+
+<h2>The Attack Landscape: Comparing Methods</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Grid -->
+  <line x1="80" y1="20" x2="80" y2="165" stroke="#252830" stroke-width="1"/>
+  <line x1="80" y1="165" x2="640" y2="165" stroke="#252830" stroke-width="1"/>
+  <!-- Y axis labels -->
+  <text x="70" y="35" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="end">100%</text>
+  <text x="70" y="90" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="end">50%</text>
+  <text x="70" y="165" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="end">0%</text>
+  <text x="28" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle" transform="rotate(-90,28,100)">Attack Success Rate</text>
+  <!-- Gridlines -->
+  <line x1="80" y1="35" x2="640" y2="35" stroke="#1a1c20" stroke-width="1"/>
+  <line x1="80" y1="100" x2="640" y2="100" stroke="#1a1c20" stroke-width="1"/>
+
+  <!-- Bars: 5 attacks -->
+  <!-- FGSM -->
+  <rect x="105" y="90" width="60" height="75" fill="#e05c35" opacity=".7" rx="2"/>
+  <text x="135" y="84" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#e05c35" text-anchor="middle">44%</text>
+  <text x="135" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">FGSM</text>
+
+  <!-- PGD-20 -->
+  <rect x="200" y="45" width="60" height="120" fill="#e05c35" opacity=".85" rx="2"/>
+  <text x="230" y="39" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#e05c35" text-anchor="middle">67%</text>
+  <text x="230" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">PGD-20</text>
+
+  <!-- PGD-100 -->
+  <rect x="295" y="30" width="60" height="135" fill="#e05c35" rx="2"/>
+  <text x="325" y="24" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#e05c35" text-anchor="middle">75%</text>
+  <text x="325" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">PGD-100</text>
+
+  <!-- C&W -->
+  <rect x="390" y="22" width="60" height="143" fill="#f0a040" rx="2"/>
+  <text x="420" y="16" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#f0a040" text-anchor="middle">79%</text>
+  <text x="420" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">C&amp;W-L2</text>
+
+  <!-- AutoAttack -->
+  <rect x="485" y="25" width="60" height="140" fill="#5ba4cf" rx="2"/>
+  <text x="515" y="19" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#5ba4cf" text-anchor="middle">77%</text>
+  <text x="515" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">AutoAttack</text>
+
+  <!-- ε note -->
+  <text x="370" y="196" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">Typical results on CIFAR-10 undefended model, ε=8/255. Illustrative.</text>
+</svg>
+<div class="fig-cap">fig.4 — Attack success rate comparison across methods on an undefended classifier. PGD outperforms single-step FGSM; C&W and AutoAttack are stronger still. Stronger attacks require more computation.</div>
+</div>
+
+<h2>White-Box vs Black-Box</h2>
+<p><strong>White-box</strong>: attacker has full model access, can compute exact gradients. <strong>Black-box</strong>: query only — input in, prediction out. Effective black-box methods include oracle-based substitute models (train a local copy from queries, attack the copy), score-based methods (estimate gradient from confidence scores via finite differences), and decision-based methods (binary search to the boundary using only the final label).</p>
+
+<p>The field has become much more careful about evaluation after many early "defenses" were broken by adaptive attacks — attacks that know the defense and optimize against it specifically.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Goodfellow, I.J., Shlens, J., Szegedy, C. (2015). Explaining and harnessing adversarial examples. <em>ICLR 2015</em>. <a href="https://arxiv.org/abs/1412.6572" target="_blank">arXiv:1412.6572</a></div>
+<div class="ref-item">[2] Madry, A. et al. (2018). Towards deep learning models resistant to adversarial attacks. <em>ICLR 2018</em>. <a href="https://arxiv.org/abs/1706.06083" target="_blank">arXiv:1706.06083</a></div>
+<div class="ref-item">[3] Carlini, N. & Wagner, D. (2017). Evaluating the robustness of neural networks: An extreme case study. <em>IEEE S&P 2017</em>.</div>
+<div class="ref-item">[4] Croce, F. & Hein, M. (2020). Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks. <em>ICML 2020</em>. (AutoAttack)</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+privacy: {
+  cat:'Privacy', title:'Your Model Remembers Things It Shouldn\'t',
+  date:'November 26, 2025', rt:'11 min read', tags:['privacy','membership-inference','model-inversion','attacks'],
+  body:`
+<p>A hospital trains a model on patient records. It's deployed as an API — predictions only, no data shared, no weights exposed. Can an attacker extract information about individual patients from that API alone? Yes.</p>
+
+<h2>Membership Inference: The Basic Attack</h2>
+<p>Given a data point x and black-box access to a model, was x in the training set? Models tend to be <em>more confident</em> on training examples — lower loss, higher probability on the correct class. That signal is exploitable.</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Two distributions -->
+  <!-- Member distribution: bell curve centered at 0.85 -->
+  <path d="M 60 200 Q 90 200 110 180 Q 130 140 160 100 Q 185 60 210 50 Q 235 40 250 45 Q 270 50 285 70 Q 310 105 325 145 Q 340 185 355 200 Q 380 200 420 200" stroke="#5ba4cf" stroke-width="2" fill="rgba(91,164,207,0.12)" fill-rule="evenodd"/>
+  <!-- Non-member distribution: bell curve centered at 0.55 -->
+  <path d="M 180 200 Q 210 200 235 175 Q 255 145 275 110 Q 295 75 315 65 Q 335 58 355 65 Q 375 75 390 110 Q 408 145 422 175 Q 440 200 470 200" stroke="#e05c35" stroke-width="2" fill="rgba(224,92,53,0.12)" fill-rule="evenodd"/>
+  <!-- Axes -->
+  <line x1="50" y1="200" x2="620" y2="200" stroke="#252830" stroke-width="1"/>
+  <line x1="50" y1="30" x2="50" y2="200" stroke="#252830" stroke-width="1"/>
+  <!-- Labels -->
+  <text x="335" y="218" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6e6a63" text-anchor="middle">confidence score on sample x</text>
+  <text x="50" y="50" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle" transform="rotate(-90,50,120)">density</text>
+  <!-- Distribution labels -->
+  <text x="230" y="45" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf">members</text>
+  <text x="390" y="58" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35">non-members</text>
+  <!-- Threshold line -->
+  <line x1="315" y1="35" x2="315" y2="200" stroke="#f0a040" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="315" y="28" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">decision threshold</text>
+  <!-- X axis ticks -->
+  <text x="130" y="214" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">0.4</text>
+  <text x="240" y="214" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">0.6</text>
+  <text x="350" y="214" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">0.8</text>
+  <text x="460" y="214" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">1.0</text>
+  <!-- Overlap annotation -->
+  <text x="335" y="145" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#3f3d39" text-anchor="middle">← overlap region</text>
+  <text x="335" y="157" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#3f3d39" text-anchor="middle">limits attack</text>
+</svg>
+<div class="fig-cap">fig.5 — Membership inference exploits the gap between member and non-member confidence distributions. Overfitted models push these distributions further apart, making the attack easier.</div>
+</div>
+
+<h2>NeurIPS 2024: Attacking Vision-Language Models</h2>
+<p>NeurIPS 2024 included work on membership inference attacks specifically against large vision-language models (Li, Wu, Chen et al., EPFL). This is a harder target than text-only models: the input is multimodal, the model is massive, and the attack has to work across both modalities. The results suggest membership inference risk doesn't go away just because you scale up.
+
+<p>A separate NeurIPS 2024 paper introduced "privacy backdoor" attacks: poisoning a pre-trained model to dramatically amplify membership inference success rates on downstream fine-tuned versions. The insight is disturbing — the attack embeds a vulnerability in the foundation model that propagates to every model fine-tuned on top of it.</p>
+
+<h2>Model Inversion: Reconstructing Training Data</h2>
+<p>Model inversion asks: can you reconstruct approximate representations of training data from a trained model? A face recognition model has internalized what faces look like — you can try to recover that knowledge.</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs><marker id="fwd" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5z" fill="#5ba4cf"/></marker>
+  <marker id="inv" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5z" fill="#e05c35"/></marker></defs>
+  <!-- Forward pass box -->
+  <rect x="30" y="60" width="120" height="60" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="90" y="88" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">Training</text>
+  <text x="90" y="104" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">Data x</text>
+  <!-- Model box -->
+  <rect x="270" y="50" width="140" height="80" rx="4" fill="#1a1c20" stroke="#5ba4cf"/>
+  <text x="340" y="82" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle">f(x; θ)</text>
+  <text x="340" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">trained model</text>
+  <!-- Output box -->
+  <rect x="530" y="60" width="120" height="60" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="590" y="88" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">predictions</text>
+  <text x="590" y="104" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">f(x)</text>
+  <!-- Forward arrow -->
+  <line x1="152" y1="90" x2="268" y2="90" stroke="#5ba4cf" stroke-width="1.5" marker-end="url(#fwd)"/>
+  <text x="210" y="82" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5ba4cf" text-anchor="middle">training →</text>
+  <line x1="412" y1="90" x2="528" y2="90" stroke="#5ba4cf" stroke-width="1.5" marker-end="url(#fwd)"/>
+  <!-- Inversion arrow -->
+  <line x1="268" y1="105" x2="152" y2="105" stroke="#e05c35" stroke-width="1.5" marker-end="url(#inv)" stroke-dasharray="4,2"/>
+  <text x="210" y="125" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35" text-anchor="middle">← inversion attack</text>
+  <text x="210" y="138" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35" text-anchor="middle">optimize x̂ s.t. f(x̂)≈target</text>
+</svg>
+<div class="fig-cap">fig.6 — Model inversion runs the inference process in reverse. Given the model and a target output, the attacker optimizes in input space to find x̂ such that f(x̂) matches the target prediction.</div>
+</div>
+
+<h2>What Actually Leaks from LLM Queries</h2>
+<p>Carlini et al. (2021) extracted thousands of memorized training sequences from GPT-2 by prompting with common prefixes and collecting completions. The sequences included names, contact information, and PII — not because the model was designed to reveal this, but because it memorized training text verbatim.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Shokri, R. et al. (2017). Membership inference attacks against machine learning models. <em>IEEE S&P 2017</em>.</div>
+<div class="ref-item">[2] Carlini, N. et al. (2021). Extracting training data from large language models. <em>USENIX Security 2021</em>. <a href="https://arxiv.org/abs/2012.07805" target="_blank">arXiv:2012.07805</a></div>
+<div class="ref-item">[3] Li, Z., Wu, Y., Chen, Y. et al. (2024). Membership inference attacks against large vision-language models. <em>NeurIPS 2024</em>.</div>
+<div class="ref-item">[4] NeurIPS 2024 Poster. Privacy Backdoors: Enhancing Membership Inference through Poisoning Pre-trained Models. <a href="https://neurips.cc/virtual/2024/poster/95643" target="_blank">NeurIPS Virtual</a></div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+dp: {
+  cat:'Privacy', title:'Differential Privacy: What a Formal Guarantee Actually Looks Like',
+  date:'December 4, 2025', rt:'12 min read', tags:['privacy','DP-SGD','theory'],
+  body:`
+<p>DP has an actual mathematical definition of what it means to protect individual privacy. After membership inference, model inversion, and attribute leakage — here's the one framework that has real teeth.</p>
+
+<h2>The Core Idea</h2>
+<p>A mechanism M is differentially private if its output distribution barely changes when you add or remove any single individual from the input dataset. An adversary looking at the output cannot determine whether any particular individual was included.</p>
+
+<div class="mbox"><div class="ml">(ε, δ)-Differential Privacy — Formal Definition</div>A randomized M satisfies (ε, δ)-DP if for all adjacent D, D' (differing in one record)<br>and all measurable output sets S:<br><br>  Pr[M(D) ∈ S]  ≤  exp(ε) · Pr[M(D') ∈ S]  +  δ<br><br><span style="color:#6e6a63">ε = privacy budget  (smaller → stronger privacy)<br>δ = failure probability  (want δ ≪ 1/n)</span></div>
+
+<h2>What ε Actually Means</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Epsilon axis -->
+  <line x1="60" y1="140" x2="620" y2="140" stroke="#252830" stroke-width="1.5"/>
+  <!-- Ticks -->
+  <line x1="100" y1="135" x2="100" y2="145" stroke="#252830"/>
+  <line x1="200" y1="135" x2="200" y2="145" stroke="#252830"/>
+  <line x1="350" y1="135" x2="350" y2="145" stroke="#252830"/>
+  <line x1="500" y1="135" x2="500" y2="145" stroke="#252830"/>
+  <line x1="600" y1="135" x2="600" y2="145" stroke="#252830"/>
+  <text x="100" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle">ε=0</text>
+  <text x="200" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle">ε=1</text>
+  <text x="350" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#f0a040" text-anchor="middle">ε=8</text>
+  <text x="500" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle">ε=50</text>
+  <text x="600" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle">ε→∞</text>
+  <!-- Color band -->
+  <defs><linearGradient id="epsgr" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#5ba4cf" stop-opacity=".5"/>
+    <stop offset="35%" stop-color="#f0a040" stop-opacity=".4"/>
+    <stop offset="100%" stop-color="#e05c35" stop-opacity=".5"/>
+  </linearGradient></defs>
+  <rect x="100" y="120" width="500" height="18" fill="url(#epsgr)" rx="3"/>
+  <!-- Labels above -->
+  <text x="100" y="110" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">perfect</text>
+  <text x="100" y="98" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">privacy</text>
+  <text x="350" y="110" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">practical</text>
+  <text x="350" y="98" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">range</text>
+  <text x="600" y="110" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">no</text>
+  <text x="600" y="98" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">privacy</text>
+  <!-- Arrow -->
+  <text x="340" y="185" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">← stronger privacy            weaker privacy →</text>
+</svg>
+<div class="fig-cap">fig.7 — The ε privacy budget. Academic DP literature targets ε ≤ 1. Production deployments (Apple, Google) commonly use ε in the range 2–10. Higher ε = more utility, less privacy.</div>
+</div>
+
+<h2>DP-SGD: Clipping + Noise</h2>
+<p>To apply DP to model training, DP-SGD does two things per step: clip per-example gradients to bound sensitivity, then add Gaussian noise.</p>
+
+<div class="mbox"><div class="ml">DP-SGD — Per-Step Update</div>For each training example i in minibatch B:<br>  g_i  =  ∇_θ L(θ, x_i)              # per-example gradient<br>  ĝ_i  =  g_i / max(1, ‖g_i‖₂ / C)    # clip to norm C<br><br>Noisy average:<br>  g̃  =  (1/|B|) · [Σ_i ĝ_i  +  N(0, σ²C²I)]<br><br>θ_{t+1}  =  θ_t − η · g̃<br><br><span style="color:#6e6a63">C = clipping norm (sensitivity bound)<br>σ = noise multiplier (controls privacy/utility tradeoff)<br>Privacy cost tracked via Rényi DP / moments accountant</span></div>
+
+<h2>The Utility Cost Is Real</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Axes -->
+  <line x1="80" y1="20" x2="80" y2="180" stroke="#252830" stroke-width="1"/>
+  <line x1="80" y1="180" x2="620" y2="180" stroke="#252830" stroke-width="1"/>
+  <text x="350" y="200" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">privacy budget ε (log scale)</text>
+  <text x="28" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle" transform="rotate(-90,28,100)">test accuracy %</text>
+  <!-- Y gridlines and labels -->
+  <line x1="80" y1="50" x2="620" y2="50" stroke="#1a1c20"/>
+  <line x1="80" y1="100" x2="620" y2="100" stroke="#1a1c20"/>
+  <line x1="80" y1="150" x2="620" y2="150" stroke="#1a1c20"/>
+  <text x="72" y="54" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">90</text>
+  <text x="72" y="104" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">80</text>
+  <text x="72" y="154" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">70</text>
+  <!-- X labels -->
+  <text x="130" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">0.1</text>
+  <text x="220" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">0.5</text>
+  <text x="310" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">1</text>
+  <text x="400" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">3</text>
+  <text x="490" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">8</text>
+  <text x="580" y="195" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">∞</text>
+  <!-- Accuracy curve (rises with ε) -->
+  <path d="M 130 165 C 160 160 200 155 220 150 C 270 138 310 118 360 98 C 420 75 470 62 540 55 C 570 52 580 51" stroke="#5ba4cf" stroke-width="2" fill="none"/>
+  <!-- Non-DP baseline line -->
+  <line x1="80" y1="46" x2="620" y2="46" stroke="#f0a040" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="630" y="50" font-family="IBM Plex Mono,monospace" font-size="8" fill="#f0a040">no DP</text>
+  <!-- Annotations -->
+  <text x="140" y="155" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35">strong</text>
+  <text x="140" y="165" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35">privacy</text>
+  <text x="350" y="95" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5ba4cf">ε=1</text>
+  <text x="350" y="107" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5ba4cf">practical</text>
+</svg>
+<div class="fig-cap">fig.8 — Accuracy vs. privacy budget curve. Stronger privacy (lower ε) costs meaningful accuracy. The non-DP baseline shows the ceiling. At ε=1 the gap is often 5–15% depending on dataset size.</div>
+</div>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Dwork, C. et al. (2014). The algorithmic foundations of differential privacy. <em>Foundations and Trends in TCS</em>.</div>
+<div class="ref-item">[2] Abadi, M. et al. (2016). Deep learning with differential privacy. <em>CCS 2016</em>. <a href="https://arxiv.org/abs/1607.00133" target="_blank">arXiv:1607.00133</a></div>
+<div class="ref-item">[3] Mironov, I. (2017). Rényi differential privacy. <em>CSF 2017</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+pac: {
+  cat:'Privacy', title:'PAC Privacy: A Better Way to Measure What Your Model Leaks',
+  date:'December 12, 2025', rt:'14 min read', tags:['privacy','PAC-privacy','theory'],
+  body:`
+<p>Let me start with what bothers me about DP in practice. It gives you a worst-case guarantee over all possible adversaries with unlimited computation. That's a very strong promise — strong enough that achieving it is expensive. DP-SGD degrades model accuracy meaningfully. Organizations conclude it's too costly and don't use it. That's arguably the worst outcome.</p>
+
+<p>PAC Privacy asks a different question: what can an adversary <em>actually compute</em> from realistic access to your model?</p>
+
+<h2>The Key Conceptual Move</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs><marker id="dp" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5z" fill="#5ba4cf"/></marker>
+  <marker id="pac" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5z" fill="#f0a040"/></marker></defs>
+  <!-- DP box -->
+  <rect x="30" y="30" width="280" height="130" rx="5" fill="#131517" stroke="#5ba4cf" stroke-width="1.5"/>
+  <text x="170" y="58" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5ba4cf" text-anchor="middle" letter-spacing="1">DIFFERENTIAL PRIVACY</text>
+  <text x="170" y="80" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">Adversary: unbounded,</text>
+  <text x="170" y="97" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">worst-case, all-knowing</text>
+  <text x="170" y="118" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">Guarantee: output distributions</text>
+  <text x="170" y="131" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">indistinguishable</text>
+  <text x="170" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">Cost: high utility loss</text>
+  <!-- PAC box -->
+  <rect x="370" y="30" width="280" height="130" rx="5" fill="#131517" stroke="#f0a040" stroke-width="1.5"/>
+  <text x="510" y="58" font-family="IBM Plex Mono,monospace" font-size="10" fill="#f0a040" text-anchor="middle" letter-spacing="1">PAC PRIVACY</text>
+  <text x="510" y="80" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">Adversary: bounded queries,</text>
+  <text x="510" y="97" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">realistic compute</text>
+  <text x="510" y="118" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">Guarantee: cannot extract</text>
+  <text x="510" y="131" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">attributes from γ samples</text>
+  <text x="510" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">Cost: often much lower</text>
+</svg>
+<div class="fig-cap">fig.9 — DP vs. PAC Privacy. The fundamental difference is the adversary model — unbounded worst-case vs. computationally realistic.</div>
+</div>
+
+<h2>The PAC Privacy Definition</h2>
+<div class="mbox"><div class="ml">PAC Privacy — Informal Definition (Ligett & Livni, 2022)</div>A mechanism M is (α, β, γ)-PAC private if:<br><br>  For any efficient adversary A with access to at most γ samples from M's output,<br>  A cannot reconstruct any training attribute with accuracy better than α + β.<br><br><span style="color:#6e6a63">α = baseline (random-guess accuracy for the attribute)<br>β = allowed improvement above baseline<br>γ = adversary's query budget</span></div>
+
+<h2>Input-Independent Indistinguishability</h2>
+<p>A building block: a mechanism M satisfies III if its output distribution is (approximately) the same regardless of which input it processes. Two common instantiations: <strong>randomized response</strong> (answer truthfully with probability p, lie with 1-p) and <strong>Laplace/Gaussian perturbation</strong>.</p>
+
+<h2>Black-Box Privatization</h2>
+<p>The most practical tool PAC privacy enables: wrap an existing non-private model in a privatization layer, without retraining.</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs><marker id="fw" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5z" fill="#6e6a63"/></marker></defs>
+  <!-- Adversary -->
+  <rect x="20" y="55" width="100" height="50" rx="3" fill="#1a1c20" stroke="#e05c35"/>
+  <text x="70" y="83" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">Adversary</text>
+  <text x="70" y="96" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">γ queries max</text>
+  <!-- Arrow to BBP -->
+  <line x1="122" y1="80" x2="188" y2="80" stroke="#6e6a63" stroke-width="1" marker-end="url(#fw)"/>
+  <!-- BBP wrapper -->
+  <rect x="190" y="30" width="175" height="100" rx="4" fill="#131517" stroke="#f0a040" stroke-width="1.5"/>
+  <text x="277" y="55" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">BBP WRAPPER</text>
+  <text x="277" y="72" font-family="Source Serif 4,serif" font-size="10.5" fill="#cec9c2" text-anchor="middle">maintains query budget</text>
+  <text x="277" y="88" font-family="Source Serif 4,serif" font-size="10.5" fill="#cec9c2" text-anchor="middle">aggregates + randomizes</text>
+  <text x="277" y="104" font-family="Source Serif 4,serif" font-size="10.5" fill="#cec9c2" text-anchor="middle">outputs responses</text>
+  <text x="277" y="120" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">PAC-private interface</text>
+  <!-- Arrow to model -->
+  <line x1="367" y1="80" x2="433" y2="80" stroke="#6e6a63" stroke-width="1" marker-end="url(#fw)"/>
+  <!-- Model -->
+  <rect x="435" y="40" width="200" height="80" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="535" y="68" font-family="IBM Plex Mono,monospace" font-size="9" fill="#cec9c2" text-anchor="middle">Original Model M</text>
+  <text x="535" y="85" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">(no DP constraints)</text>
+  <text x="535" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">trained without modification</text>
+</svg>
+<div class="fig-cap">fig.10 — Black-Box Privatization (BBP). The adversary's queries are routed through a budget-controlled wrapper that applies randomization before returning results. The underlying model is never modified.</div>
+</div>
+
+<h2>Comparison Table</h2>
+<table>
+<tr><th></th><th>Differential Privacy</th><th>PAC Privacy</th></tr>
+<tr><td>Adversary model</td><td>Unbounded, worst-case</td><td>Bounded queries, efficient</td></tr>
+<tr><td>Guarantee type</td><td>Distributional indistinguishability</td><td>Computational extraction bound</td></tr>
+<tr><td>Utility cost</td><td>High (DP-SGD)</td><td>Often much lower</td></tr>
+<tr><td>Existing models</td><td>Requires retraining</td><td>BBP wrapper possible</td></tr>
+<tr><td>Composability</td><td>Strong theory</td><td>Still developing</td></tr>
+<tr><td>Industry adoption</td><td>Apple, Google, Meta</td><td>Research stage</td></tr>
+</table>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Ligett, K. & Livni, R. (2022). PAC Privacy: Automatic Privacy Management with Error Controls. <em>NeurIPS 2022</em>. <a href="https://arxiv.org/abs/2210.03458" target="_blank">arXiv:2210.03458</a></div>
+<div class="ref-item">[2] Dwork, C. & Roth, A. (2014). The algorithmic foundations of differential privacy. <em>Foundations and Trends in TCS, 9(3-4)</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+explainability: {
+  cat:'Explainability', title:'Explainability: Why Knowing Isn\'t the Same as Understanding',
+  date:'November 14, 2025', rt:'10 min read', tags:['explainability','SHAP','XAI','saliency'],
+  body:`
+<p>There's a version of XAI that makes everyone feel better without actually helping anyone. A heatmap that highlights pixels, a bar chart of feature importances, a confidence score — these outputs look like explanations. The question is whether they actually explain anything, or just satisfy an auditor.</p>
+
+<h2>The Explainability Zoo</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Three columns -->
+  <!-- Column 1: Gradient-based -->
+  <rect x="30" y="20" width="190" height="200" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="125" y="44" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle" letter-spacing="1">GRADIENT-BASED</text>
+  <text x="125" y="65" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Saliency maps</text>
+  <text x="125" y="82" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">∂output/∂input</text>
+  <line x1="60" y1="95" x2="190" y2="95" stroke="#252830"/>
+  <text x="125" y="112" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Integrated Gradients</text>
+  <text x="125" y="129" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">path-integral attribution</text>
+  <line x1="60" y1="142" x2="190" y2="142" stroke="#252830"/>
+  <text x="125" y="159" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">GradCAM</text>
+  <text x="125" y="176" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">spatial activation maps</text>
+  <text x="125" y="207" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">local · white-box</text>
+
+  <!-- Column 2: Removal-based -->
+  <rect x="245" y="20" width="190" height="200" rx="4" fill="#1a1c20" stroke="#f0a040" stroke-width="1.3"/>
+  <text x="340" y="44" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle" letter-spacing="1">REMOVAL-BASED</text>
+  <text x="340" y="65" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">SHAP</text>
+  <text x="340" y="82" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Shapley value attribution</text>
+  <line x1="270" y1="95" x2="410" y2="95" stroke="#252830"/>
+  <text x="340" y="112" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">LIME</text>
+  <text x="340" y="129" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">local linear surrogate</text>
+  <line x1="270" y1="142" x2="410" y2="142" stroke="#252830"/>
+  <text x="340" y="159" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Input Reduction</text>
+  <text x="340" y="176" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">minimal sufficient set</text>
+  <text x="340" y="207" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">★ model-agnostic</text>
+
+  <!-- Column 3: Example-based -->
+  <rect x="460" y="20" width="190" height="200" rx="4" fill="#1a1c20" stroke="#252830"/>
+  <text x="555" y="44" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle" letter-spacing="1">EXAMPLE-BASED</text>
+  <text x="555" y="65" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Counterfactuals</text>
+  <text x="555" y="82" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">"what if x changed?"</text>
+  <line x1="485" y1="95" x2="625" y2="95" stroke="#252830"/>
+  <text x="555" y="112" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Prototypes</text>
+  <text x="555" y="129" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">representative cases</text>
+  <line x1="485" y1="142" x2="625" y2="142" stroke="#252830"/>
+  <text x="555" y="159" font-family="Source Serif 4,serif" font-size="11" fill="#cec9c2" text-anchor="middle">Instance-based</text>
+  <text x="555" y="176" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">training point lookup</text>
+  <text x="555" y="207" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3f3d39" text-anchor="middle">human-interpretable</text>
+</svg>
+<div class="fig-cap">fig.11 — Three families of explainability methods. Removal-based methods (SHAP, LIME) are the most versatile — they work on any model without needing gradient access.</div>
+</div>
+
+<h2>SHAP: Shapley Values Done Right</h2>
+<p>SHAP assigns each feature a value representing its contribution to a specific prediction, grounded in cooperative game theory. The Shapley value for feature i is the average marginal contribution of feature i across all possible subsets of features.</p>
+
+<div class="mbox"><div class="ml">SHAP Value (Shapley Allocation)</div>φ_i(f, x) = Σ_{S ⊆ F\{i}} [|S|!(|F|-|S|-1)!/|F|!] · [f(S∪{i}) - f(S)]<br><br><span style="color:#6e6a63">F = full feature set<br>f(S) = model output with only features in S (others marginalised)<br>φ_i = feature i's average marginal contribution across all orderings</span></div>
+
+<h2>The Problem with Saliency Maps</h2>
+<p>Simple gradient saliency maps are noisy, sensitive to normalization choices, and don't decompose additivley. More critically: adversarial attacks on explanations are real. Slack et al. (2020) showed SHAP and LIME can be fooled — you can construct models that produce fair-looking explanations while discriminating on sensitive features behind the scenes.</p>
+
+<h2>CoT: Explanation by Reasoning</h2>
+<p>Chain-of-thought prompting takes a different approach to explainability: instead of post-hoc feature attribution, ask the model to reason step by step before answering. Zero-shot CoT adds "Let's think step by step"; few-shot CoT provides examples of the reasoning pattern.</p>
+<p>This is more like a <em>process</em> explanation than a feature explanation. Whether the chain of thought faithfully reflects the model's actual computation — or is a confabulation — remains contested.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Lundberg, S. & Lee, S.-I. (2017). A unified approach to interpreting model predictions (SHAP). <em>NeurIPS 2017</em>. <a href="https://arxiv.org/abs/1705.07874" target="_blank">arXiv:1705.07874</a></div>
+<div class="ref-item">[2] Slack, D. et al. (2020). Fooling LIME and SHAP: Adversarial attacks on post hoc explanation methods. <em>AIES 2020</em>.</div>
+<div class="ref-item">[3] Wei, J. et al. (2022). Chain-of-thought prompting elicits reasoning in LLMs. <em>NeurIPS 2022</em>.</div>
+<div class="ref-item">[4] Baniecki, H. & Biecek, P. (2022). Manipulating SHAP via adversarial data perturbations. <em>AAAI 2022</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+certified: {
+  cat:'Defenses', title:'Certified Robustness: Proofs Instead of Benchmarks',
+  date:'December 18, 2025', rt:'11 min read', tags:['defenses','certification','randomized-smoothing'],
+  body:`
+<p>Here's the problem with adversarial training as a defense: you train on adversarial examples generated by attack A, but a different attacker using attack B might still succeed. You've raised the bar, but you haven't proven anything. Certified defenses go further — they mathematically <em>prove</em> that no adversarial example can exist within a given perturbation radius, regardless of the attack method.</p>
+
+<h2>Empirical vs. Certified Robustness</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <defs><marker id="ck" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#5ba4cf"/></marker></defs>
+  <!-- Two paths -->
+  <!-- Empirical path -->
+  <rect x="30" y="30" width="180" height="50" rx="3" fill="#1a1c20" stroke="#252830"/>
+  <text x="120" y="55" font-family="IBM Plex Mono,monospace" font-size="9" fill="#cec9c2" text-anchor="middle">Adversarial Training</text>
+  <text x="120" y="70" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">(PGD, FGSM, ...)</text>
+  <line x1="212" y1="55" x2="278" y2="55" stroke="#6e6a63" stroke-width="1" marker-end="url(#fw)"/>
+  <rect x="280" y="30" width="160" height="50" rx="3" fill="#1a1c20" stroke="#e05c35"/>
+  <text x="360" y="52" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">Empirically Robust</text>
+  <text x="360" y="68" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">breakable by new attacks</text>
+  <!-- Certified path -->
+  <rect x="30" y="110" width="180" height="50" rx="3" fill="#1a1c20" stroke="#252830"/>
+  <text x="120" y="132" font-family="IBM Plex Mono,monospace" font-size="9" fill="#cec9c2" text-anchor="middle">Certified Training</text>
+  <text x="120" y="148" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">(IBP, Lipschitz, RS)</text>
+  <line x1="212" y1="135" x2="278" y2="135" stroke="#6e6a63" stroke-width="1" marker-end="url(#fw)"/>
+  <rect x="280" y="110" width="160" height="50" rx="3" fill="#1a1c20" stroke="#5ba4cf"/>
+  <text x="360" y="132" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">Certified Robust</text>
+  <text x="360" y="148" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">proven for all attacks in radius</text>
+  <!-- Key difference -->
+  <text x="490" y="80" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">↑ benchmark</text>
+  <text x="490" y="95" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">might fail on</text>
+  <text x="490" y="108" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">unseen attack</text>
+  <text x="490" y="130" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">↓ mathematical</text>
+  <text x="490" y="143" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">proof holds for</text>
+  <text x="490" y="156" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">any ε-bounded attack</text>
+</svg>
+<div class="fig-cap">fig.12 — The fundamental difference. Empirical defenses raise the bar for known attacks; certified defenses provide mathematically proven guarantees for all attacks within a perturbation budget.</div>
+</div>
+
+<h2>Randomized Smoothing</h2>
+<p>The most scalable certified defense. Given a base classifier g, construct a smoothed classifier f by returning the class most likely under Gaussian noise:</p>
+<div class="mbox"><div class="ml">Randomized Smoothing (Cohen et al., 2019)</div>f(x) = argmax_c  Pr_{z~N(0,σ²I)} [g(x+z) = c]<br><br>Certification radius:  r_x = (σ/2) · (Φ⁻¹(p_A) − Φ⁻¹(p_B))<br><br><span style="color:#6e6a63">p_A = probability of top class,  p_B = probability of runner-up<br>Φ⁻¹ = inverse Gaussian CDF<br>Guarantee: f(x+δ) = f(x) for all ‖δ‖₂ ≤ r_x</span></div>
+
+<h2>NeurIPS 2024: Scaling Certified Robustness with Diffusion Data</h2>
+<p>NeurIPS 2024 showed that generating additional training data using state-of-the-art diffusion models can substantially improve certified defenses — similar to how it was previously shown to improve empirical adversarial training. But crucially, the paper also reveals notable differences: certified robustness is considerably harder to scale than empirical robustness. Once saturation with respect to data is achieved, further gains require better algorithms or larger models, not just more data.</p>
+
+<h2>The Certified vs. Clean Accuracy Tradeoff</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Axes -->
+  <line x1="80" y1="20" x2="80" y2="170" stroke="#252830"/>
+  <line x1="80" y1="170" x2="630" y2="170" stroke="#252830"/>
+  <text x="355" y="192" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">certified accuracy (adversarial)</text>
+  <text x="30" y="95" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle" transform="rotate(-90,30,95)">clean accuracy</text>
+  <!-- Grid -->
+  <line x1="80" y1="80" x2="630" y2="80" stroke="#1a1c20"/><line x1="80" y1="125" x2="630" y2="125" stroke="#1a1c20"/>
+  <line x1="250" y1="20" x2="250" y2="170" stroke="#1a1c20"/><line x1="420" y1="20" x2="420" y2="170" stroke="#1a1c20"/>
+  <!-- Y labels -->
+  <text x="72" y="84" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">90%</text>
+  <text x="72" y="129" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">80%</text>
+  <text x="72" y="174" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="end">70%</text>
+  <!-- X labels -->
+  <text x="250" y="184" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">20%</text>
+  <text x="420" y="184" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">40%</text>
+  <text x="580" y="184" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">60%</text>
+  <!-- Pareto front dots -->
+  <circle cx="580" cy="80" r="8" fill="#5ba4cf" opacity=".8"/>
+  <text x="600" y="78" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5ba4cf">Adv. Train (PGD)</text>
+  <circle cx="490" cy="93" r="8" fill="#5ba4cf" opacity=".7"/>
+  <text x="510" y="91" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5ba4cf">RS + Diffusion</text>
+  <circle cx="380" cy="105" r="8" fill="#f0a040" opacity=".8"/>
+  <text x="395" y="103" font-family="IBM Plex Mono,monospace" font-size="8" fill="#f0a040">RS baseline</text>
+  <circle cx="255" cy="120" r="8" fill="#f0a040" opacity=".6"/>
+  <text x="270" y="118" font-family="IBM Plex Mono,monospace" font-size="8" fill="#f0a040">IBP + σ tuning</text>
+  <circle cx="150" cy="130" r="8" fill="#e05c35" opacity=".6"/>
+  <text x="165" y="128" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35">IBP naive</text>
+  <!-- Pareto frontier line -->
+  <path d="M 580 80 C 530 86 480 94 380 105 C 290 115 220 125 150 130" stroke="#3f3d39" stroke-width="1" fill="none" stroke-dasharray="4,3"/>
+  <text x="380" y="150" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">← Pareto frontier</text>
+</svg>
+<div class="fig-cap">fig.13 — Clean vs. certified accuracy tradeoff. Every defense lives on or below the Pareto frontier. Higher certified accuracy costs clean accuracy. NeurIPS 2024 work (RS + Diffusion) pushes the frontier further right.</div>
+</div>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Cohen, J. et al. (2019). Certified adversarial robustness via randomized smoothing. <em>ICML 2019</em>. <a href="https://arxiv.org/abs/1902.02918" target="_blank">arXiv:1902.02918</a></div>
+<div class="ref-item">[2] Müller, M.N., Franchi, G., Günnemann, S. et al. (2024). On the scalability of certified adversarial robustness with generated data. <em>NeurIPS 2024</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/b96ce7d38339874a8704e8895f743284-Paper-Conference.pdf" target="_blank">proceedings.neurips.cc</a></div>
+<div class="ref-item">[3] Madry, A. et al. (2018). Towards deep learning models resistant to adversarial attacks. <em>ICLR 2018</em>.</div>
+<div class="ref-item">[4] Zhang, B. et al. (2024). Certified adversarial robustness for multi-step defenses. <em>NeurIPS 2024</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/f1e7c90552850afcc2558d78950c519d-Paper-Conference.pdf" target="_blank">proceedings.neurips.cc</a></div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+jailbreak: {
+  cat:'LLM Safety', title:'Jailbreaking LLMs: The Attack Taxonomy Nobody Agrees On',
+  date:'January 4, 2026', rt:'13 min read', tags:['attacks','LLMs','jailbreak','NeurIPS-2024'],
+  body:`
+<p>Jailbreaking is what happens when the attack surface is the model's alignment itself. You're not perturbing pixels or poisoning training data — you're crafting inputs that convince a safety-trained model to violate its own guidelines. The attack surface is natural language, and the failure mode is the model's inability to maintain its values under adversarial prompting.</p>
+
+<h2>Attack Taxonomy</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Central model box -->
+  <rect x="265" y="115" width="150" height="60" rx="5" fill="#131517" stroke="#5ba4cf" stroke-width="1.5"/>
+  <text x="340" y="143" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">ALIGNED LLM</text>
+  <text x="340" y="158" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">safety-trained</text>
+  <!-- Attack arrows and boxes -->
+  <!-- Manual prompting -->
+  <rect x="20" y="20" width="155" height="55" rx="3" fill="#1a1c20" stroke="#e05c35"/>
+  <text x="97" y="40" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">MANUAL JAILBREAKS</text>
+  <text x="97" y="55" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">DAN, roleplay, cipher text</text>
+  <text x="97" y="68" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">human-crafted · slow</text>
+  <line x1="175" y1="47" x2="263" y2="130" stroke="#e05c35" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- GCG -->
+  <rect x="20" y="115" width="155" height="55" rx="3" fill="#1a1c20" stroke="#e05c35" stroke-width="1.5"/>
+  <text x="97" y="136" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle">GCG / AUTOPROMPT</text>
+  <text x="97" y="151" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">gradient-based suffix search</text>
+  <text x="97" y="164" font-family="IBM Plex Mono,monospace" font-size="8" fill="#e05c35" text-anchor="middle">★ white-box · effective</text>
+  <line x1="177" y1="142" x2="263" y2="145" stroke="#e05c35" stroke-width="1.5"/>
+  <!-- RL-based -->
+  <rect x="20" y="210" width="155" height="55" rx="3" fill="#1a1c20" stroke="#f0a040"/>
+  <text x="97" y="231" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">RL-DRIVEN (RLbreaker)</text>
+  <text x="97" y="246" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">DRL agent mutates prompts</text>
+  <text x="97" y="259" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">black-box · scalable</text>
+  <line x1="175" y1="237" x2="263" y2="162" stroke="#f0a040" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Embedding attacks -->
+  <rect x="505" y="20" width="155" height="55" rx="3" fill="#1a1c20" stroke="#5ba4cf"/>
+  <text x="582" y="40" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">EMBEDDING ATTACKS</text>
+  <text x="582" y="55" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">soft prompt, token embed</text>
+  <text x="582" y="68" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">NeurIPS 2024 Spotlight</text>
+  <line x1="505" y1="47" x2="417" y2="130" stroke="#5ba4cf" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- TAP -->
+  <rect x="505" y="115" width="155" height="55" rx="3" fill="#1a1c20" stroke="#5ba4cf" stroke-width="1.3"/>
+  <text x="582" y="136" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle">TAP / PAIR</text>
+  <text x="582" y="151" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">LLM-assisted jailbreaking</text>
+  <text x="582" y="164" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">tree-of-attacks</text>
+  <line x1="505" y1="142" x2="417" y2="145" stroke="#5ba4cf" stroke-width="1.3"/>
+  <!-- Weak-to-strong -->
+  <rect x="505" y="210" width="155" height="55" rx="3" fill="#1a1c20" stroke="#f0a040"/>
+  <text x="582" y="231" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle">WEAK-TO-STRONG</text>
+  <text x="582" y="246" font-family="Source Serif 4,serif" font-size="10" fill="#6e6a63" text-anchor="middle">small model breaks large</text>
+  <text x="582" y="259" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">transfer attack</text>
+  <line x1="505" y1="237" x2="417" y2="162" stroke="#f0a040" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>
+<div class="fig-cap">fig.14 — Jailbreak attack taxonomy. Six major families attack from different angles. GCG (gradient-based) and embedding attacks (NeurIPS 2024) are white-box and most effective; RL-based and TAP/PAIR work black-box.</div>
+</div>
+
+<h2>NeurIPS 2024: Embedding Space Attacks</h2>
+<p>NeurIPS 2024 introduced embedding space attacks that directly attack the continuous embedding representation of input tokens (Schwinn et al.). The key finding: embedding space attacks circumvent model alignments and trigger harmful behaviors more efficiently than discrete attacks or model fine-tuning. Additionally, models compromised by embedding attacks can be used to create discrete jailbreaks in natural language.</p>
+
+<h2>NeurIPS 2024: Efficient Adversarial Training for LLMs</h2>
+<p>NeurIPS 2024 (Spotlight) introduced C-AdvUL, a fast adversarial training algorithm for LLMs operating in continuous embedding space. Evaluation on Gemma, Phi3, Mistral, Zephyr, and Llama2 at 2B–7B scale shows both algorithms substantially enhance robustness against discrete attacks (GCG, AutoDAN, PAIR) while maintaining utility.</p>
+
+<h2>NeurIPS 2024: RPO — Robust Prompt Optimization</h2>
+<p>RPO (NeurIPS 2024) formalizes a minimax defensive objective and proposes a discrete optimization algorithm to find trigger tokens that enforce safe outputs even under jailbreaks. RPO suffixes are universal and transfer to many LLMs and jailbreaks.</p>
+
+<h2>Five Guardrails That Actually Help</h2>
+<ol>
+<li><strong>System prompt hardening</strong> — explicit refusal instructions in the context window</li>
+<li><strong>Adversarial training</strong> (C-AdvUL / C-AdvIPO) — train on adversarial inputs, maintain utility</li>
+<li><strong>Input filtering</strong> — detect known attack patterns before they reach the model</li>
+<li><strong>Randomized smoothing for text</strong> — perturb input tokens and aggregate predictions</li>
+<li><strong>Output monitoring</strong> — classify model outputs for policy violations post-generation</li>
+</ol>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Zou, A. et al. (2023). Universal and transferable adversarial attacks on aligned language models (GCG). <em>arXiv:2307.15043</em>.</div>
+<div class="ref-item">[2] Schwinn, L., Dobre, D., Xhonneux, S., Gidel, G., Günnemann, S. (2024). Soft prompt threats: Attacking safety alignment and unlearning in open-source LLMs through the embedding space. <em>NeurIPS 2024</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/10f34ee79b62627b7ebf6279d35ea480-Paper-Conference.pdf" target="_blank">proceedings.neurips.cc</a></div>
+<div class="ref-item">[3] Xhonneux, S. et al. (2024). Efficient adversarial training in LLMs with continuous attacks (Spotlight). <em>NeurIPS 2024</em>. <a href="https://neurips.cc/virtual/2024/poster/96357" target="_blank">neurips.cc</a></div>
+<div class="ref-item">[4] Zhou, A. et al. (2024). Robust prompt optimization (RPO) for defending language models against jailbreaks. <em>NeurIPS 2024</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/46ed503889ab232c21c1162340ee17b2-Paper-Conference.pdf" target="_blank">proceedings.neurips.cc</a></div>
+<div class="ref-item">[5] Mehrotra, A. et al. (2023). Tree of attacks: Jailbreaking black-box LLMs automatically. <em>arXiv:2312.02119</em>.</div>
+<div class="ref-item">[6] Lin, Z. et al. (2024). When LLM meets DRL: Advancing jailbreaking efficiency via DRL-guided search. <em>NeurIPS 2024</em>.</div>
+</div>`
+},
+
+// ═══════════════════════════════════════════════════════════════════════════
+fairness: {
+  cat:'Ethics & Fairness', title:'Fairness Is Not One Number',
+  date:'January 10, 2026', rt:'10 min read', tags:['fairness','ethics','bias'],
+  body:`
+<p>There's a version of AI fairness that makes for good press releases: your model has demographic parity. Equal outcomes across groups. Done. Except there are three standard fairness definitions, and it's been proven — mathematically, not just empirically — that you <em>cannot</em> satisfy all three simultaneously in general. You have to choose.</p>
+
+<h2>Three Fairness Definitions</h2>
+
+<div class="fig">
+<svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- Box 1: Demographic Parity -->
+  <rect x="20" y="20" width="200" height="100" rx="4" fill="#1a1c20" stroke="#5ba4cf" stroke-width="1.5"/>
+  <text x="120" y="45" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ba4cf" text-anchor="middle" letter-spacing="1">DEMOGRAPHIC PARITY</text>
+  <text x="120" y="65" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">P(Ŷ=1|A=0) = P(Ŷ=1|A=1)</text>
+  <text x="120" y="86" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Equal positive prediction</text>
+  <text x="120" y="101" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">rate across groups</text>
+  <text x="120" y="115" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">ignores base rate differences</text>
+
+  <!-- Box 2: Equal Opportunity -->
+  <rect x="240" y="20" width="200" height="100" rx="4" fill="#1a1c20" stroke="#f0a040" stroke-width="1.5"/>
+  <text x="340" y="45" font-family="IBM Plex Mono,monospace" font-size="9" fill="#f0a040" text-anchor="middle" letter-spacing="1">EQUAL OPPORTUNITY</text>
+  <text x="340" y="65" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">P(Ŷ=1|Y=1,A=0) = P(Ŷ=1|Y=1,A=1)</text>
+  <text x="340" y="86" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Equal true positive rates</text>
+  <text x="340" y="101" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">across groups</text>
+  <text x="340" y="115" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">requires outcome labels</text>
+
+  <!-- Box 3: Calibration -->
+  <rect x="460" y="20" width="200" height="100" rx="4" fill="#1a1c20" stroke="#e05c35" stroke-width="1.5"/>
+  <text x="560" y="45" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e05c35" text-anchor="middle" letter-spacing="1">CALIBRATION</text>
+  <text x="560" y="65" font-family="IBM Plex Mono,monospace" font-size="10" fill="#cec9c2" text-anchor="middle">P(Y=1|Ŷ=s,A=0) = P(Y=1|Ŷ=s,A=1)</text>
+  <text x="560" y="86" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">Scores mean same thing</text>
+  <text x="560" y="101" font-family="Source Serif 4,serif" font-size="11" fill="#6e6a63" text-anchor="middle">across groups</text>
+  <text x="560" y="115" font-family="IBM Plex Mono,monospace" font-size="8" fill="#3f3d39" text-anchor="middle">used in criminal justice (COMPAS)</text>
+
+  <!-- Impossibility theorem banner -->
+  <rect x="20" y="145" width="640" height="95" rx="4" fill="#131517" stroke="#e05c35" stroke-dasharray="5,3" stroke-width="1.5"/>
+  <text x="340" y="172" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e05c35" text-anchor="middle" letter-spacing="1">IMPOSSIBILITY THEOREM (Chouldechova 2017, Kleinberg et al. 2016)</text>
+  <text x="340" y="195" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">When base rates differ across groups, you cannot simultaneously achieve</text>
+  <text x="340" y="213" font-family="Source Serif 4,serif" font-size="12" fill="#cec9c2" text-anchor="middle">demographic parity, equal opportunity, AND calibration.</text>
+  <text x="340" y="231" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6e6a63" text-anchor="middle">This is mathematics, not a failure of effort. You must choose which notion of fairness to prioritize.</text>
+</svg>
+<div class="fig-cap">fig.15 — Three standard fairness definitions and the impossibility result. No classifier can satisfy all three simultaneously when base rates differ across groups.</div>
+</div>
+
+<h2>The COMPAS Case Study</h2>
+<p>In 2016, ProPublica accused COMPAS (a criminal recidivism prediction tool) of being unfair to Black defendants. Northpointe responded that COMPAS is calibrated. Both were right — they were measuring different things. COMPAS satisfies calibration, which means scores predict recidivism equally well across races. It fails equal opportunity, meaning the false positive rate (wrongly predicting high risk for people who won't reoffend) is higher for Black defendants.</p>
+
+<p>This isn't a bug. It's a consequence of different base rates and the impossibility theorem. The question of <em>which</em> fairness metric to use is a policy question, not a technical one.</p>
+
+<h2>Equity vs. Equality in Decision Making</h2>
+<p>The distinction between equity and equality matters for AI deployment. Equality gives everyone the same thing. Equity gives people what they need to reach the same outcome. A decision maker committed to equity might intentionally design different interventions for different groups — which can conflict with demographic parity metrics.</p>
+
+<h2>NeurIPS 2024 on Fairness in ML</h2>
+<p>NeurIPS 2024 included work on multilingual fairness: MAGNET improves fairness of language model tokenization across languages using adaptive gradient-based tokenization. This addresses a less-discussed fairness axis: models trained predominantly on English may have worse performance — and worse calibration — for speakers of other languages, which is itself a form of unfairness.</p>
+
+<div class="refs"><div class="refs-hd">References</div>
+<div class="ref-item">[1] Chouldechova, A. (2017). Fair prediction with disparate impact. <em>Big Data</em>. <a href="https://arxiv.org/abs/1703.00056" target="_blank">arXiv:1703.00056</a></div>
+<div class="ref-item">[2] Kleinberg, J. et al. (2016). Inherent trade-offs in the fair determination of risk scores. <em>ITCS 2017</em>.</div>
+<div class="ref-item">[3] Hardt, M. et al. (2016). Equality of opportunity in supervised learning. <em>NeurIPS 2016</em>.</div>
+<div class="ref-item">[4] Angwin, J. et al. (2016). Machine bias. <em>ProPublica</em>. (COMPAS investigation)</div>
+</div>`
+}
+
+}; // end POSTS
+
+// ─────────────────────────────── ROUTING ───────────────────────────────
+function showHome(){
+  document.getElementById('home').style.display='block';
+  document.getElementById('post').style.display='none';
+  window.scrollTo(0,0);
+}
+
+function showPost(id){
+  const p=POSTS[id]; if(!p)return;
+  const tagMap={attacks:'a',privacy:'b','PAC-privacy':'b',evasion:'a',poisoning:'a',backdoor:'a',
+    FGSM:'a',PGD:'a','membership-inference':'b',fairness:'b',ethics:'b',bias:'b',
+    explainability:'c',SHAP:'c',XAI:'c',saliency:'c',defenses:'c',certification:'c','randomized-smoothing':'c',
+    LLMs:'c',jailbreak:'a','NeurIPS-2024':'c','DP-SGD':'b',theory:'c'};
+  const tagHTML=p.tags.map(t=>`<span class="tag ${tagMap[t]||''}">${t}</span>`).join(' ');
+  document.getElementById('pcontent').innerHTML=`
+    <div class="post-cat">${p.cat}</div>
+    <h1 class="post-h1">${p.title}</h1>
+    <div class="pmeta">
+      <span>${p.date}</span><span class="dot">·</span>
+      <span>${p.rt}</span><span class="dot">·</span>
+      <span class="tags">${tagHTML}</span>
+    </div>
+    <div class="prose">${p.body}</div>`;
+  document.getElementById('home').style.display='none';
+  document.getElementById('post').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function showAbout(){
+  document.getElementById('pcontent').innerHTML=`
+    <div class="post-cat">About</div>
+    <h1 class="post-h1">Adversarial Minds</h1>
+    <div class="pmeta"><span>XM 0179 · VU Amsterdam</span><span class="dot">·</span><span>10 posts</span></div>
+    <div class="prose">
+    <p>This blog grew out of exam preparation for <strong>XM 0179: Secure and Trustworthy Machine Learning</strong> at VU Amsterdam. The lecture notes were dry. These posts are an attempt to actually understand the material — to explain it the way you'd explain it at a whiteboard, not the way a textbook does.</p>
+    <p>Content is grounded in the course's seven lecture blocks, cross-referenced against primary literature and NeurIPS 2024 research where relevant. Every mathematical claim traces to a citable source.</p>
+    <h2>Post Index</h2>
+    <ol>
+    <li><a href="#" onclick="showPost('intro')">The Threat Model Nobody Talks About in Intro ML</a></li>
+    <li><a href="#" onclick="showPost('poisoning')">Poisoning Attacks: Corrupting a Model Before It Exists</a></li>
+    <li><a href="#" onclick="showPost('evasion')">Evasion Attacks and the Geometry of Adversarial Examples</a></li>
+    <li><a href="#" onclick="showPost('explainability')">Explainability: Why Knowing Isn't the Same as Understanding</a></li>
+    <li><a href="#" onclick="showPost('privacy')">Your Model Remembers Things It Shouldn't</a></li>
+    <li><a href="#" onclick="showPost('dp')">Differential Privacy: What a Formal Guarantee Looks Like</a></li>
+    <li><a href="#" onclick="showPost('pac')">PAC Privacy: A Better Way to Measure What Your Model Leaks</a></li>
+    <li><a href="#" onclick="showPost('certified')">Certified Robustness: Proofs Instead of Benchmarks</a></li>
+    <li><a href="#" onclick="showPost('jailbreak')">Jailbreaking LLMs: The Attack Taxonomy Nobody Agrees On</a></li>
+    <li><a href="#" onclick="showPost('fairness')">Fairness Is Not One Number</a></li>
+    </ol>
+    </div>`;
+  document.getElementById('home').style.display='none';
+  document.getElementById('post').style.display='block';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
