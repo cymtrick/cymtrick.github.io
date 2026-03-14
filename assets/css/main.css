@@ -353,6 +353,7 @@ body {
   color: #cdd9e5;
   line-height: 1.9;
   overflow-x: auto;
+  white-space: pre-wrap;
 }
 
 .math-block .label {
@@ -398,6 +399,7 @@ body {
   color: var(--text-muted);
   margin-top: 0.8rem;
   letter-spacing: 0.04em;
+  text-align: left;
 }
 
 /* series nav */
