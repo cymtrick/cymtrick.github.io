@@ -2,7 +2,7 @@ title: "Adversarial Minds"
 description: "Notes on secure and trustworthy machine learning — attacks, defenses, and everything in between."
 author: "P. Rajan"
 baseurl: ""
-url: ""
+url: "https://cymtrick.github.io"
 theme: null
 
 markdown: kramdown
