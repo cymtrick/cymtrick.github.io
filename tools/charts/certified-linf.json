@@ -1,0 +1,62 @@
+{
+ "name": "certified-linf",
+ "type": "column",
+ "width": 860,
+ "height": 430,
+ "title": "Deterministic L∞ certification on CIFAR-10 at ε = 8/255, 2018–2024",
+ "subtitle": "Certified and clean accuracy of certifiably trained CIFAR-10 models. Bound propagation plateaus near 35%; a Lipschitz network with generated data reaches 42%.",
+ "source": "Gowal et al. 2018; Zhang et al. 2020 (CROWN-IBP, Table 2); CTBench 2025, Table 1 (literature values); Altstidl et al. 2024, Table 1",
+ "x": {
+  "values": [
+   "Wong et al.\n2018",
+   "IBP\n2018",
+   "CROWN-IBP\n2020",
+   "SABR\n2023",
+   "TAPS\n2023",
+   "MTL-IBP\n2024",
+   "SortNet + 10M\ngenerated, 2024"
+  ]
+ },
+ "y": {
+  "title": "Accuracy (%)",
+  "min": 0,
+  "max": 60,
+  "ticks": [
+   0,
+   15,
+   30,
+   45,
+   60
+  ],
+  "fmt": "{:.1f}%"
+ },
+ "label_values": true,
+ "series": [
+  {
+   "name": "Certified accuracy",
+   "cls": "s1",
+   "values": [
+    21.78,
+    32.04,
+    33.06,
+    35.13,
+    35.1,
+    35.44,
+    41.78
+   ]
+  },
+  {
+   "name": "Clean accuracy",
+   "cls": "s6",
+   "values": [
+    28.67,
+    49.49,
+    45.98,
+    52.38,
+    49.76,
+    53.35,
+    54.75
+   ]
+  }
+ ]
+}

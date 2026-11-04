@@ -1,0 +1,9 @@
+{"name":"poisoning-sleeper","type":"column","width":860,"height":420,
+ "title":"A backdoor that survives safety training",
+ "subtitle":"Rate of vulnerable code written by a backdoored model, by year in the prompt, before and after supervised fine-tuning (SFT) and RL safety training.",
+ "source":"Hubinger et al., Anthropic 2024, Fig. 2 (distilled chain-of-thought model)",
+ "x":{"values":["Before safety training","After SFT","After RL"]},
+ "y":{"title":"Vulnerable code (%)","min":0,"max":70,"ticks":[0,20,40,60],"fmt":"{:.0f}%"},
+ "label_values":true,
+ "series":[{"name":"Prompt says 2023 (no trigger)","cls":"s6","values":[15,16,9]},
+           {"name":"Prompt says 2024 (trigger)","cls":"s1","values":[56,57,55]}]}

@@ -1,0 +1,102 @@
+{
+ "name": "certified-waterfall",
+ "type": "line",
+ "width": 860,
+ "height": 420,
+ "title": "The smoothing trade-off: certified accuracy against radius for four noise levels",
+ "subtitle": "CIFAR-10, ResNet-110 smoothed with Gaussian noise of standard deviation σ. Each curve stops dead at the largest radius its σ can certify.",
+ "source": "Cohen, Rosenfeld & Kolter, ICML 2019, Appendix Table 3 (n = 100,000 samples, α = 0.001)",
+ "x": {
+  "title": "Certified L2 radius r",
+  "values": [
+   0,
+   0.25,
+   0.5,
+   0.75,
+   1.0,
+   1.25,
+   1.5
+  ]
+ },
+ "y": {
+  "title": "Certified accuracy (%)",
+  "min": 0,
+  "max": 90,
+  "ticks": [
+   0,
+   20,
+   40,
+   60,
+   80
+  ],
+  "fmt": "{:.0f}%"
+ },
+ "series": [
+  {
+   "name": "σ = 0.12",
+   "cls": "s6",
+   "values": [
+    83,
+    60,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "σ = 0.25",
+   "cls": "s2",
+   "values": [
+    77,
+    61,
+    42,
+    25,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "σ = 0.50",
+   "cls": "s3",
+   "values": [
+    66,
+    55,
+    43,
+    32,
+    22,
+    14,
+    8
+   ],
+   "label_end": true,
+   "end_text": "8%"
+  },
+  {
+   "name": "σ = 1.00",
+   "cls": "s1",
+   "values": [
+    47,
+    41,
+    34,
+    28,
+    22,
+    17,
+    14
+   ],
+   "label_end": true,
+   "end_text": "14%"
+  }
+ ],
+ "annotations": [
+  {
+   "x": 0.0,
+   "y": 83,
+   "text": "clean accuracy falls as σ grows",
+   "dx": 10,
+   "dy": -4
+  }
+ ],
+ "margin_right": 90
+}

@@ -1,0 +1,12 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A point nudged across a decision boundary">
+  <rect class="region-a" x="0" y="0" width="200" height="180" rx="4"/>
+  <rect class="region-b" x="200" y="0" width="200" height="180" rx="4"/>
+  <path class="boundary" d="M200,0 C 215,45 185,90 205,135 C 212,160 200,172 200,180"/>
+  <g fill="var(--s2)" opacity="0.25"><circle cx="50" cy="60" r="5"/><circle cx="90" cy="120" r="5"/><circle cx="40" cy="130" r="5"/><circle cx="120" cy="50" r="5"/><circle cx="135" cy="130" r="5"/></g>
+  <circle class="pt" cx="150" cy="90" r="7"/>
+  <line x1="158" y1="90" x2="224" y2="90" stroke="var(--accent)" stroke-width="1.5"/>
+  <path d="M218,85 L226,90 L218,95 z" fill="var(--accent)"/>
+  <circle class="pt-adv" cx="234" cy="90" r="7"/>
+  <text class="mono small" x="150" y="116" text-anchor="middle">x</text>
+  <text class="mono small" x="236" y="116" text-anchor="middle">x + η</text>
+</svg>

@@ -1,0 +1,8 @@
+{"name":"fairness-gendershades","type":"column","width":860,"height":380,
+ "title":"Gender Shades: error on darker-skinned women, by vendor",
+ "subtitle":"Pilot Parliaments Benchmark (more than 1,200 faces, balanced by gender and Fitzpatrick skin type). Gender-classification error rate for darker-skinned female faces; the dashed line is the worst error on lighter-skinned male faces across all three systems.",
+ "source":"Buolamwini & Gebru, FAT* 2018",
+ "x":{"values":["Microsoft","Face++","IBM"]},
+ "y":{"title":"Error rate on darker-skinned female faces (%)","min":0,"max":40,"ticks":[0,10,20,30,40],"fmt":"{:.1f}%"},
+ "ref_lines":[{"y":0.8,"label":"lighter-skinned male faces: at most 0.8% error"}],
+ "series":[{"name":"Darker-skinned female","cls":"s1","values":[20.8,34.5,34.7]}]}

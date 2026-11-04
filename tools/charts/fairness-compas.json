@@ -1,0 +1,9 @@
+{"name":"fairness-compas","type":"column","width":860,"height":400,
+ "title":"COMPAS makes different mistakes for Black and white defendants",
+ "subtitle":"Broward County pretrial defendants, 2013–14 (n = 7,214). “High risk” = COMPAS decile 5 or above; outcome = any re-arrest within two years.",
+ "source":"Larson, Mattu, Kirchner & Angwin, ProPublica 2016 (methodology article)",
+ "x":{"values":["False positive rate\n(labelled high risk, did not reoffend)","False negative rate\n(labelled low risk, reoffended)"]},
+ "y":{"title":"Rate (%)","min":0,"max":60,"ticks":[0,15,30,45,60],"fmt":"{:.1f}%"},
+ "label_values":true,
+ "series":[{"name":"Black defendants","cls":"s1","values":[44.85,27.99]},
+           {"name":"White defendants","cls":"s2","values":[23.45,47.72]}]}

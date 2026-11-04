@@ -1,0 +1,7 @@
+{"name":"fairness-fico","type":"bar","width":860,"height":360,
+ "title":"Every fairness constraint has a price, and the prices differ by a factor of 40",
+ "subtitle":"Lending on 301,536 TransUnion credit scores (2003), four racial groups, default = 90+ days late. Profit under each decision rule as a fraction of the unconstrained maximum.",
+ "source":"Hardt, Price & Srebro, NeurIPS 2016, FICO case study",
+ "x":{"values":["Maximum profit (group-specific thresholds)","Single race-blind threshold","Equal opportunity","Equalized odds","Demographic parity"]},
+ "y":{"title":"Fraction of maximum profit (%)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.1f}%"},
+ "series":[{"name":"Profit","cls":"s2","values":[100,99.3,92.8,80.2,69.8]}]}

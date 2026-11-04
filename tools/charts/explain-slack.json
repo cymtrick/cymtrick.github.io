@@ -1,0 +1,59 @@
+{
+ "name": "explain-slack",
+ "type": "column",
+ "width": 860,
+ "height": 400,
+ "title": "Scaffolded models hide the sensitive feature from LIME and SHAP",
+ "subtitle": "Share of test points where an uncorrelated synthetic feature is ranked as the top explanation after the attack. Before it, the sensitive feature (race, gender, loan rate) was top-1.",
+ "source": "Slack, Hilgard, Jia, Singh & Lakkaraju, AIES 2020, Section 4",
+ "x": {
+  "values": [
+   "COMPAS",
+   "Communities & Crime",
+   "German Credit"
+  ]
+ },
+ "y": {
+  "title": "Innocuous feature ranked first (% of points)",
+  "min": 0,
+  "max": 100,
+  "ticks": [
+   0,
+   25,
+   50,
+   75,
+   100
+  ],
+  "fmt": "{:.0f}%"
+ },
+ "label_values": false,
+ "series": [
+  {
+   "name": "LIME, one synthetic feature",
+   "cls": "s1",
+   "values": [
+    100,
+    100,
+    91
+   ]
+  },
+  {
+   "name": "SHAP, one synthetic feature",
+   "cls": "s2",
+   "values": [
+    84,
+    100,
+    85
+   ]
+  },
+  {
+   "name": "SHAP, two synthetic features",
+   "cls": "s3",
+   "values": [
+    67,
+    71,
+    null
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{"name":"dp-cifar","type":"line","width":860,"height":420,
+ "title":"Six years of DP-SGD on CIFAR-10: test accuracy against the privacy budget ε",
+ "subtitle":"Models trained from scratch with DP-SGD at δ = 10⁻⁵. The 2022 curve uses no extra data; it is better training, not weaker privacy.",
+ "source":"Abadi et al. 2016, §5.3; Tramèr & Boneh 2021 (as reported in De et al. 2022, Table 1); De et al. 2022, Table 1",
+ "x":{"title":"Privacy budget ε","ticks":[1,2,3,4,5,6,7,8],"min":0.5,"max":8.5},
+ "y":{"title":"Test accuracy (%)","min":50,"max":90,"ticks":[50,60,70,80,90],"fmt":"{:.1f}%"},
+ "series":[
+  {"name":"Abadi et al. 2016 (pretrained conv layers + DP-SGD)","cls":"s6","x":[2,4,8],"values":[67,70,73],"label_end":true,"end_text":"73.0% at ε = 8 (2016)"},
+  {"name":"Tramèr & Boneh 2021 (handcrafted features)","cls":"s2","x":[1,2,3],"values":[60.3,67.2,69.3],"label_end":true,"end_text":"69.3% at ε = 3 (2021)"},
+  {"name":"De et al. 2022 (WRN-40-4, augmentation multiplicity)","cls":"s1","x":[1,2,3,4,6,8],"values":[56.4,65.9,70.7,73.5,78.8,81.4],"label_end":true,"end_text":"81.4% at ε = 8 (2022)"}
+ ]}

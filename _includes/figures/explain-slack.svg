@@ -1,0 +1,43 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scaffolded models hide the sensitive feature from LIME and SHAP">
+<text class="title" x="0" y="18">Scaffolded models hide the sensitive feature from LIME and SHAP</text>
+<text class="subtitle" x="0" y="38">Share of test points where an uncorrelated synthetic feature is ranked as the top explanation after the attack. Before it, the</text>
+<text class="subtitle" x="0" y="56">sensitive feature (race, gender, loan rate) was top-1.</text>
+<g class="legend s1"><rect class="swatch" x="0" y="73" width="12" height="12" rx="2"/><text x="18" y="84">LIME, one synthetic feature</text></g>
+<g class="legend s2"><rect class="swatch" x="230.3" y="73" width="12" height="12" rx="2"/><text x="248.3" y="84">SHAP, one synthetic feature</text></g>
+<g class="legend s3"><rect class="swatch" x="460.6" y="73" width="12" height="12" rx="2"/><text x="478.6" y="84">SHAP, two synthetic features</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="279.0" y2="279.0"/>
+<line x1="56" x2="836" y1="226.0" y2="226.0"/>
+<line x1="56" x2="836" y1="173.0" y2="173.0"/>
+<line x1="56" x2="836" y1="120.0" y2="120.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0%</text>
+<text x="48" y="283.0" text-anchor="end">25%</text>
+<text x="48" y="230.0" text-anchor="end">50%</text>
+<text x="48" y="177.0" text-anchor="end">75%</text>
+<text x="48" y="124.0" text-anchor="end">100%</text>
+</g>
+<text class="axis-title" x="56" y="112" text-anchor="start">Innocuous feature ranked first (% of points)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="186.0" y="350.0" text-anchor="middle">COMPAS</text>
+<text x="446.0" y="350.0" text-anchor="middle">Communities &amp; Crime</text>
+<text x="706.0" y="350.0" text-anchor="middle">German Credit</text>
+</g>
+<g class="s1">
+<path class="bar" d="M148.0,332.0 V124.0 Q148.0,120.0 152.0,120.0 H168.0 Q172.0,120.0 172.0,124.0 V332.0 Z" data-tip="<b>LIME, one synthetic feature</b><br>COMPAS: 100%"/>
+<path class="bar" d="M408.0,332.0 V124.0 Q408.0,120.0 412.0,120.0 H428.0 Q432.0,120.0 432.0,124.0 V332.0 Z" data-tip="<b>LIME, one synthetic feature</b><br>Communities &amp; Crime: 100%"/>
+<path class="bar" d="M668.0,332.0 V143.1 Q668.0,139.1 672.0,139.1 H688.0 Q692.0,139.1 692.0,143.1 V332.0 Z" data-tip="<b>LIME, one synthetic feature</b><br>German Credit: 91%"/>
+</g>
+<g class="s2">
+<path class="bar" d="M174.0,332.0 V157.9 Q174.0,153.9 178.0,153.9 H194.0 Q198.0,153.9 198.0,157.9 V332.0 Z" data-tip="<b>SHAP, one synthetic feature</b><br>COMPAS: 84%"/>
+<path class="bar" d="M434.0,332.0 V124.0 Q434.0,120.0 438.0,120.0 H454.0 Q458.0,120.0 458.0,124.0 V332.0 Z" data-tip="<b>SHAP, one synthetic feature</b><br>Communities &amp; Crime: 100%"/>
+<path class="bar" d="M694.0,332.0 V155.8 Q694.0,151.8 698.0,151.8 H714.0 Q718.0,151.8 718.0,155.8 V332.0 Z" data-tip="<b>SHAP, one synthetic feature</b><br>German Credit: 85%"/>
+</g>
+<g class="s3">
+<path class="bar" d="M200.0,332.0 V194.0 Q200.0,190.0 204.0,190.0 H220.0 Q224.0,190.0 224.0,194.0 V332.0 Z" data-tip="<b>SHAP, two synthetic features</b><br>COMPAS: 67%"/>
+<path class="bar" d="M460.0,332.0 V185.5 Q460.0,181.5 464.0,181.5 H480.0 Q484.0,181.5 484.0,185.5 V332.0 Z" data-tip="<b>SHAP, two synthetic features</b><br>Communities &amp; Crime: 71%"/>
+</g>
+<text class="subtitle" x="0" y="394">Source: Slack, Hilgard, Jia, Singh &amp; Lakkaraju, AIES 2020, Section 4</text>
+</svg>

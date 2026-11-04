@@ -1,0 +1,47 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zero-leakage fine-tuning of a language model: PACZero versus DP baselines">
+<text class="title" x="0" y="18">Zero-leakage fine-tuning of a language model: PACZero versus DP baselines</text>
+<text class="subtitle" x="0" y="38">SST-2 accuracy of OPT-1.3B fine-tuned with sign-quantised zeroth-order updates (PACZero) against DP zeroth-order methods and a</text>
+<text class="subtitle" x="0" y="56">non-private run.</text>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="276.5" y2="276.5"/>
+<line x1="56" x2="836" y1="221.0" y2="221.0"/>
+<line x1="56" x2="836" y1="165.5" y2="165.5"/>
+<line x1="56" x2="836" y1="110.0" y2="110.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0.0%</text>
+<text x="48" y="280.5" text-anchor="end">25.0%</text>
+<text x="48" y="225.0" text-anchor="end">50.0%</text>
+<text x="48" y="169.5" text-anchor="end">75.0%</text>
+<text x="48" y="114.0" text-anchor="end">100.0%</text>
+</g>
+<text class="axis-title" x="56" y="102" text-anchor="start">SST-2 accuracy (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="134.0" y="350.0" text-anchor="middle">PACZero,</text>
+<text x="134.0" y="364.0" text-anchor="middle">zero mutual information</text>
+<text x="290.0" y="350.0" text-anchor="middle">PACZero,</text>
+<text x="290.0" y="364.0" text-anchor="middle">β = 0.33 (≈ ε 2)</text>
+<text x="446.0" y="350.0" text-anchor="middle">DPZero,</text>
+<text x="446.0" y="364.0" text-anchor="middle">ε = 2</text>
+<text x="602.0" y="350.0" text-anchor="middle">DP-AggZO,</text>
+<text x="602.0" y="364.0" text-anchor="middle">ε = 0.5</text>
+<text x="758.0" y="350.0" text-anchor="middle">MeZO,</text>
+<text x="758.0" y="364.0" text-anchor="middle">non-private</text>
+</g>
+<line class="ref" x1="56" x2="836" y1="221.0" y2="221.0"/>
+<text class="annot" x="60" y="216.0" text-anchor="start">chance</text>
+<g class="s1">
+<path class="bar" d="M122.0,332.0 V138.4 Q122.0,134.4 126.0,134.4 H142.0 Q146.0,134.4 146.0,138.4 V332.0 Z" data-tip="<b>Accuracy</b><br>PACZero, zero mutual information: 89.0%"/>
+<text class="label" x="134.0" y="128.4" text-anchor="middle">89.0%</text>
+<path class="bar" d="M278.0,332.0 V137.3 Q278.0,133.3 282.0,133.3 H298.0 Q302.0,133.3 302.0,137.3 V332.0 Z" data-tip="<b>Accuracy</b><br>PACZero, β = 0.33 (≈ ε 2): 89.5%"/>
+<text class="label" x="290.0" y="127.3" text-anchor="middle">89.5%</text>
+<path class="bar" d="M434.0,332.0 V143.7 Q434.0,139.7 438.0,139.7 H454.0 Q458.0,139.7 458.0,143.7 V332.0 Z" data-tip="<b>Accuracy</b><br>DPZero, ε = 2: 86.6%"/>
+<text class="label" x="446.0" y="133.7" text-anchor="middle">86.6%</text>
+<path class="bar" d="M590.0,332.0 V189.6 Q590.0,185.6 594.0,185.6 H610.0 Q614.0,185.6 614.0,189.6 V332.0 Z" data-tip="<b>Accuracy</b><br>DP-AggZO, ε = 0.5: 65.9%"/>
+<text class="label" x="602.0" y="179.6" text-anchor="middle">65.9%</text>
+<path class="bar" d="M746.0,332.0 V133.8 Q746.0,129.8 750.0,129.8 H766.0 Q770.0,129.8 770.0,133.8 V332.0 Z" data-tip="<b>Accuracy</b><br>MeZO, non-private: 91.1%"/>
+<text class="label" x="758.0" y="123.8" text-anchor="middle">91.1%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Ertan, Zhu, Nguyen, van Dijk &amp; Devadas, PACZero (NeurIPS 2026), SST-2 results for OPT-1.3B</text>
+</svg>

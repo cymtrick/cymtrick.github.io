@@ -1,0 +1,9 @@
+{"name":"pac-llm","type":"column","width":860,"height":400,
+ "title":"Zero-leakage fine-tuning of a language model: PACZero versus DP baselines",
+ "subtitle":"SST-2 accuracy of OPT-1.3B fine-tuned with sign-quantised zeroth-order updates (PACZero) against DP zeroth-order methods and a non-private run.",
+ "source":"Ertan, Zhu, Nguyen, van Dijk & Devadas, PACZero (NeurIPS 2026), SST-2 results for OPT-1.3B",
+ "x":{"values":["PACZero,\nzero mutual information","PACZero,\nβ = 0.33 (≈ ε 2)","DPZero,\nε = 2","DP-AggZO,\nε = 0.5","MeZO,\nnon-private"]},
+ "y":{"title":"SST-2 accuracy (%)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.1f}%"},
+ "label_values":true,
+ "series":[{"name":"Accuracy","cls":"s1","values":[88.99,89.51,86.6,65.94,91.1]}],
+ "ref_lines":[{"y":50,"label":"chance"}]}

@@ -1,0 +1,7 @@
+{"name":"fairness-obermeyer","type":"bar","width":860,"height":340,
+ "title":"The label, not the features, carried the bias",
+ "subtitle":"Share of Black patients among those flagged for a high-risk care programme, under the deployed cost label and three alternatives. Race was not among the 149 inputs.",
+ "source":"Obermeyer, Powers, Vogeli & Mullainathan, Science 2019",
+ "x":{"values":["Deployed label: total cost (auto-enrol, 97th pct)","Retrained on total cost","Retrained on avoidable cost","Retrained on active chronic conditions","Bias removed (counterfactual, 97th pct)"]},
+ "y":{"title":"Black share of highest-risk group (%)","min":0,"max":50,"ticks":[0,10,20,30,40,50],"fmt":"{:.1f}%"},
+ "series":[{"name":"Share","cls":"s1","values":[17.7,14.1,21.0,26.7,46.5]}]}

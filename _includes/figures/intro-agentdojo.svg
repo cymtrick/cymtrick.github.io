@@ -1,0 +1,51 @@
+<svg class="chart" viewBox="0 0 860 420" width="860" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prompt injection against LLM agents: usefulness and attack success side by side">
+<text class="title" x="0" y="18">Prompt injection against LLM agents: usefulness and attack success side by side</text>
+<text class="subtitle" x="0" y="38">AgentDojo, 629 security cases (97 user tasks × 27 injections). Higher utility is better; lower attack success is better.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Utility, no attack</text></g>
+<g class="legend s2"><rect class="swatch" x="168.2" y="55" width="12" height="12" rx="2"/><text x="186.2" y="66">Utility under attack</text></g>
+<g class="legend s1"><rect class="swatch" x="350.2" y="55" width="12" height="12" rx="2"/><text x="368.2" y="66">Targeted attack success</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<line x1="56" x2="836" y1="289.5" y2="289.5"/>
+<line x1="56" x2="836" y1="227.0" y2="227.0"/>
+<line x1="56" x2="836" y1="164.5" y2="164.5"/>
+<line x1="56" x2="836" y1="102.0" y2="102.0"/>
+</g><g class="axis">
+<text x="48" y="356.0" text-anchor="end">0%</text>
+<text x="48" y="293.5" text-anchor="end">25%</text>
+<text x="48" y="231.0" text-anchor="end">50%</text>
+<text x="48" y="168.5" text-anchor="end">75%</text>
+<text x="48" y="106.0" text-anchor="end">100%</text>
+</g>
+<text class="axis-title" x="56" y="94" text-anchor="start">Share of tasks (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<text x="134.0" y="370.0" text-anchor="middle">GPT-4o</text>
+<text x="290.0" y="370.0" text-anchor="middle">Claude 3.5 Sonnet</text>
+<text x="446.0" y="370.0" text-anchor="middle">Claude 3 Opus</text>
+<text x="602.0" y="370.0" text-anchor="middle">Gemini 1.5 Pro</text>
+<text x="758.0" y="370.0" text-anchor="middle">Gemini 1.5 Flash</text>
+</g>
+<g class="s6">
+<path class="bar" d="M96.0,352.0 V183.5 Q96.0,179.5 100.0,179.5 H116.0 Q120.0,179.5 120.0,183.5 V352.0 Z" data-tip="<b>Utility, no attack</b><br>GPT-4o: 69.0%"/>
+<path class="bar" d="M252.0,352.0 V160.5 Q252.0,156.5 256.0,156.5 H272.0 Q276.0,156.5 276.0,160.5 V352.0 Z" data-tip="<b>Utility, no attack</b><br>Claude 3.5 Sonnet: 78.2%"/>
+<path class="bar" d="M408.0,352.0 V189.5 Q408.0,185.5 412.0,185.5 H428.0 Q432.0,185.5 432.0,189.5 V352.0 Z" data-tip="<b>Utility, no attack</b><br>Claude 3 Opus: 66.6%"/>
+<path class="bar" d="M564.0,352.0 V242.0 Q564.0,238.0 568.0,238.0 H584.0 Q588.0,238.0 588.0,242.0 V352.0 Z" data-tip="<b>Utility, no attack</b><br>Gemini 1.5 Pro: 45.6%"/>
+<path class="bar" d="M720.0,352.0 V265.8 Q720.0,261.8 724.0,261.8 H740.0 Q744.0,261.8 744.0,265.8 V352.0 Z" data-tip="<b>Utility, no attack</b><br>Gemini 1.5 Flash: 36.1%"/>
+</g>
+<g class="s2">
+<path class="bar" d="M122.0,352.0 V230.8 Q122.0,226.8 126.0,226.8 H142.0 Q146.0,226.8 146.0,230.8 V352.0 Z" data-tip="<b>Utility under attack</b><br>GPT-4o: 50.1%"/>
+<path class="bar" d="M278.0,352.0 V228.0 Q278.0,224.0 282.0,224.0 H298.0 Q302.0,224.0 302.0,228.0 V352.0 Z" data-tip="<b>Utility under attack</b><br>Claude 3.5 Sonnet: 51.2%"/>
+<path class="bar" d="M434.0,352.0 V224.8 Q434.0,220.8 438.0,220.8 H454.0 Q458.0,220.8 458.0,224.8 V352.0 Z" data-tip="<b>Utility under attack</b><br>Claude 3 Opus: 52.5%"/>
+<path class="bar" d="M590.0,352.0 V283.8 Q590.0,279.8 594.0,279.8 H610.0 Q614.0,279.8 614.0,283.8 V352.0 Z" data-tip="<b>Utility under attack</b><br>Gemini 1.5 Pro: 28.9%"/>
+<path class="bar" d="M746.0,352.0 V270.5 Q746.0,266.5 750.0,266.5 H766.0 Q770.0,266.5 770.0,270.5 V352.0 Z" data-tip="<b>Utility under attack</b><br>Gemini 1.5 Flash: 34.2%"/>
+</g>
+<g class="s1">
+<path class="bar" d="M148.0,352.0 V236.8 Q148.0,232.8 152.0,232.8 H168.0 Q172.0,232.8 172.0,236.8 V352.0 Z" data-tip="<b>Targeted attack success</b><br>GPT-4o: 47.7%"/>
+<path class="bar" d="M304.0,352.0 V271.2 Q304.0,267.2 308.0,267.2 H324.0 Q328.0,267.2 328.0,271.2 V352.0 Z" data-tip="<b>Targeted attack success</b><br>Claude 3.5 Sonnet: 33.9%"/>
+<path class="bar" d="M460.0,352.0 V327.8 Q460.0,323.8 464.0,323.8 H480.0 Q484.0,323.8 484.0,327.8 V352.0 Z" data-tip="<b>Targeted attack success</b><br>Claude 3 Opus: 11.3%"/>
+<path class="bar" d="M616.0,352.0 V292.0 Q616.0,288.0 620.0,288.0 H636.0 Q640.0,288.0 640.0,292.0 V352.0 Z" data-tip="<b>Targeted attack success</b><br>Gemini 1.5 Pro: 25.6%"/>
+<path class="bar" d="M772.0,352.0 V325.5 Q772.0,321.5 776.0,321.5 H792.0 Q796.0,321.5 796.0,325.5 V352.0 Z" data-tip="<b>Targeted attack success</b><br>Gemini 1.5 Flash: 12.2%"/>
+</g>
+<text class="subtitle" x="0" y="414">Source: Debenedetti et al., NeurIPS 2024, Table 3</text>
+</svg>

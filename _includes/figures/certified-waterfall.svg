@@ -1,0 +1,78 @@
+<svg class="chart" viewBox="0 0 860 420" width="860" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The smoothing trade-off: certified accuracy against radius for four noise levels">
+<text class="title" x="0" y="18">The smoothing trade-off: certified accuracy against radius for four noise levels</text>
+<text class="subtitle" x="0" y="38">CIFAR-10, ResNet-110 smoothed with Gaussian noise of standard deviation σ. Each curve stops dead at the largest radius its σ can</text>
+<text class="subtitle" x="0" y="56">certify.</text>
+<g class="legend s6"><line class="key" x1="0" y1="80" x2="16" y2="80"/><circle class="dot" cx="8" cy="80" r="3.5"/><text x="22" y="84">σ = 0.12</text></g>
+<g class="legend s2"><line class="key" x1="99.2" y1="80" x2="115.2" y2="80"/><circle class="dot" cx="107.2" cy="80" r="3.5"/><text x="121.2" y="84">σ = 0.25</text></g>
+<g class="legend s3"><line class="key" x1="198.4" y1="80" x2="214.4" y2="80"/><circle class="dot" cx="206.4" cy="80" r="3.5"/><text x="220.4" y="84">σ = 0.50</text></g>
+<g class="legend s1"><line class="key" x1="297.6" y1="80" x2="313.6" y2="80"/><circle class="dot" cx="305.6" cy="80" r="3.5"/><text x="319.6" y="84">σ = 1.00</text></g>
+<g class="grid">
+<line x1="56" x2="770" y1="348.0" y2="348.0"/>
+<line x1="56" x2="770" y1="297.3" y2="297.3"/>
+<line x1="56" x2="770" y1="246.7" y2="246.7"/>
+<line x1="56" x2="770" y1="196.0" y2="196.0"/>
+<line x1="56" x2="770" y1="145.3" y2="145.3"/>
+</g><g class="axis">
+<text x="48" y="352.0" text-anchor="end">0%</text>
+<text x="48" y="301.3" text-anchor="end">20%</text>
+<text x="48" y="250.7" text-anchor="end">40%</text>
+<text x="48" y="200.0" text-anchor="end">60%</text>
+<text x="48" y="149.3" text-anchor="end">80%</text>
+</g>
+<text class="axis-title" x="56" y="112" text-anchor="start">Certified accuracy (%)</text>
+<g class="axis">
+<line x1="56" x2="770" y1="348.0" y2="348.0"/>
+<text x="56.0" y="366.0" text-anchor="middle">0</text>
+<text x="175.0" y="366.0" text-anchor="middle">0.25</text>
+<text x="294.0" y="366.0" text-anchor="middle">0.5</text>
+<text x="413.0" y="366.0" text-anchor="middle">0.75</text>
+<text x="532.0" y="366.0" text-anchor="middle">1</text>
+<text x="651.0" y="366.0" text-anchor="middle">1.25</text>
+<text x="770.0" y="366.0" text-anchor="middle">1.5</text>
+</g>
+<text class="axis-title" x="770" y="384.0" text-anchor="end">Certified L2 radius r</text>
+<g class="s6">
+<path class="line" d="M56.0,137.7 L175.0,196.0 L294.0,348.0 L413.0,348.0 L532.0,348.0 L651.0,348.0 L770.0,348.0"/>
+<circle class="dot" cx="56.0" cy="137.7" r="4" data-tip="<b>σ = 0.12</b><br>0: 83%"/>
+<circle class="dot" cx="175.0" cy="196.0" r="4" data-tip="<b>σ = 0.12</b><br>0.25: 60%"/>
+<circle class="dot" cx="294.0" cy="348.0" r="4" data-tip="<b>σ = 0.12</b><br>0.5: 0%"/>
+<circle class="dot" cx="413.0" cy="348.0" r="4" data-tip="<b>σ = 0.12</b><br>0.75: 0%"/>
+<circle class="dot" cx="532.0" cy="348.0" r="4" data-tip="<b>σ = 0.12</b><br>1: 0%"/>
+<circle class="dot" cx="651.0" cy="348.0" r="4" data-tip="<b>σ = 0.12</b><br>1.25: 0%"/>
+<circle class="dot" cx="770.0" cy="348.0" r="4" data-tip="<b>σ = 0.12</b><br>1.5: 0%"/>
+</g>
+<g class="s2">
+<path class="line" d="M56.0,152.9 L175.0,193.5 L294.0,241.6 L413.0,284.7 L532.0,348.0 L651.0,348.0 L770.0,348.0"/>
+<circle class="dot" cx="56.0" cy="152.9" r="4" data-tip="<b>σ = 0.25</b><br>0: 77%"/>
+<circle class="dot" cx="175.0" cy="193.5" r="4" data-tip="<b>σ = 0.25</b><br>0.25: 61%"/>
+<circle class="dot" cx="294.0" cy="241.6" r="4" data-tip="<b>σ = 0.25</b><br>0.5: 42%"/>
+<circle class="dot" cx="413.0" cy="284.7" r="4" data-tip="<b>σ = 0.25</b><br>0.75: 25%"/>
+<circle class="dot" cx="532.0" cy="348.0" r="4" data-tip="<b>σ = 0.25</b><br>1: 0%"/>
+<circle class="dot" cx="651.0" cy="348.0" r="4" data-tip="<b>σ = 0.25</b><br>1.25: 0%"/>
+<circle class="dot" cx="770.0" cy="348.0" r="4" data-tip="<b>σ = 0.25</b><br>1.5: 0%"/>
+</g>
+<g class="s3">
+<path class="line" d="M56.0,180.8 L175.0,208.7 L294.0,239.1 L413.0,266.9 L532.0,292.3 L651.0,312.5 L770.0,327.7"/>
+<circle class="dot" cx="56.0" cy="180.8" r="4" data-tip="<b>σ = 0.50</b><br>0: 66%"/>
+<circle class="dot" cx="175.0" cy="208.7" r="4" data-tip="<b>σ = 0.50</b><br>0.25: 55%"/>
+<circle class="dot" cx="294.0" cy="239.1" r="4" data-tip="<b>σ = 0.50</b><br>0.5: 43%"/>
+<circle class="dot" cx="413.0" cy="266.9" r="4" data-tip="<b>σ = 0.50</b><br>0.75: 32%"/>
+<circle class="dot" cx="532.0" cy="292.3" r="4" data-tip="<b>σ = 0.50</b><br>1: 22%"/>
+<circle class="dot" cx="651.0" cy="312.5" r="4" data-tip="<b>σ = 0.50</b><br>1.25: 14%"/>
+<circle class="dot" cx="770.0" cy="327.7" r="4" data-tip="<b>σ = 0.50</b><br>1.5: 8%"/>
+</g>
+<g class="s1">
+<path class="line" d="M56.0,228.9 L175.0,244.1 L294.0,261.9 L413.0,277.1 L532.0,292.3 L651.0,304.9 L770.0,312.5"/>
+<circle class="dot" cx="56.0" cy="228.9" r="4" data-tip="<b>σ = 1.00</b><br>0: 47%"/>
+<circle class="dot" cx="175.0" cy="244.1" r="4" data-tip="<b>σ = 1.00</b><br>0.25: 41%"/>
+<circle class="dot" cx="294.0" cy="261.9" r="4" data-tip="<b>σ = 1.00</b><br>0.5: 34%"/>
+<circle class="dot" cx="413.0" cy="277.1" r="4" data-tip="<b>σ = 1.00</b><br>0.75: 28%"/>
+<circle class="dot" cx="532.0" cy="292.3" r="4" data-tip="<b>σ = 1.00</b><br>1: 22%"/>
+<circle class="dot" cx="651.0" cy="304.9" r="4" data-tip="<b>σ = 1.00</b><br>1.25: 17%"/>
+<circle class="dot" cx="770.0" cy="312.5" r="4" data-tip="<b>σ = 1.00</b><br>1.5: 14%"/>
+</g>
+<text class="label" x="778.0" y="316.5">14%</text>
+<text class="label" x="778.0" y="331.7">8%</text>
+<text class="annot" x="66.0" y="133.7" text-anchor="start">clean accuracy falls as σ grows</text>
+<text class="subtitle" x="0" y="414">Source: Cohen, Rosenfeld &amp; Kolter, ICML 2019, Appendix Table 3 (n = 100,000 samples, α = 0.001)</text>
+</svg>

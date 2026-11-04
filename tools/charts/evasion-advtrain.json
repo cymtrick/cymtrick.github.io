@@ -1,0 +1,9 @@
+{"name":"evasion-advtrain","type":"column","width":860,"height":400,
+ "title":"What adversarial training buys, and what it costs",
+ "subtitle":"CIFAR-10, WideResNet, L∞ ε = 8/255. Accuracy of a standard model and a PGD-trained model under each attack.",
+ "source":"Madry et al., ICLR 2018, Tables 2 and 5",
+ "x":{"values":["No attack","FGSM","PGD (7 steps)","PGD (20 steps)"]},
+ "y":{"title":"Accuracy (%)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.1f}%"},
+ "label_values":true,
+ "series":[{"name":"Standard training","cls":"s6","values":[95.2,32.7,4.1,3.5]},
+           {"name":"PGD adversarial training","cls":"s1","values":[87.3,56.1,50.0,45.8]}]}

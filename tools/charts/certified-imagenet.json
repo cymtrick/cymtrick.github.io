@@ -1,0 +1,86 @@
+{
+ "name": "certified-imagenet",
+ "type": "line",
+ "width": 860,
+ "height": 430,
+ "title": "ImageNet certified accuracy under randomized smoothing, 2019 → 2023",
+ "subtitle": "Share of ImageNet test images certified correct within L2 radius r, for four smoothing methods (ResNet-50 and BEiT-large base models).",
+ "source": "Cohen et al. 2019, Table 1; Salman et al. 2019, Table 1; Carlini et al. 2023, Table 1",
+ "x": {
+  "title": "Certified L2 radius r",
+  "values": [
+   0.5,
+   1.0,
+   1.5,
+   2.0,
+   3.0
+  ],
+  "ticks": [
+   0.5,
+   1.0,
+   1.5,
+   2.0,
+   2.5,
+   3.0
+  ]
+ },
+ "y": {
+  "title": "Certified accuracy (%)",
+  "min": 0,
+  "max": 80,
+  "ticks": [
+   0,
+   20,
+   40,
+   60,
+   80
+  ],
+  "fmt": "{:.0f}%"
+ },
+ "series": [
+  {
+   "name": "Randomized smoothing (Cohen et al. 2019)",
+   "cls": "s6",
+   "values": [
+    49,
+    37,
+    29,
+    19,
+    12
+   ]
+  },
+  {
+   "name": "SmoothAdv (Salman et al. 2019)",
+   "cls": "s2",
+   "values": [
+    56,
+    45,
+    38,
+    28,
+    20
+   ]
+  },
+  {
+   "name": "MACER (Zhai et al. 2020)",
+   "cls": "s3",
+   "values": [
+    57,
+    43,
+    31,
+    25,
+    14
+   ]
+  },
+  {
+   "name": "Diffusion denoised smoothing (Carlini et al. 2023)",
+   "cls": "s1",
+   "values": [
+    71.1,
+    54.3,
+    38.1,
+    29.5,
+    13.1
+   ]
+  }
+ ]
+}

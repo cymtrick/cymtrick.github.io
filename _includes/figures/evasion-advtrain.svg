@@ -1,0 +1,48 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What adversarial training buys, and what it costs">
+<text class="title" x="0" y="18">What adversarial training buys, and what it costs</text>
+<text class="subtitle" x="0" y="38">CIFAR-10, WideResNet, L∞ ε = 8/255. Accuracy of a standard model and a PGD-trained model under each attack.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Standard training</text></g>
+<g class="legend s1"><rect class="swatch" x="161.3" y="55" width="12" height="12" rx="2"/><text x="179.3" y="66">PGD adversarial training</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="278.0" y2="278.0"/>
+<line x1="56" x2="836" y1="224.0" y2="224.0"/>
+<line x1="56" x2="836" y1="170.0" y2="170.0"/>
+<line x1="56" x2="836" y1="116.0" y2="116.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0.0%</text>
+<text x="48" y="282.0" text-anchor="end">25.0%</text>
+<text x="48" y="228.0" text-anchor="end">50.0%</text>
+<text x="48" y="174.0" text-anchor="end">75.0%</text>
+<text x="48" y="120.0" text-anchor="end">100.0%</text>
+</g>
+<text class="axis-title" x="56" y="108" text-anchor="start">Accuracy (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="153.5" y="350.0" text-anchor="middle">No attack</text>
+<text x="348.5" y="350.0" text-anchor="middle">FGSM</text>
+<text x="543.5" y="350.0" text-anchor="middle">PGD (7 steps)</text>
+<text x="738.5" y="350.0" text-anchor="middle">PGD (20 steps)</text>
+</g>
+<g class="s6">
+<path class="bar" d="M128.5,332.0 V130.4 Q128.5,126.4 132.5,126.4 H148.5 Q152.5,126.4 152.5,130.4 V332.0 Z" data-tip="<b>Standard training</b><br>No attack: 95.2%"/>
+<text class="label" x="140.5" y="120.4" text-anchor="middle">95.2%</text>
+<path class="bar" d="M323.5,332.0 V265.4 Q323.5,261.4 327.5,261.4 H343.5 Q347.5,261.4 347.5,265.4 V332.0 Z" data-tip="<b>Standard training</b><br>FGSM: 32.7%"/>
+<text class="label" x="335.5" y="255.4" text-anchor="middle">32.7%</text>
+<path class="bar" d="M518.5,332.0 V327.1 Q518.5,323.1 522.5,323.1 H538.5 Q542.5,323.1 542.5,327.1 V332.0 Z" data-tip="<b>Standard training</b><br>PGD (7 steps): 4.1%"/>
+<text class="label" x="530.5" y="317.1" text-anchor="middle">4.1%</text>
+<path class="bar" d="M713.5,332.0 V328.2 Q713.5,324.4 717.3,324.4 H733.7 Q737.5,324.4 737.5,328.2 V332.0 Z" data-tip="<b>Standard training</b><br>PGD (20 steps): 3.5%"/>
+<text class="label" x="725.5" y="318.4" text-anchor="middle">3.5%</text>
+</g>
+<g class="s1">
+<path class="bar" d="M154.5,332.0 V147.4 Q154.5,143.4 158.5,143.4 H174.5 Q178.5,143.4 178.5,147.4 V332.0 Z" data-tip="<b>PGD adversarial training</b><br>No attack: 87.3%"/>
+<text class="label" x="166.5" y="137.4" text-anchor="middle">87.3%</text>
+<path class="bar" d="M349.5,332.0 V214.8 Q349.5,210.8 353.5,210.8 H369.5 Q373.5,210.8 373.5,214.8 V332.0 Z" data-tip="<b>PGD adversarial training</b><br>FGSM: 56.1%"/>
+<text class="label" x="361.5" y="204.8" text-anchor="middle">56.1%</text>
+<path class="bar" d="M544.5,332.0 V228.0 Q544.5,224.0 548.5,224.0 H564.5 Q568.5,224.0 568.5,228.0 V332.0 Z" data-tip="<b>PGD adversarial training</b><br>PGD (7 steps): 50.0%"/>
+<text class="label" x="556.5" y="218.0" text-anchor="middle">50.0%</text>
+<path class="bar" d="M739.5,332.0 V237.1 Q739.5,233.1 743.5,233.1 H759.5 Q763.5,233.1 763.5,237.1 V332.0 Z" data-tip="<b>PGD adversarial training</b><br>PGD (20 steps): 45.8%"/>
+<text class="label" x="751.5" y="227.1" text-anchor="middle">45.8%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Madry et al., ICLR 2018, Tables 2 and 5</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg class="chart" viewBox="0 0 860 430" width="860" height="430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seven of nine ICLR 2018 defenses relied on obfuscated gradients">
+<text class="title" x="0" y="18">Seven of nine ICLR 2018 defenses relied on obfuscated gradients</text>
+<text class="subtitle" x="0" y="38">Robust accuracy each defense claimed, and what remained after an adaptive attack (BPDA / EOT). Only the two adversarial-training</text>
+<text class="subtitle" x="0" y="56">entries survived.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="73" width="12" height="12" rx="2"/><text x="18" y="84">Claimed</text></g>
+<g class="legend s1"><rect class="swatch" x="92.30000000000001" y="73" width="12" height="12" rx="2"/><text x="110.30000000000001" y="84">After adaptive attack</text></g>
+<g class="grid">
+<line y1="120" y2="362" x1="250.6" x2="250.6"/>
+<line y1="120" y2="362" x1="358.1" x2="358.1"/>
+<line y1="120" y2="362" x1="465.6" x2="465.6"/>
+<line y1="120" y2="362" x1="573.0" x2="573.0"/>
+<line y1="120" y2="362" x1="680.5" x2="680.5"/>
+<line y1="120" y2="362" x1="788.0" x2="788.0"/>
+</g><g class="axis">
+<text x="250.6" y="380" text-anchor="middle">0%</text>
+<text x="358.1" y="380" text-anchor="middle">20%</text>
+<text x="465.6" y="380" text-anchor="middle">40%</text>
+<text x="573.0" y="380" text-anchor="middle">60%</text>
+<text x="680.5" y="380" text-anchor="middle">80%</text>
+<text x="788.0" y="380" text-anchor="middle">100%</text>
+<text x="240.60000000000002" y="137.4" text-anchor="end" style="fill:var(--ink-2)">Thermometer encoding</text>
+<text x="240.60000000000002" y="164.3" text-anchor="end" style="fill:var(--ink-2)">Input transformations</text>
+<text x="240.60000000000002" y="191.2" text-anchor="end" style="fill:var(--ink-2)">PixelDefend</text>
+<text x="240.60000000000002" y="218.1" text-anchor="end" style="fill:var(--ink-2)">LID detection</text>
+<text x="240.60000000000002" y="245.0" text-anchor="end" style="fill:var(--ink-2)">Stochastic activation pruning</text>
+<text x="240.60000000000002" y="271.9" text-anchor="end" style="fill:var(--ink-2)">Randomization</text>
+<text x="240.60000000000002" y="298.8" text-anchor="end" style="fill:var(--ink-2)">Defense-GAN</text>
+<text x="240.60000000000002" y="325.7" text-anchor="end" style="fill:var(--ink-2)">Cascade adv. training (not broken)</text>
+<text x="240.60000000000002" y="352.6" text-anchor="end" style="fill:var(--ink-2)">Madry adv. training (not broken)</text>
+</g>
+<text class="axis-title" x="788.0" y="398" text-anchor="end">Robust accuracy (%)</text>
+<g class="s6">
+<path class="bar" d="M250.6,124.6 H676.5 Q680.5,124.6 680.5,128.6 V128.4 Q680.5,132.4 676.5,132.4 H250.6 Z" data-tip="<b>Claimed</b><br>Thermometer encoding: 80%"/>
+<text class="label" x="686.5" y="132.5">80%</text>
+<path class="bar" d="M250.6,151.5 H569.0 Q573.0,151.5 573.0,155.5 V155.3 Q573.0,159.3 569.0,159.3 H250.6 Z" data-tip="<b>Claimed</b><br>Input transformations: 60%"/>
+<text class="label" x="579.0" y="159.4">60%</text>
+<path class="bar" d="M250.6,178.3 H493.8 Q497.8,178.3 497.8,182.3 V182.2 Q497.8,186.2 493.8,186.2 H250.6 Z" data-tip="<b>Claimed</b><br>PixelDefend: 46%"/>
+<text class="label" x="503.8" y="186.3">46%</text>
+<path class="bar" d="M250.6,312.8 H332.6 Q336.6,312.8 336.6,316.8 V316.7 Q336.6,320.7 332.6,320.7 H250.6 Z" data-tip="<b>Claimed</b><br>Cascade adv. training (not broken): 16%"/>
+<text class="label" x="342.6" y="320.7">16%</text>
+<path class="bar" d="M250.6,339.7 H499.2 Q503.2,339.7 503.2,343.7 V343.6 Q503.2,347.6 499.2,347.6 H250.6 Z" data-tip="<b>Claimed</b><br>Madry adv. training (not broken): 47%"/>
+<text class="label" x="509.2" y="347.6">47%</text>
+</g>
+<g class="s1">
+<path class="bar" d="M250.6,134.4 H250.6 Q250.6,134.4 250.6,134.4 V142.3 Q250.6,142.3 250.6,142.3 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Thermometer encoding: 0%"/>
+<text class="label" x="256.6" y="142.4">0%</text>
+<path class="bar" d="M250.6,161.3 H250.6 Q250.6,161.3 250.6,161.3 V169.2 Q250.6,169.2 250.6,169.2 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Input transformations: 0%"/>
+<text class="label" x="256.6" y="169.3">0%</text>
+<path class="bar" d="M250.6,188.2 H295.0 Q299.0,188.2 299.0,192.2 V192.1 Q299.0,196.1 295.0,196.1 H250.6 Z" data-tip="<b>After adaptive attack</b><br>PixelDefend: 9%"/>
+<text class="label" x="305.0" y="196.2">9%</text>
+<path class="bar" d="M250.6,215.1 H273.5 Q277.5,215.1 277.5,219.1 V219.0 Q277.5,223.0 273.5,223.0 H250.6 Z" data-tip="<b>After adaptive attack</b><br>LID detection: 5%"/>
+<text class="label" x="283.5" y="223.0">5%</text>
+<path class="bar" d="M250.6,242.0 H250.6 Q250.6,242.0 250.6,242.0 V249.9 Q250.6,249.9 250.6,249.9 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Stochastic activation pruning: 0%"/>
+<text class="label" x="256.6" y="249.9">0%</text>
+<path class="bar" d="M250.6,268.9 H250.6 Q250.6,268.9 250.6,268.9 V276.8 Q250.6,276.8 250.6,276.8 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Randomization: 0%"/>
+<text class="label" x="256.6" y="276.8">0%</text>
+<path class="bar" d="M250.6,295.8 H542.2 Q546.2,295.8 546.2,299.8 V299.7 Q546.2,303.7 542.2,303.7 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Defense-GAN: 55%"/>
+<text class="label" x="552.2" y="303.7">55%</text>
+<path class="bar" d="M250.6,322.7 H327.2 Q331.2,322.7 331.2,326.7 V326.5 Q331.2,330.5 327.2,330.5 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Cascade adv. training (not broken): 15%"/>
+<text class="label" x="337.2" y="330.6">15%</text>
+<path class="bar" d="M250.6,349.6 H499.2 Q503.2,349.6 503.2,353.6 V353.4 Q503.2,357.4 499.2,357.4 H250.6 Z" data-tip="<b>After adaptive attack</b><br>Madry adv. training (not broken): 47%"/>
+<text class="label" x="509.2" y="357.5">47%</text>
+</g>
+<text class="subtitle" x="0" y="424">Source: Athalye, Carlini &amp; Wagner, ICML 2018, Table 1. Blank = the paper reports only the post-attack value.</text>
+</svg>

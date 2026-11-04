@@ -1,0 +1,49 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Defenses move the needle, then an adaptive attacker moves it back">
+<text class="title" x="0" y="18">Defenses move the needle, then an adaptive attacker moves it back</text>
+<text class="subtitle" x="0" y="38">Attack success rate before and after each defense, in its own paper's evaluation. Dashed line: per-model adaptive attacks.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Undefended</text></g>
+<g class="legend s1"><rect class="swatch" x="113.0" y="55" width="12" height="12" rx="2"/><text x="131.0" y="66">With defense</text></g>
+<g class="grid">
+<line y1="102" y2="332" x1="333.4" x2="333.4"/>
+<line y1="102" y2="332" x1="424.3" x2="424.3"/>
+<line y1="102" y2="332" x1="515.2" x2="515.2"/>
+<line y1="102" y2="332" x1="606.2" x2="606.2"/>
+<line y1="102" y2="332" x1="697.1" x2="697.1"/>
+<line y1="102" y2="332" x1="788.0" x2="788.0"/>
+</g><g class="axis">
+<text x="333.4" y="350" text-anchor="middle">0.0%</text>
+<text x="424.3" y="350" text-anchor="middle">20.0%</text>
+<text x="515.2" y="350" text-anchor="middle">40.0%</text>
+<text x="606.2" y="350" text-anchor="middle">60.0%</text>
+<text x="697.1" y="350" text-anchor="middle">80.0%</text>
+<text x="788.0" y="350" text-anchor="middle">100.0%</text>
+<text x="323.40000000000003" y="134.8" text-anchor="end" style="fill:var(--ink-2)">SmoothLLM vs GCG (Vicuna-13B)</text>
+<text x="323.40000000000003" y="192.2" text-anchor="end" style="fill:var(--ink-2)">Circuit breakers, Mistral-7B (HarmBench avg.)</text>
+<text x="323.40000000000003" y="249.8" text-anchor="end" style="fill:var(--ink-2)">Circuit breakers, Llama-3-8B (HarmBench avg.)</text>
+<text x="323.40000000000003" y="307.2" text-anchor="end" style="fill:var(--ink-2)">Constitutional Classifiers (Claude 3.5 Sonnet)</text>
+</g>
+<text class="axis-title" x="788.0" y="368" text-anchor="end">Attack success rate (%)</text>
+<line class="ref" y1="102" y2="332" x1="788.0" x2="788.0"/>
+<text class="annot" x="783.0" y="326" text-anchor="end">adaptive attacks: 100%</text>
+<g class="s6">
+<path class="bar" d="M333.4,111.8 H774.9 Q778.9,111.8 778.9,115.8 V125.8 Q778.9,129.8 774.9,129.8 H333.4 Z" data-tip="<b>Undefended</b><br>SmoothLLM vs GCG (Vicuna-13B): 98.0%"/>
+<text class="label" x="784.9" y="124.8">98.0%</text>
+<path class="bar" d="M333.4,169.3 H678.1 Q682.1,169.3 682.1,173.3 V183.2 Q682.1,187.2 678.1,187.2 H333.4 Z" data-tip="<b>Undefended</b><br>Circuit breakers, Mistral-7B (HarmBench avg.): 76.7%"/>
+<text class="label" x="688.1" y="182.3">76.7%</text>
+<path class="bar" d="M333.4,226.8 H502.6 Q506.6,226.8 506.6,230.8 V240.8 Q506.6,244.8 502.6,244.8 H333.4 Z" data-tip="<b>Undefended</b><br>Circuit breakers, Llama-3-8B (HarmBench avg.): 38.1%"/>
+<text class="label" x="512.6" y="239.8">38.1%</text>
+<path class="bar" d="M333.4,284.3 H720.4 Q724.4,284.3 724.4,288.3 V298.2 Q724.4,302.2 720.4,302.2 H333.4 Z" data-tip="<b>Undefended</b><br>Constitutional Classifiers (Claude 3.5 Sonnet): 86.0%"/>
+<text class="label" x="730.4" y="297.3">86.0%</text>
+</g>
+<g class="s1">
+<path class="bar" d="M333.4,131.8 H335.4 Q337.5,131.8 337.5,133.8 V147.7 Q337.5,149.7 335.4,149.7 H333.4 Z" data-tip="<b>With defense</b><br>SmoothLLM vs GCG (Vicuna-13B): 0.9%"/>
+<text class="label" x="343.5" y="144.7">0.9%</text>
+<path class="bar" d="M333.4,189.2 H374.0 Q378.0,189.2 378.0,193.2 V203.2 Q378.0,207.2 374.0,207.2 H333.4 Z" data-tip="<b>With defense</b><br>Circuit breakers, Mistral-7B (HarmBench avg.): 9.8%"/>
+<text class="label" x="384.0" y="202.2">9.8%</text>
+<path class="bar" d="M333.4,246.8 H346.7 Q350.7,246.8 350.7,250.8 V260.7 Q350.7,264.7 346.7,264.7 H333.4 Z" data-tip="<b>With defense</b><br>Circuit breakers, Llama-3-8B (HarmBench avg.): 3.8%"/>
+<text class="label" x="356.7" y="259.7">3.8%</text>
+<path class="bar" d="M333.4,304.2 H349.4 Q353.4,304.2 353.4,308.2 V318.2 Q353.4,322.2 349.4,322.2 H333.4 Z" data-tip="<b>With defense</b><br>Constitutional Classifiers (Claude 3.5 Sonnet): 4.4%"/>
+<text class="label" x="359.4" y="317.2">4.4%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Robey et al. 2023; Zou et al., NeurIPS 2024; Sharma et al. 2025; Andriushchenko, Croce &amp; Flammarion, ICLR 2025</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Noise shaped to an output's spread: a narrow cloud needs a small noise ellipse, a wide one a larger ellipse">
+  <!-- worst-case: big circle -->
+  <circle cx="110" cy="90" r="62" fill="none" stroke="var(--s6)" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="small muted" x="110" y="168" text-anchor="middle">worst case: one radius for all</text>
+  <!-- measured: ellipse fit to the output cloud -->
+  <g fill="var(--s2)" opacity="0.35">
+    <circle cx="290" cy="86" r="4"/><circle cx="305" cy="92" r="4"/><circle cx="275" cy="96" r="4"/><circle cx="296" cy="80" r="4"/><circle cx="318" cy="94" r="4"/><circle cx="283" cy="88" r="4"/><circle cx="262" cy="99" r="4"/><circle cx="310" cy="84" r="4"/>
+  </g>
+  <ellipse cx="290" cy="90" rx="44" ry="14" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(-12 290 90)"/>
+  <text class="small muted" x="290" y="168" text-anchor="middle">measured: noise fits the spread</text>
+  <text class="mono small" x="110" y="94" text-anchor="middle">B ∝ Δf / ε</text>
+  <text class="mono small" x="290" y="40" text-anchor="middle">B ∝ √Σ̂</text>
+</svg>

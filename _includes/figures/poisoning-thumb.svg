@@ -1,0 +1,18 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A training set with a few poisoned examples flowing into a model">
+  <rect class="box" x="16" y="30" width="150" height="120" rx="6"/>
+  <text class="small muted" x="91" y="22" text-anchor="middle">training data</text>
+  <g fill="var(--s2)" opacity="0.35">
+    <circle cx="40" cy="55" r="6"/><circle cx="70" cy="50" r="6"/><circle cx="100" cy="58" r="6"/><circle cx="130" cy="52" r="6"/>
+    <circle cx="45" cy="85" r="6"/><circle cx="75" cy="92" r="6"/><circle cx="135" cy="88" r="6"/>
+    <circle cx="40" cy="120" r="6"/><circle cx="70" cy="128" r="6"/><circle cx="100" cy="122" r="6"/><circle cx="130" cy="130" r="6"/>
+  </g>
+  <circle class="pt-adv" cx="105" cy="90" r="6"/>
+  <circle class="pt-adv" cx="118" cy="110" r="6"/>
+  <line x1="172" y1="90" x2="232" y2="90" stroke="var(--ink-2)" stroke-width="1.5"/>
+  <path d="M226,85 L234,90 L226,95 z" fill="var(--ink-2)"/>
+  <text class="small muted" x="202" y="80" text-anchor="middle">train</text>
+  <rect class="box-ink" x="240" y="55" width="140" height="70" rx="6"/>
+  <text class="on-ink" x="310" y="85" text-anchor="middle" style="fill:#fff">model</text>
+  <text class="small on-ink" x="310" y="104" text-anchor="middle" style="fill:#fff;opacity:.75">passes every test</text>
+  <rect x="300" y="50" width="12" height="12" fill="var(--accent)" rx="2"/>
+</svg>

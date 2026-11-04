@@ -1,35 +1,63 @@
 ---
 layout: default
-title: Adversarial Minds
 ---
+<div class="home">
+  <section class="hero">
+    <h1>When the model is the attack surface.</h1>
+    <p>Long-form notes on adversarial machine learning, privacy, and the gap between what we can measure about a model and what we can prove. Written for people who train models and want to know how they break.</p>
+  </section>
 
-<div class="home-hero">
-  <div class="home-hero-label">Secure &amp; Trustworthy AI</div>
-  <h1>When your model<br><em>becomes the attack surface</em></h1>
-  <p>A running series on adversarial machine learning, privacy, and what it actually takes to deploy AI systems you can trust.</p>
-</div>
-
-<div class="post-list-section">
-  <div class="section-label">All Posts</div>
-
-  {% for post in site.posts %}
-  <a class="post-item" href="{{ post.url | relative_url }}">
-    <div class="post-date-col">
-      {{ post.date | date: "%b %Y" }}
+  {% assign latest = site.posts | first %}
+  <a class="featured" href="{{ latest.url | relative_url }}">
+    {% if latest.thumb or latest.lead_figure %}
+    <div class="featured-figure">
+      {% capture thumbpath %}figures/{{ latest.thumb | default: latest.lead_figure }}.svg{% endcapture %}
+      {% include {{ thumbpath }} %}
     </div>
-    <div>
-      <div class="post-title">{{ post.title }}</div>
-      {% if post.excerpt %}
-      <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</div>
-      {% endif %}
-      {% if post.tags %}
-      <div class="post-tags">
-        {% for tag in post.tags %}
-        <span class="tag {% if tag == 'attacks' %}accent{% elsif tag == 'privacy' %}gold{% endif %}">{{ tag }}</span>
-        {% endfor %}
+    {% endif %}
+    <div class="featured-text">
+      <div class="card-category">Latest in {{ latest.category }}</div>
+      <h2>{{ latest.title }}</h2>
+      <p>{{ latest.dek | default: latest.excerpt | strip_html | truncate: 220 }}</p>
+      <div class="featured-meta">
+        <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: "%B %-d, %Y" }}</time>
+        <span>{{ latest.read_time }}</span>
       </div>
-      {% endif %}
     </div>
   </a>
-  {% endfor %}
+
+  <div class="section-head">
+    <h2>All posts</h2>
+    <a href="{{ '/series/' | relative_url }}">Read in order</a>
+  </div>
+  <div class="card-grid">
+    {% for post in site.posts offset: 1 %}
+    <a class="card" href="{{ post.url | relative_url }}">
+      {% if post.thumb or post.lead_figure %}
+      <div class="card-figure">
+        {% capture thumbpath %}figures/{{ post.thumb | default: post.lead_figure }}.svg{% endcapture %}
+        {% include {{ thumbpath }} %}
+      </div>
+      {% endif %}
+      <div class="card-category">{{ post.category }}</div>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.dek | default: post.excerpt | strip_html | truncate: 170 }}</p>
+      <div class="card-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <span>{{ post.read_time }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <section class="series-strip">
+    <h2>The series, in reading order</h2>
+    <p>The posts build on each other: threat model first, then attacks, then the privacy and robustness frameworks that try to answer them, then the harder questions about trust.</p>
+    <ol class="series-list">
+      {% assign ordered = site.posts | sort: "date" %}
+      {% for post in ordered %}
+      <li><a href="{{ post.url | relative_url }}"><span><span class="series-title">{{ post.title }}</span><span class="series-sub">{{ post.category }} · {{ post.read_time }}</span></span></a></li>
+      {% endfor %}
+    </ol>
+  </section>
 </div>

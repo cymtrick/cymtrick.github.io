@@ -1,0 +1,36 @@
+<svg class="chart" viewBox="0 0 860 380" width="860" height="380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gender Shades: error on darker-skinned women, by vendor">
+<text class="title" x="0" y="18">Gender Shades: error on darker-skinned women, by vendor</text>
+<text class="subtitle" x="0" y="38">Pilot Parliaments Benchmark (more than 1,200 faces, balanced by gender and Fitzpatrick skin type). Gender-classification error</text>
+<text class="subtitle" x="0" y="56">rate for darker-skinned female faces; the dashed line is the worst error on lighter-skinned male faces across all three systems.</text>
+<g class="grid">
+<line x1="56" x2="836" y1="312.0" y2="312.0"/>
+<line x1="56" x2="836" y1="258.0" y2="258.0"/>
+<line x1="56" x2="836" y1="204.0" y2="204.0"/>
+<line x1="56" x2="836" y1="150.0" y2="150.0"/>
+<line x1="56" x2="836" y1="96.0" y2="96.0"/>
+</g><g class="axis">
+<text x="48" y="316.0" text-anchor="end">0.0%</text>
+<text x="48" y="262.0" text-anchor="end">10.0%</text>
+<text x="48" y="208.0" text-anchor="end">20.0%</text>
+<text x="48" y="154.0" text-anchor="end">30.0%</text>
+<text x="48" y="100.0" text-anchor="end">40.0%</text>
+</g>
+<text class="axis-title" x="56" y="88" text-anchor="start">Error rate on darker-skinned female faces (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="312.0" y2="312.0"/>
+<text x="186.0" y="330.0" text-anchor="middle">Microsoft</text>
+<text x="446.0" y="330.0" text-anchor="middle">Face++</text>
+<text x="706.0" y="330.0" text-anchor="middle">IBM</text>
+</g>
+<line class="ref" x1="56" x2="836" y1="307.7" y2="307.7"/>
+<text class="annot" x="60" y="302.7" text-anchor="start">lighter-skinned male faces: at most 0.8% error</text>
+<g class="s1">
+<path class="bar" d="M174.0,312.0 V203.7 Q174.0,199.7 178.0,199.7 H194.0 Q198.0,199.7 198.0,203.7 V312.0 Z" data-tip="<b>Darker-skinned female</b><br>Microsoft: 20.8%"/>
+<text class="label" x="186.0" y="193.7" text-anchor="middle">20.8%</text>
+<path class="bar" d="M434.0,312.0 V129.7 Q434.0,125.7 438.0,125.7 H454.0 Q458.0,125.7 458.0,129.7 V312.0 Z" data-tip="<b>Darker-skinned female</b><br>Face++: 34.5%"/>
+<text class="label" x="446.0" y="119.7" text-anchor="middle">34.5%</text>
+<path class="bar" d="M694.0,312.0 V128.6 Q694.0,124.6 698.0,124.6 H714.0 Q718.0,124.6 718.0,128.6 V312.0 Z" data-tip="<b>Darker-skinned female</b><br>IBM: 34.7%"/>
+<text class="label" x="706.0" y="118.6" text-anchor="middle">34.7%</text>
+</g>
+<text class="subtitle" x="0" y="374">Source: Buolamwini &amp; Gebru, FAT* 2018</text>
+</svg>

@@ -1,0 +1,19 @@
+{"name":"evasion-frontier","type":"scatter","width":860,"height":440,
+ "title":"The robustness frontier on CIFAR-10 (L∞, ε = 8/255, AutoAttack)",
+ "subtitle":"Each point is a published model: clean test accuracy against accuracy under attack. Six years moved the frontier up ~30 points.",
+ "source":"Madry et al. 2018; Croce & Hein 2020; RobustBench leaderboard (Nov 2026); Bartoldson et al. 2024",
+ "x":{"title":"Clean accuracy (%)","min":84,"max":97,"ticks":[84,86,88,90,92,94,96],"fmt":"{:.0f}%"},
+ "y":{"title":"Robust accuracy under AutoAttack (%)","min":0,"max":80,"ticks":[0,20,40,60,80],"fmt":"{:.0f}%"},
+ "series":[
+  {"name":"Standard training","cls":"s6","x":[94.78],"values":[0.0]},
+  {"name":"2018 (PGD adversarial training)","cls":"s1","x":[87.3],"values":[44.04]},
+  {"name":"2023 (diffusion-generated data)","cls":"s2","x":[92.44,93.25,93.27],"values":[67.31,70.69,71.07]},
+  {"name":"2024 (scaling laws, mixed classifiers)","cls":"s3","x":[93.11,93.68,95.19],"values":[71.59,73.71,69.71]}
+ ],
+ "annotations":[
+  {"x":94.78,"y":0.0,"text":"WRN-28-10, no defense","dx":-8,"dy":-10,"anchor":"end"},
+  {"x":87.3,"y":44.04,"text":"Madry et al. 2018","dx":8,"dy":4},
+  {"x":93.68,"y":73.71,"text":"Bartoldson et al. 2024, WRN-94-16","dx":-8,"dy":-10,"anchor":"end"},
+  {"x":95.19,"y":69.71,"text":"MixedNUTS","dx":8,"dy":4},
+  {"x":92.44,"y":67.31,"text":"Wang et al. 2023","dx":-8,"dy":10,"anchor":"end"}
+ ]}

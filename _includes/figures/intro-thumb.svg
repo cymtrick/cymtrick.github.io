@@ -1,0 +1,19 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A four-stage pipeline with an attack arrow pointing at each stage">
+  <defs><marker id="ta" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker></defs>
+  <g style="color:var(--ink-2)">
+    <rect class="box" x="10" y="90" width="80" height="40" rx="5"/><text class="small" x="50" y="114" text-anchor="middle">data</text>
+    <line class="arrow" x1="90" y1="110" x2="108" y2="110" marker-end="url(#ta)"/>
+    <rect class="box" x="110" y="90" width="80" height="40" rx="5"/><text class="small" x="150" y="114" text-anchor="middle">training</text>
+    <line class="arrow" x1="190" y1="110" x2="208" y2="110" marker-end="url(#ta)"/>
+    <rect class="box" x="210" y="90" width="80" height="40" rx="5"/><text class="small" x="250" y="114" text-anchor="middle">inference</text>
+    <line class="arrow" x1="290" y1="110" x2="308" y2="110" marker-end="url(#ta)"/>
+    <rect class="box" x="310" y="90" width="80" height="40" rx="5"/><text class="small" x="350" y="114" text-anchor="middle">output</text>
+  </g>
+  <g style="color:var(--accent)">
+    <line class="arrow-accent" x1="50" y1="40" x2="50" y2="84" marker-end="url(#ta)"/>
+    <line class="arrow-accent" x1="150" y1="40" x2="150" y2="84" marker-end="url(#ta)"/>
+    <line class="arrow-accent" x1="250" y1="40" x2="250" y2="84" marker-end="url(#ta)"/>
+    <line class="arrow-accent" x1="350" y1="40" x2="350" y2="84" marker-end="url(#ta)"/>
+    <text class="small" x="200" y="30" text-anchor="middle" style="fill:var(--accent)">four places an adversary can touch a model</text>
+  </g>
+</svg>

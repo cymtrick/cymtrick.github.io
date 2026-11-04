@@ -1,0 +1,67 @@
+<svg class="chart" viewBox="0 0 860 430" width="860" height="430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="From a mutual-information budget to an attacker's best possible success">
+<text class="title" x="0" y="18">From a mutual-information budget to an attacker's best possible success</text>
+<text class="subtitle" x="0" y="38">Best achievable membership-inference success when the release leaks at most β nats about an individual, for two priors.</text>
+<g class="legend s1"><line class="key" x1="0" y1="62" x2="16" y2="62"/><circle class="dot" cx="8" cy="62" r="3.5"/><text x="22" y="66">Prior 50% (is this record a member?)</text></g>
+<g class="legend s2"><line class="key" x1="292.4" y1="62" x2="308.4" y2="62"/><circle class="dot" cx="300.4" cy="62" r="3.5"/><text x="314.4" y="66">Prior 1% (rare attribute)</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="358.0" y2="358.0"/>
+<line x1="56" x2="836" y1="294.0" y2="294.0"/>
+<line x1="56" x2="836" y1="230.0" y2="230.0"/>
+<line x1="56" x2="836" y1="166.0" y2="166.0"/>
+<line x1="56" x2="836" y1="102.0" y2="102.0"/>
+</g><g class="axis">
+<text x="48" y="362.0" text-anchor="end">0%</text>
+<text x="48" y="298.0" text-anchor="end">25%</text>
+<text x="48" y="234.0" text-anchor="end">50%</text>
+<text x="48" y="170.0" text-anchor="end">75%</text>
+<text x="48" y="106.0" text-anchor="end">100%</text>
+</g>
+<text class="axis-title" x="56" y="94" text-anchor="start">Maximum posterior success (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="358.0" y2="358.0"/>
+<text x="56.0" y="376.0" text-anchor="middle">1/128</text>
+<text x="142.7" y="376.0" text-anchor="middle">1/64</text>
+<text x="229.3" y="376.0" text-anchor="middle">1/32</text>
+<text x="316.0" y="376.0" text-anchor="middle">1/16</text>
+<text x="402.7" y="376.0" text-anchor="middle">1/8</text>
+<text x="489.3" y="376.0" text-anchor="middle">1/4</text>
+<text x="576.0" y="376.0" text-anchor="middle">1/2</text>
+<text x="662.7" y="376.0" text-anchor="middle">1</text>
+<text x="749.3" y="376.0" text-anchor="middle">2</text>
+<text x="836.0" y="376.0" text-anchor="middle">4</text>
+</g>
+<text class="axis-title" x="836" y="394.0" text-anchor="end">Mutual-information budget β (nats, log scale)</text>
+<line class="ref" y1="102" y2="358.0" x1="142.7" x2="142.7"/>
+<text class="annot" x="147.7" y="114" text-anchor="start">≈ ε 0.36</text>
+<line class="ref" y1="102" y2="358.0" x1="316.0" x2="316.0"/>
+<text class="annot" x="321.0" y="114" text-anchor="start">≈ ε 0.73</text>
+<line class="ref" y1="102" y2="358.0" x1="489.3" x2="489.3"/>
+<text class="annot" x="494.3" y="114" text-anchor="start">≈ ε 1.64</text>
+<g class="s1">
+<path class="line" d="M56.0,214.0 L142.7,207.4 L229.3,198.2 L316.0,185.2 L402.7,167.4 L489.3,143.5 L576.0,114.3 L662.7,102.0 L749.3,102.0 L836.0,102.0"/>
+<circle class="dot" cx="56.0" cy="214.0" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/128: 56%"/>
+<circle class="dot" cx="142.7" cy="207.4" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/64: 59%"/>
+<circle class="dot" cx="229.3" cy="198.2" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/32: 62%"/>
+<circle class="dot" cx="316.0" cy="185.2" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/16: 67%"/>
+<circle class="dot" cx="402.7" cy="167.4" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/8: 74%"/>
+<circle class="dot" cx="489.3" cy="143.5" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/4: 84%"/>
+<circle class="dot" cx="576.0" cy="114.3" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1/2: 95%"/>
+<circle class="dot" cx="662.7" cy="102.0" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 1: 100%"/>
+<circle class="dot" cx="749.3" cy="102.0" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 2: 100%"/>
+<circle class="dot" cx="836.0" cy="102.0" r="4" data-tip="<b>Prior 50% (is this record a member?)</b><br>β = 4: 100%"/>
+</g>
+<g class="s2">
+<path class="line" d="M56.0,351.7 L142.7,349.8 L229.3,346.8 L316.0,342.1 L402.7,334.5 L489.3,322.0 L576.0,301.2 L662.7,266.5 L749.3,209.3 L836.0,121.0"/>
+<circle class="dot" cx="56.0" cy="351.7" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/128: 2%"/>
+<circle class="dot" cx="142.7" cy="349.8" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/64: 3%"/>
+<circle class="dot" cx="229.3" cy="346.8" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/32: 4%"/>
+<circle class="dot" cx="316.0" cy="342.1" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/16: 6%"/>
+<circle class="dot" cx="402.7" cy="334.5" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/8: 9%"/>
+<circle class="dot" cx="489.3" cy="322.0" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/4: 14%"/>
+<circle class="dot" cx="576.0" cy="301.2" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1/2: 22%"/>
+<circle class="dot" cx="662.7" cy="266.5" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 1: 36%"/>
+<circle class="dot" cx="749.3" cy="209.3" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 2: 58%"/>
+<circle class="dot" cx="836.0" cy="121.0" r="4" data-tip="<b>Prior 1% (rare attribute)</b><br>β = 4: 93%"/>
+</g>
+<text class="subtitle" x="0" y="424">Source: Sridhar, Xiao &amp; Devadas, IEEE S&amp;P 2025, Table 1; ε equivalents from Table 2</text>
+</svg>

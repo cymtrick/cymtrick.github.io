@@ -1,0 +1,13 @@
+{"name":"poisoning-cleanlabel","type":"column","width":860,"height":420,
+ "title":"Clean-label poisoning of models trained from scratch",
+ "subtitle":"CIFAR-10, 1% poison budget, ε = 8, 100 trials per cell. Success rate of each attack on three architectures.",
+ "source":"Geiping et al., ICLR 2021, Table 3",
+ "x":{"values":["ResNet-18","MobileNet-V2","VGG11"]},
+ "y":{"title":"Attack success rate (%)","min":0,"max":60,"ticks":[0,15,30,45,60],"fmt":"{:.0f}%"},
+ "series":[
+  {"name":"Poison Frogs","cls":"s6","values":[0,1,3]},
+  {"name":"Convex Polytopes","cls":"s5","values":[0,1,1]},
+  {"name":"Hidden Trigger","cls":"s4","values":[0,4,1]},
+  {"name":"Witches' Brew (K=1)","cls":"s2","values":[45,36,8]},
+  {"name":"Witches' Brew (K=6, mixed models)","cls":"s1","values":[49,38,35],"label_values":true}
+ ]}

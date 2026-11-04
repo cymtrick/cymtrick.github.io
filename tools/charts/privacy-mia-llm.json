@@ -1,0 +1,83 @@
+{
+ "name": "privacy-mia-llm",
+ "type": "column",
+ "width": 860,
+ "height": 420,
+ "title": "Membership inference on a 12B language model is close to a coin flip",
+ "subtitle": "AUC of four attacks on Pythia-dedup 12B by Pile domain; the temporal Wikipedia split only looks better because its non-members are newer.",
+ "source": "Duan et al., COLM 2024, Tables 1 and 3",
+ "x": {
+  "values": [
+   "Wikipedia",
+   "ArXiv",
+   "PubMed",
+   "GitHub",
+   "Wikipedia\n(temporal split)"
+  ]
+ },
+ "y": {
+  "title": "AUC",
+  "min": 0.4,
+  "max": 0.85,
+  "ticks": [
+   0.4,
+   0.5,
+   0.6,
+   0.7,
+   0.8
+  ],
+  "fmt": "{:.2f}"
+ },
+ "ref_lines": [
+  {
+   "y": 0.5,
+   "label": "chance"
+  }
+ ],
+ "series": [
+  {
+   "name": "LOSS",
+   "cls": "s6",
+   "values": [
+    0.516,
+    0.527,
+    0.506,
+    0.678,
+    0.68
+   ]
+  },
+  {
+   "name": "Reference model",
+   "cls": "s2",
+   "values": [
+    0.579,
+    0.555,
+    0.559,
+    0.559,
+    0.796
+   ]
+  },
+  {
+   "name": "Min-K% Prob",
+   "cls": "s1",
+   "values": [
+    0.517,
+    0.53,
+    0.512,
+    0.683,
+    0.719
+   ]
+  },
+  {
+   "name": "zlib",
+   "cls": "s4",
+   "values": [
+    0.524,
+    0.521,
+    0.506,
+    0.69,
+    0.607
+   ]
+  }
+ ]
+}

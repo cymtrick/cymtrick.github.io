@@ -1,0 +1,9 @@
+{"name":"evasion-vlm","type":"line","width":860,"height":400,
+ "title":"A vision-language model collapses under tiny image perturbations",
+ "subtitle":"LLaVA-1.5-7B average captioning/VQA score (COCO, Flickr30k, TextVQA, VQAv2) as the L∞ budget on the image grows.",
+ "source":"Schlarmann et al., ICML 2024, Tables 1 and 4",
+ "x":{"title":"Perturbation budget ε (L∞)","values":[0,2,4],"labels":["0 (clean)","2/255","4/255"],"ticks":[0,2,4]},
+ "y":{"title":"Average score","min":0,"max":80,"ticks":[0,20,40,60,80]},
+ "series":[{"name":"Original CLIP encoder","cls":"s1","values":[76.2,2.25,1.0],"label_end":true},
+           {"name":"FARE⁴ robust encoder","cls":"s2","values":[65.0,36.2,26.3],"label_end":true},
+           {"name":"TeCoA⁴ robust encoder","cls":"s3","values":[55.2,33.1,24.0],"label_end":true}]}

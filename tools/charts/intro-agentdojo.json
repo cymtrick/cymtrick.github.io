@@ -1,0 +1,67 @@
+{
+ "name": "intro-agentdojo",
+ "type": "column",
+ "width": 860,
+ "height": 420,
+ "title": "Prompt injection against LLM agents: usefulness and attack success side by side",
+ "subtitle": "AgentDojo, 629 security cases (97 user tasks × 27 injections). Higher utility is better; lower attack success is better.",
+ "source": "Debenedetti et al., NeurIPS 2024, Table 3",
+ "x": {
+  "values": [
+   "GPT-4o",
+   "Claude 3.5 Sonnet",
+   "Claude 3 Opus",
+   "Gemini 1.5 Pro",
+   "Gemini 1.5 Flash"
+  ]
+ },
+ "y": {
+  "title": "Share of tasks (%)",
+  "min": 0,
+  "max": 100,
+  "ticks": [
+   0,
+   25,
+   50,
+   75,
+   100
+  ],
+  "fmt": "{:.1f}%",
+  "tick_fmt": "{:.0f}%"
+ },
+ "series": [
+  {
+   "name": "Utility, no attack",
+   "cls": "s6",
+   "values": [
+    69.0,
+    78.2,
+    66.6,
+    45.6,
+    36.1
+   ]
+  },
+  {
+   "name": "Utility under attack",
+   "cls": "s2",
+   "values": [
+    50.1,
+    51.2,
+    52.5,
+    28.9,
+    34.2
+   ]
+  },
+  {
+   "name": "Targeted attack success",
+   "cls": "s1",
+   "values": [
+    47.7,
+    33.9,
+    11.3,
+    25.6,
+    12.2
+   ]
+  }
+ ]
+}

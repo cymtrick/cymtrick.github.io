@@ -1,0 +1,50 @@
+<svg class="chart" viewBox="0 0 860 440" width="860" height="440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What ε do people actually ship?">
+<text class="title" x="0" y="18">What ε do people actually ship?</text>
+<text class="subtitle" x="0" y="38">Published privacy budgets of deployed or released systems. The unit of privacy, in brackets, is what makes two values comparable</text>
+<text class="subtitle" x="0" y="56">or not.</text>
+<g class="grid">
+<line y1="96" y2="372" x1="312.7" x2="312.7"/>
+<line y1="96" y2="372" x1="420.7" x2="420.7"/>
+<line y1="96" y2="372" x1="528.7" x2="528.7"/>
+<line y1="96" y2="372" x1="636.8" x2="636.8"/>
+<line y1="96" y2="372" x1="744.8" x2="744.8"/>
+</g><g class="axis">
+<text x="312.7" y="390" text-anchor="middle">0</text>
+<text x="420.7" y="390" text-anchor="middle">5</text>
+<text x="528.7" y="390" text-anchor="middle">10</text>
+<text x="636.8" y="390" text-anchor="middle">15</text>
+<text x="744.8" y="390" text-anchor="middle">20</text>
+<text x="302.7" y="117.2" text-anchor="end" style="fill:var(--ink-2)">Chrome RAPPOR [per report, local]</text>
+<text x="302.7" y="151.8" text-anchor="end" style="fill:var(--ink-2)">Apple emoji telemetry [per datum, local]</text>
+<text x="302.7" y="186.2" text-anchor="end" style="fill:var(--ink-2)">Apple new-word telemetry [per datum, local]</text>
+<text x="302.7" y="220.8" text-anchor="end" style="fill:var(--ink-2)">VaultGemma 1B [per 1,024-token sequence]</text>
+<text x="302.7" y="255.2" text-anchor="end" style="fill:var(--ink-2)">De et al. ImageNet [per example]</text>
+<text x="302.7" y="289.8" text-anchor="end" style="fill:var(--ink-2)">Census 2020, April 2021 demo [per person]</text>
+<text x="302.7" y="324.2" text-anchor="end" style="fill:var(--ink-2)">Apple, daily budget [per device-day, local]</text>
+<text x="302.7" y="358.8" text-anchor="end" style="fill:var(--ink-2)">Census 2020, final [per person]</text>
+</g>
+<text class="axis-title" x="788.0" y="408" text-anchor="end">Privacy budget ε</text>
+<line class="ref" y1="96" y2="372" x1="334.3" x2="334.3"/>
+<text class="annot" x="339.3" y="366" text-anchor="start">ε ≤ 1 &quot;strong&quot;</text>
+<line class="ref" y1="96" y2="372" x1="528.7" x2="528.7"/>
+<text class="annot" x="533.7" y="366" text-anchor="start">ε ≤ 10 &quot;typical for deep learning&quot; (Ponomareva et al.)</text>
+<g class="s1">
+<path class="bar" d="M312.7,102.2 H320.2 Q324.2,102.2 324.2,106.2 V120.2 Q324.2,124.2 320.2,124.2 H312.7 Z" data-tip="<b>ε</b><br>Chrome RAPPOR [per report, local]: 0.53"/>
+<text class="label" x="330.2" y="117.2">0.53</text>
+<path class="bar" d="M312.7,136.8 H330.3 Q334.3,136.8 334.3,140.8 V154.8 Q334.3,158.8 330.3,158.8 H312.7 Z" data-tip="<b>ε</b><br>Apple emoji telemetry [per datum, local]: 1"/>
+<text class="label" x="340.3" y="151.8">1</text>
+<path class="bar" d="M312.7,171.2 H351.9 Q355.9,171.2 355.9,175.2 V189.2 Q355.9,193.2 351.9,193.2 H312.7 Z" data-tip="<b>ε</b><br>Apple new-word telemetry [per datum, local]: 2"/>
+<text class="label" x="361.9" y="186.2">2</text>
+<path class="bar" d="M312.7,205.8 H351.9 Q355.9,205.8 355.9,209.8 V223.8 Q355.9,227.8 351.9,227.8 H312.7 Z" data-tip="<b>ε</b><br>VaultGemma 1B [per 1,024-token sequence]: 2"/>
+<text class="label" x="361.9" y="220.8">2</text>
+<path class="bar" d="M312.7,240.2 H481.5 Q485.5,240.2 485.5,244.2 V258.2 Q485.5,262.2 481.5,262.2 H312.7 Z" data-tip="<b>ε</b><br>De et al. ImageNet [per example]: 8"/>
+<text class="label" x="491.5" y="255.2">8</text>
+<path class="bar" d="M312.7,274.8 H572.3 Q576.3,274.8 576.3,278.8 V292.8 Q576.3,296.8 572.3,296.8 H312.7 Z" data-tip="<b>ε</b><br>Census 2020, April 2021 demo [per person]: 12.2"/>
+<text class="label" x="582.3" y="289.8">12.2</text>
+<path class="bar" d="M312.7,309.2 H654.4 Q658.4,309.2 658.4,313.2 V327.2 Q658.4,331.2 654.4,331.2 H312.7 Z" data-tip="<b>ε</b><br>Apple, daily budget [per device-day, local]: 16"/>
+<text class="label" x="664.4" y="324.2">16</text>
+<path class="bar" d="M312.7,343.8 H732.4 Q736.4,343.8 736.4,347.8 V361.8 Q736.4,365.8 732.4,365.8 H312.7 Z" data-tip="<b>ε</b><br>Census 2020, final [per person]: 19.61"/>
+<text class="label" x="742.4" y="358.8">19.61</text>
+</g>
+<text class="subtitle" x="0" y="434">Source: Erlingsson et al. 2014; Tang et al. 2017; Sinha et al. 2025; De et al. 2022; US Census Bureau 2021 and Abowd et al. 2022</text>
+</svg>

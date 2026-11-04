@@ -1,0 +1,42 @@
+{
+ "name": "intro-incidents",
+ "type": "column",
+ "width": 860,
+ "height": 380,
+ "title": "Reported AI incidents per year",
+ "subtitle": "Incidents logged in the AI Incident Database, as reported by the Stanford AI Index. Counts measure reporting, and earlier years are revised upward over time.",
+ "source": "Stanford HAI AI Index 2024, 2025 and 2026, Chapter 3; 2022 value via a June 2023 pull of the database",
+ "x": {
+  "values": [
+   "2022",
+   "2023",
+   "2024",
+   "2025"
+  ]
+ },
+ "y": {
+  "title": "Incidents",
+  "min": 0,
+  "max": 400,
+  "ticks": [
+   0,
+   100,
+   200,
+   300,
+   400
+  ]
+ },
+ "label_values": true,
+ "series": [
+  {
+   "name": "Incidents",
+   "cls": "s1",
+   "values": [
+    91,
+    123,
+    233,
+    362
+   ]
+  }
+ ]
+}

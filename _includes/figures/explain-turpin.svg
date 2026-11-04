@@ -1,0 +1,46 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The chain of thought never mentions the bias">
+<text class="title" x="0" y="18">The chain of thought never mentions the bias</text>
+<text class="subtitle" x="0" y="38">Drop in accuracy (percentage points) when a biasing feature is added to the prompt, BIG-Bench Hard, 13 tasks, CoT prompting.</text>
+<g class="legend s1"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">GPT-3.5</text></g>
+<g class="legend s2"><rect class="swatch" x="92.30000000000001" y="55" width="12" height="12" rx="2"/><text x="110.30000000000001" y="66">Claude 1.0</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="278.0" y2="278.0"/>
+<line x1="56" x2="836" y1="224.0" y2="224.0"/>
+<line x1="56" x2="836" y1="170.0" y2="170.0"/>
+<line x1="56" x2="836" y1="116.0" y2="116.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0</text>
+<text x="48" y="282.0" text-anchor="end">10</text>
+<text x="48" y="228.0" text-anchor="end">20</text>
+<text x="48" y="174.0" text-anchor="end">30</text>
+<text x="48" y="120.0" text-anchor="end">40</text>
+</g>
+<text class="axis-title" x="56" y="108" text-anchor="start">Accuracy drop (points)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="186.0" y="350.0" text-anchor="middle">Suggested answer</text>
+<text x="186.0" y="364.0" text-anchor="middle">(zero-shot)</text>
+<text x="446.0" y="350.0" text-anchor="middle">Suggested answer</text>
+<text x="446.0" y="364.0" text-anchor="middle">(few-shot)</text>
+<text x="706.0" y="350.0" text-anchor="middle">Answer is always A</text>
+<text x="706.0" y="364.0" text-anchor="middle">(few-shot)</text>
+</g>
+<g class="s1">
+<path class="bar" d="M161.0,332.0 V140.0 Q161.0,136.0 165.0,136.0 H181.0 Q185.0,136.0 185.0,140.0 V332.0 Z" data-tip="<b>GPT-3.5</b><br>Suggested answer (zero-shot): 36.3"/>
+<text class="label" x="173.0" y="130.0" text-anchor="middle">36.3</text>
+<path class="bar" d="M421.0,332.0 V205.9 Q421.0,201.9 425.0,201.9 H441.0 Q445.0,201.9 445.0,205.9 V332.0 Z" data-tip="<b>GPT-3.5</b><br>Suggested answer (few-shot): 24.1"/>
+<text class="label" x="433.0" y="195.9" text-anchor="middle">24.1</text>
+<path class="bar" d="M681.0,332.0 V235.0 Q681.0,231.0 685.0,231.0 H701.0 Q705.0,231.0 705.0,235.0 V332.0 Z" data-tip="<b>GPT-3.5</b><br>Answer is always A (few-shot): 18.7"/>
+<text class="label" x="693.0" y="225.0" text-anchor="middle">18.7</text>
+</g>
+<g class="s2">
+<path class="bar" d="M187.0,332.0 V170.8 Q187.0,166.8 191.0,166.8 H207.0 Q211.0,166.8 211.0,170.8 V332.0 Z" data-tip="<b>Claude 1.0</b><br>Suggested answer (zero-shot): 30.6"/>
+<text class="label" x="199.0" y="160.8" text-anchor="middle">30.6</text>
+<path class="bar" d="M447.0,332.0 V219.9 Q447.0,215.9 451.0,215.9 H467.0 Q471.0,215.9 471.0,219.9 V332.0 Z" data-tip="<b>Claude 1.0</b><br>Suggested answer (few-shot): 21.5"/>
+<text class="label" x="459.0" y="209.9" text-anchor="middle">21.5</text>
+<path class="bar" d="M707.0,332.0 V310.6 Q707.0,306.6 711.0,306.6 H727.0 Q731.0,306.6 731.0,310.6 V332.0 Z" data-tip="<b>Claude 1.0</b><br>Answer is always A (few-shot): 4.7"/>
+<text class="label" x="719.0" y="300.6" text-anchor="middle">4.7</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Turpin, Michael, Perez &amp; Bowman, NeurIPS 2023, Section 3</text>
+</svg>
