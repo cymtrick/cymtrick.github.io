@@ -1,0 +1,38 @@
+<svg class="diagram" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A two-by-two grid of explanation methods by plausibility to humans and faithfulness to the model's computation.">
+  <defs>
+    <marker id="qa" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <!-- axes -->
+  <g style="color:var(--ink-2)">
+    <line class="arrow" x1="120" y1="360" x2="820" y2="360" marker-end="url(#qa)"/>
+    <line class="arrow" x1="120" y1="360" x2="120" y2="30" marker-end="url(#qa)"/>
+  </g>
+  <text class="small muted" x="820" y="385" text-anchor="end">convincing to a person (plausibility)</text>
+  <text class="small muted" x="112" y="30" text-anchor="end" transform="rotate(-90 112 30)" style="display:none"></text>
+  <text class="small muted" x="30" y="195" transform="rotate(-90 30 195)" text-anchor="middle">reflects the model's computation (faithfulness)</text>
+  <!-- quadrants -->
+  <rect class="box" x="140" y="45" width="320" height="140" rx="6"/>
+  <rect class="box-accent" x="480" y="45" width="320" height="140" rx="6"/>
+  <rect class="box" x="140" y="205" width="320" height="140" rx="6"/>
+  <rect class="box" x="480" y="205" width="320" height="140" rx="6"/>
+  <!-- top-left: faithful, not plausible -->
+  <text x="156" y="70" style="font-weight:600">Faithful but unreadable</text>
+  <text class="small muted" x="156" y="92">raw input gradients</text>
+  <text class="small muted" x="156" y="110">34M-feature attribution graphs</text>
+  <text class="small muted" x="156" y="128">weight-level circuit descriptions</text>
+  <!-- top-right: both -->
+  <text x="496" y="70" style="font-weight:600">The goal</text>
+  <text class="small muted" x="496" y="92">sparse linear models, scoring systems</text>
+  <text class="small muted" x="496" y="110">small rule lists, GAMs</text>
+  <text class="small muted" x="496" y="128">(Rudin: use these when you can)</text>
+  <!-- bottom-left: neither -->
+  <text x="156" y="230" style="font-weight:600">Neither</text>
+  <text class="small muted" x="156" y="252">noisy saliency on a random model</text>
+  <!-- bottom-right: plausible, not faithful -->
+  <text x="496" y="230" style="font-weight:600">The trap</text>
+  <text class="small muted" x="496" y="252">Guided Backprop maps (≈ edge detectors)</text>
+  <text class="small muted" x="496" y="270">post-hoc chains of thought</text>
+  <text class="small muted" x="496" y="288">scaffolded SHAP / LIME</text>
+  <!-- tests arrow -->
+  <text class="small" x="140" y="405" style="fill:var(--ink-2)">What moves a method up: randomise the model, perturb the explanation, beat a trivial baseline.</text>
+</svg>

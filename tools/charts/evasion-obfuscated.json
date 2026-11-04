@@ -1,0 +1,8 @@
+{"name":"evasion-obfuscated","type":"bar","width":860,"height":430,
+ "title":"Seven of nine ICLR 2018 defenses relied on obfuscated gradients",
+ "subtitle":"Robust accuracy each defense claimed, and what remained after an adaptive attack (BPDA / EOT). Only the two adversarial-training entries survived.",
+ "source":"Athalye, Carlini & Wagner, ICML 2018, Table 1. Blank = the paper reports only the post-attack value.",
+ "x":{"values":["Thermometer encoding","Input transformations","PixelDefend","LID detection","Stochastic activation pruning","Randomization","Defense-GAN","Cascade adv. training (not broken)","Madry adv. training (not broken)"]},
+ "y":{"title":"Robust accuracy (%)","min":0,"max":100,"ticks":[0,20,40,60,80,100],"fmt":"{:.0f}%"},
+ "series":[{"name":"Claimed","cls":"s6","values":[80,60,46,null,null,null,null,16,47]},
+           {"name":"After adaptive attack","cls":"s1","values":[0,0,9,5,0,0,55,15,47]}]}

@@ -1,0 +1,11 @@
+{"name":"dp-imagenet","type":"line","width":860,"height":400,
+ "title":"Pretraining buys privacy: ImageNet top-1 accuracy against ε",
+ "subtitle":"An NFNet-F3 pretrained on JFT-4B and fine-tuned with DP-SGD on ImageNet (δ = 8·10⁻⁷), against the same recipe trained from scratch.",
+ "source":"De et al. 2022, Table 3 and §4",
+ "x":{"title":"Privacy budget ε (log scale)","log":true,"values":[0.1,0.5,1,2,4,8],"ticks":[0.1,0.5,1,2,4,8],"min":0.08,"max":10},
+ "y":{"title":"Top-1 accuracy (%)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.1f}%"},
+ "ref_lines":[{"y":88.5,"label":"non-private fine-tuning, 88.5%"}],
+ "series":[
+  {"name":"Fine-tuned from JFT-4B pretraining","cls":"s1","values":[77.6,83.8,84.4,85.6,86.0,86.7],"label_end":true},
+  {"name":"Trained from scratch (NF-ResNet-50)","cls":"s6","x":[8],"values":[32.4],"label_end":true}
+ ]}

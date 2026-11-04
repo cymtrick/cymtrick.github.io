@@ -1,24 +1,64 @@
 ---
 layout: default
 ---
-<article class="post-container">
+<article class="post">
   <header class="post-header">
-    <div class="post-header-label">{{ page.category | default: "Secure ML" }}</div>
-    <h1 class="post-title-large">{{ page.title }}</h1>
-    <div class="post-meta">
-      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-      <span class="post-meta-dot">·</span>
-      <span>{{ page.read_time | default: "8 min read" }}</span>
-      {% if page.tags %}
-      <span class="post-meta-dot">·</span>
-      <span>
-        {% for tag in page.tags %}<span class="tag">{{ tag }}</span> {% endfor %}
-      </span>
-      {% endif %}
+    <div class="post-header-inner">
+      <div class="post-kicker">
+        <a class="kicker-category" href="{{ '/series/' | relative_url }}">{{ page.category }}</a>
+        {% if page.series_index %}<span class="kicker-sep" aria-hidden="true"></span><span class="kicker-series">Part {{ page.series_index }} of {{ site.posts | size }}</span>{% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.dek %}<p class="post-dek">{{ page.dek }}</p>{% endif %}
+      <div class="post-byline">
+        <span class="byline-author">{{ page.author | default: site.author }}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span>{{ page.read_time | default: "12 min read" }}</span>
+        {% if page.updated %}<span>Updated {{ page.updated | date: "%B %-d, %Y" }}</span>{% endif %}
+      </div>
     </div>
   </header>
 
-  <div class="post-content">
-    {{ content }}
+  {% if page.lead_figure %}
+  <div class="post-lead">
+    {% include fig.html name=page.lead_figure caption=page.lead_caption lead=true %}
   </div>
+  {% endif %}
+
+  <div class="post-body-wrap">
+    <aside class="post-toc" aria-label="On this page">
+      <div class="toc-title">On this page</div>
+      <ol class="toc-list" data-toc></ol>
+    </aside>
+    <div class="post-body">
+      {{ content }}
+    </div>
+  </div>
+
+  <nav class="post-nav" aria-label="Series navigation">
+    {% assign posts_sorted = site.posts | sort: "date" %}
+    {% for p in posts_sorted %}
+      {% if p.url == page.url %}
+        {% assign idx = forloop.index0 %}
+        {% assign prev_idx = idx | minus: 1 %}
+        {% assign next_idx = idx | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if idx > 0 %}{% assign prev = posts_sorted[prev_idx] %}{% endif %}
+    {% assign next = posts_sorted[next_idx] %}
+    <div class="post-nav-inner">
+      {% if prev %}
+      <a class="post-nav-link prev" href="{{ prev.url | relative_url }}">
+        <span class="post-nav-label">Previous in the series</span>
+        <span class="post-nav-title">{{ prev.title }}</span>
+      </a>
+      {% else %}<span></span>{% endif %}
+      {% if next %}
+      <a class="post-nav-link next" href="{{ next.url | relative_url }}">
+        <span class="post-nav-label">Next in the series</span>
+        <span class="post-nav-title">{{ next.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
 </article>

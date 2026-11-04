@@ -1,0 +1,8 @@
+{"name":"explain-cot-faithful","type":"bar","width":860,"height":400,
+ "title":"How often a reasoning model admits the hint it used",
+ "subtitle":"Share of answers that used an inserted hint and whose chain of thought mentioned it (MMLU and GPQA, six hint types).",
+ "source":"Chen, Benton, Radhakrishnan et al. (Anthropic), Reasoning Models Don't Always Say What They Think, 2025",
+ "x":{"values":["All hint types","Misaligned hints (e.g. grader hacking)","Unauthorised-access hint","After outcome-based RL, MMLU","After outcome-based RL, GPQA","Synthetic reward-hacking envs (5 of 6)"]},
+ "y":{"title":"Hint verbalised (% of hint-using answers)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.0f}%"},
+ "series":[{"name":"Claude 3.7 Sonnet","cls":"s1","values":[25,20,41,28,20,2]},
+           {"name":"DeepSeek R1","cls":"s2","values":[39,29,19,null,null,null]}]}

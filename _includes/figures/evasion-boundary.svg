@@ -1,0 +1,40 @@
+<svg class="diagram" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: a small perturbation crosses a decision boundary in input space. Right: why the logit shift grows with dimension under the linearity hypothesis.">
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <!-- Left panel: input space -->
+  <text x="0" y="18" style="font-weight:600">In input space: a step of size ε</text>
+  <g transform="translate(0,34)">
+    <rect class="region-a" x="0" y="0" width="200" height="240" rx="4"/>
+    <rect class="region-b" x="200" y="0" width="200" height="240" rx="4"/>
+    <path class="boundary" d="M200,0 C 215,60 185,120 205,180 C 212,210 200,230 200,240"/>
+    <text class="small muted" x="16" y="22">predicted “panda”</text>
+    <text class="small muted" x="300" y="22" text-anchor="middle">predicted “gibbon”</text>
+    <!-- data cloud -->
+    <g fill="var(--s2)" opacity="0.25">
+      <circle cx="60" cy="110" r="5"/><circle cx="90" cy="150" r="5"/><circle cx="45" cy="170" r="5"/><circle cx="120" cy="90" r="5"/><circle cx="80" cy="70" r="5"/><circle cx="135" cy="160" r="5"/>
+    </g>
+    <circle class="pt" cx="150" cy="120" r="7"/>
+    <text class="mono" x="150" y="150" text-anchor="middle">x</text>
+    <line class="arrow-accent" x1="158" y1="120" x2="222" y2="120" marker-end="url(#ah)" style="color:var(--accent)"/>
+    <text class="mono small" x="188" y="108" text-anchor="middle" style="fill:var(--accent)">+ ε·sign(∇ₓL)</text>
+    <circle class="pt-adv" cx="232" cy="120" r="7"/>
+    <text class="mono" x="236" y="150" text-anchor="middle">x + η</text>
+    <text class="small muted" x="0" y="265">‖η‖∞ = ε = 0.007 for the GoogLeNet panda</text>
+  </g>
+  <!-- Right panel: linearity -->
+  <text x="460" y="18" style="font-weight:600">In logit space: the same step, summed over m dimensions</text>
+  <g transform="translate(460,34)">
+    <line class="arrow" x1="0" y1="200" x2="380" y2="200" marker-end="url(#ah)" style="color:var(--ink-2)"/>
+    <line class="arrow" x1="0" y1="200" x2="0" y2="10" marker-end="url(#ah)" style="color:var(--ink-2)"/>
+    <text class="small muted" x="380" y="222" text-anchor="end">input dimension m</text>
+    <text class="small muted" x="8" y="12">logit shift w·η</text>
+    <!-- linear growth -->
+    <path d="M0,200 L360,40" stroke="var(--s1)" stroke-width="2" fill="none"/>
+    <text class="small" x="250" y="90" style="fill:var(--ink)">ε · m · avg|wᵢ|</text>
+    <!-- random noise reference -->
+    <path d="M0,200 C 60,170 120,160 360,150" stroke="var(--s6)" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+    <text class="small muted" x="230" y="140">random noise: ~ ε·√m</text>
+    <text class="small muted" x="0" y="248">η = ε·sign(w) is tiny per pixel, large in total</text>
+  </g>
+</svg>

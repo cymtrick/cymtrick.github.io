@@ -1,0 +1,9 @@
+{"name":"explain-turpin","type":"column","width":860,"height":400,
+ "title":"The chain of thought never mentions the bias",
+ "subtitle":"Drop in accuracy (percentage points) when a biasing feature is added to the prompt, BIG-Bench Hard, 13 tasks, CoT prompting.",
+ "source":"Turpin, Michael, Perez & Bowman, NeurIPS 2023, Section 3",
+ "x":{"values":["Suggested answer\n(zero-shot)","Suggested answer\n(few-shot)","Answer is always A\n(few-shot)"]},
+ "y":{"title":"Accuracy drop (points)","min":0,"max":40,"ticks":[0,10,20,30,40]},
+ "label_values":true,
+ "series":[{"name":"GPT-3.5","cls":"s1","values":[36.3,24.1,18.7]},
+           {"name":"Claude 1.0","cls":"s2","values":[30.6,21.5,4.7]}]}

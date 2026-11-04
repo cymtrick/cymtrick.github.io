@@ -1,0 +1,36 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Best-of-N: attack success grows as a power law in the number of samples">
+<text class="title" x="0" y="18">Best-of-N: attack success grows as a power law in the number of samples</text>
+<text class="subtitle" x="0" y="38">Claude 3.5 Sonnet, text modality. Each sample is the same harmful request under a random augmentation; the attack succeeds if any</text>
+<text class="subtitle" x="0" y="56">of N samples does.</text>
+<g class="grid">
+<line x1="56" x2="796" y1="328.0" y2="328.0"/>
+<line x1="56" x2="796" y1="270.0" y2="270.0"/>
+<line x1="56" x2="796" y1="212.0" y2="212.0"/>
+<line x1="56" x2="796" y1="154.0" y2="154.0"/>
+<line x1="56" x2="796" y1="96.0" y2="96.0"/>
+</g><g class="axis">
+<text x="48" y="332.0" text-anchor="end">0.0%</text>
+<text x="48" y="274.0" text-anchor="end">25.0%</text>
+<text x="48" y="216.0" text-anchor="end">50.0%</text>
+<text x="48" y="158.0" text-anchor="end">75.0%</text>
+<text x="48" y="100.0" text-anchor="end">100.0%</text>
+</g>
+<text class="axis-title" x="56" y="88" text-anchor="start">Attack success rate (%)</text>
+<g class="axis">
+<line x1="56" x2="796" y1="328.0" y2="328.0"/>
+<text x="56.0" y="346.0" text-anchor="middle">1</text>
+<text x="426.0" y="346.0" text-anchor="middle">100</text>
+<text x="555.3" y="346.0" text-anchor="middle">500</text>
+<text x="796.0" y="346.0" text-anchor="middle">10,000</text>
+</g>
+<text class="axis-title" x="796" y="364.0" text-anchor="end">Number of sampled augmentations N (log scale)</text>
+<g class="s1">
+<path class="line" d="M56.0,326.6 L426.0,232.9 L555.3,170.2 L796.0,147.0"/>
+<circle class="dot" cx="56.0" cy="326.6" r="4" data-tip="<b>Claude 3.5 Sonnet</b><br>1: 0.6%"/>
+<circle class="dot" cx="426.0" cy="232.9" r="4" data-tip="<b>Claude 3.5 Sonnet</b><br>100: 41.0%"/>
+<circle class="dot" cx="555.3" cy="170.2" r="4" data-tip="<b>Claude 3.5 Sonnet</b><br>500: 68.0%"/>
+<circle class="dot" cx="796.0" cy="147.0" r="4" data-tip="<b>Claude 3.5 Sonnet</b><br>10,000: 78.0%"/>
+</g>
+<text class="label" x="804.0" y="151.0">78.0%</text>
+<text class="subtitle" x="0" y="394">Source: Hughes et al. 2024, Best-of-N Jailbreaking</text>
+</svg>

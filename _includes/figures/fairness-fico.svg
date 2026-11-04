@@ -1,0 +1,37 @@
+<svg class="chart" viewBox="0 0 860 360" width="860" height="360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Every fairness constraint has a price, and the prices differ by a factor of 40">
+<text class="title" x="0" y="18">Every fairness constraint has a price, and the prices differ by a factor of 40</text>
+<text class="subtitle" x="0" y="38">Lending on 301,536 TransUnion credit scores (2003), four racial groups, default = 90+ days late. Profit under each decision rule</text>
+<text class="subtitle" x="0" y="56">as a fraction of the unconstrained maximum.</text>
+<g class="grid">
+<line y1="96" y2="292" x1="305.8" x2="305.8"/>
+<line y1="96" y2="292" x1="426.4" x2="426.4"/>
+<line y1="96" y2="292" x1="546.9" x2="546.9"/>
+<line y1="96" y2="292" x1="667.5" x2="667.5"/>
+<line y1="96" y2="292" x1="788.0" x2="788.0"/>
+</g><g class="axis">
+<text x="305.8" y="310" text-anchor="middle">0.0%</text>
+<text x="426.4" y="310" text-anchor="middle">25.0%</text>
+<text x="546.9" y="310" text-anchor="middle">50.0%</text>
+<text x="667.5" y="310" text-anchor="middle">75.0%</text>
+<text x="788.0" y="310" text-anchor="middle">100.0%</text>
+<text x="295.8" y="119.6" text-anchor="end" style="fill:var(--ink-2)">Maximum profit (group-specific thresholds)</text>
+<text x="295.8" y="158.8" text-anchor="end" style="fill:var(--ink-2)">Single race-blind threshold</text>
+<text x="295.8" y="198.0" text-anchor="end" style="fill:var(--ink-2)">Equal opportunity</text>
+<text x="295.8" y="237.2" text-anchor="end" style="fill:var(--ink-2)">Equalized odds</text>
+<text x="295.8" y="276.4" text-anchor="end" style="fill:var(--ink-2)">Demographic parity</text>
+</g>
+<text class="axis-title" x="788.0" y="328" text-anchor="end">Fraction of maximum profit (%)</text>
+<g class="s2">
+<path class="bar" d="M305.8,104.6 H784.0 Q788.0,104.6 788.0,108.6 V122.6 Q788.0,126.6 784.0,126.6 H305.8 Z" data-tip="<b>Profit</b><br>Maximum profit (group-specific thresholds): 100.0%"/>
+<text class="label" x="794.0" y="119.6">100.0%</text>
+<path class="bar" d="M305.8,143.8 H780.6 Q784.6,143.8 784.6,147.8 V161.8 Q784.6,165.8 780.6,165.8 H305.8 Z" data-tip="<b>Profit</b><br>Single race-blind threshold: 99.3%"/>
+<text class="label" x="790.6" y="158.8">99.3%</text>
+<path class="bar" d="M305.8,183.0 H749.3 Q753.3,183.0 753.3,187.0 V201.0 Q753.3,205.0 749.3,205.0 H305.8 Z" data-tip="<b>Profit</b><br>Equal opportunity: 92.8%"/>
+<text class="label" x="759.3" y="198.0">92.8%</text>
+<path class="bar" d="M305.8,222.2 H688.5 Q692.5,222.2 692.5,226.2 V240.2 Q692.5,244.2 688.5,244.2 H305.8 Z" data-tip="<b>Profit</b><br>Equalized odds: 80.2%"/>
+<text class="label" x="698.5" y="237.2">80.2%</text>
+<path class="bar" d="M305.8,261.4 H638.4 Q642.4,261.4 642.4,265.4 V279.4 Q642.4,283.4 638.4,283.4 H305.8 Z" data-tip="<b>Profit</b><br>Demographic parity: 69.8%"/>
+<text class="label" x="648.4" y="276.4">69.8%</text>
+</g>
+<text class="subtitle" x="0" y="354">Source: Hardt, Price &amp; Srebro, NeurIPS 2016, FICO case study</text>
+</svg>

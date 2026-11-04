@@ -1,0 +1,9 @@
+{"name":"pac-noise","type":"column","width":860,"height":380,
+ "title":"Noise needed for the same leakage bound: measured versus worst case",
+ "subtitle":"Expected noise magnitude E‖B‖ to release the mean of a random half of CIFAR-10 (d = 3,072) with at most 1 nat of mutual information per individual.",
+ "source":"Xiao & Devadas, CRYPTO 2023, Section 6, Example 3",
+ "x":{"values":["PAC Privacy, anisotropic\n(Algorithm 1, covariance)","PAC Privacy, isotropic\n(Algorithm 2, distances)","Worst-case sensitivity\n(zCDP, Gaussian mechanism)"]},
+ "y":{"title":"Expected noise norm E‖B‖","min":0,"max":20,"ticks":[0,5,10,15,20],"fmt":"{:.2f}"},
+ "label_values":true,
+ "series":[{"name":"E‖B‖","cls":"s1","values":[0.28,3.94,17.7]}],
+ "annotations":[{"x":2,"y":17.7,"text":"63× the anisotropic PAC noise","dx":0,"dy":-22}]}

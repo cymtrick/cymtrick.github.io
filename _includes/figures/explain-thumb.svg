@@ -1,0 +1,15 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A model with a heatmap explanation beside it, and a question mark">
+  <rect class="box-ink" x="30" y="40" width="110" height="100" rx="8"/>
+  <text class="on-ink mono small" x="85" y="95" text-anchor="middle" style="fill:#fff">f(x)</text>
+  <line x1="150" y1="90" x2="200" y2="90" stroke="var(--ink-2)" stroke-width="1.5"/>
+  <path d="M194,85 L202,90 L194,95 z" fill="var(--ink-2)"/>
+  <!-- heatmap grid -->
+  <g>
+    <rect x="215" y="45" width="22" height="22" fill="#f6e7e1"/><rect x="239" y="45" width="22" height="22" fill="#e9b7a6"/><rect x="263" y="45" width="22" height="22" fill="#f6e7e1"/><rect x="287" y="45" width="22" height="22" fill="#f6e7e1"/>
+    <rect x="215" y="69" width="22" height="22" fill="#e9b7a6"/><rect x="239" y="69" width="22" height="22" fill="var(--s1)"/><rect x="263" y="69" width="22" height="22" fill="#d98c74"/><rect x="287" y="69" width="22" height="22" fill="#f6e7e1"/>
+    <rect x="215" y="93" width="22" height="22" fill="#f6e7e1"/><rect x="239" y="93" width="22" height="22" fill="#d98c74"/><rect x="263" y="93" width="22" height="22" fill="#e9b7a6"/><rect x="287" y="93" width="22" height="22" fill="#f6e7e1"/>
+    <rect x="215" y="117" width="22" height="22" fill="#f6e7e1"/><rect x="239" y="117" width="22" height="22" fill="#f6e7e1"/><rect x="263" y="117" width="22" height="22" fill="#f6e7e1"/><rect x="287" y="117" width="22" height="22" fill="#e9b7a6"/>
+  </g>
+  <text x="350" y="100" text-anchor="middle" style="font-size:40px;fill:var(--ink-3)">?</text>
+  <text class="small muted" x="262" y="160" text-anchor="middle">explanation</text>
+</svg>

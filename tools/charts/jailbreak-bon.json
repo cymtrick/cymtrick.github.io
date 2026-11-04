@@ -1,0 +1,7 @@
+{"name":"jailbreak-bon","type":"line","width":860,"height":400,
+ "title":"Best-of-N: attack success grows as a power law in the number of samples",
+ "subtitle":"Claude 3.5 Sonnet, text modality. Each sample is the same harmful request under a random augmentation; the attack succeeds if any of N samples does.",
+ "source":"Hughes et al. 2024, Best-of-N Jailbreaking",
+ "x":{"title":"Number of sampled augmentations N (log scale)","log":true,"values":[1,100,500,10000],"ticks":[1,100,500,10000],"labels":["1","100","500","10,000"],"fmt":"{:,.0f}"},
+ "y":{"title":"Attack success rate (%)","min":0,"max":100,"ticks":[0,25,50,75,100],"fmt":"{:.1f}%"},
+ "series":[{"name":"Claude 3.5 Sonnet","cls":"s1","values":[0.6,41,68,78],"label_end":true}]}

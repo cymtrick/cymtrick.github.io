@@ -1,0 +1,65 @@
+{
+ "name": "dp-audit",
+ "type": "column",
+ "width": 860,
+ "height": 420,
+ "title": "Claimed ε against the ε an auditor can actually demonstrate",
+ "subtitle": "Empirical lower bounds on the privacy loss of DP-SGD. The gap closes almost entirely when the auditor sees every gradient step.",
+ "source": "Jagielski, Ullman & Oprea 2020, Tables 2–3 (Fashion-MNIST, 500 trials); Nasr et al. 2023, Tables 1–3 (CIFAR-10, ε = 8, δ = 10⁻⁵)",
+ "x": {
+  "values": [
+   "F-MNIST\nε = 1",
+   "F-MNIST\nε = 2",
+   "F-MNIST\nε = 4",
+   "F-MNIST\nε = 8",
+   "F-MNIST\nε = 16",
+   "CIFAR-10\nblack-box",
+   "CIFAR-10\nwhite-box\n(ε,δ)",
+   "CIFAR-10\nwhite-box\nf-DP"
+  ]
+ },
+ "y": {
+  "title": "ε",
+  "min": 0,
+  "max": 18,
+  "ticks": [
+   0,
+   4,
+   8,
+   12,
+   16
+  ],
+  "fmt": "{:g}"
+ },
+ "label_values": true,
+ "series": [
+  {
+   "name": "Claimed (theoretical) ε",
+   "cls": "s6",
+   "values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    8,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "Audited lower bound",
+   "cls": "s1",
+   "values": [
+    0.15,
+    0.37,
+    0.89,
+    1.9,
+    2.43,
+    1.6,
+    3.63,
+    7.09
+   ]
+  }
+ ]
+}

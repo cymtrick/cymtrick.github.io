@@ -1,0 +1,8 @@
+{"name":"dp-deployed","type":"bar","width":860,"height":440,
+ "title":"What ε do people actually ship?",
+ "subtitle":"Published privacy budgets of deployed or released systems. The unit of privacy, in brackets, is what makes two values comparable or not.",
+ "source":"Erlingsson et al. 2014; Tang et al. 2017; Sinha et al. 2025; De et al. 2022; US Census Bureau 2021 and Abowd et al. 2022",
+ "x":{"values":["Chrome RAPPOR [per report, local]","Apple emoji telemetry [per datum, local]","Apple new-word telemetry [per datum, local]","VaultGemma 1B [per 1,024-token sequence]","De et al. ImageNet [per example]","Census 2020, April 2021 demo [per person]","Apple, daily budget [per device-day, local]","Census 2020, final [per person]"]},
+ "y":{"title":"Privacy budget ε","min":0,"max":22,"ticks":[0,5,10,15,20],"fmt":"{:g}"},
+ "ref_lines":[{"y":1,"label":"ε ≤ 1 \"strong\""},{"y":10,"label":"ε ≤ 10 \"typical for deep learning\" (Ponomareva et al.)"}],
+ "series":[{"name":"ε","cls":"s1","values":[0.53,1,2,2.0,8,12.2,16,19.61]}]}

@@ -1,0 +1,12 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two objectives pulling a model in opposite directions">
+  <rect class="box" x="140" y="62" width="120" height="56" rx="6"/>
+  <text x="200" y="86" text-anchor="middle" style="font-weight:600">aligned model</text>
+  <text class="small muted" x="200" y="104" text-anchor="middle">helpful · harmless</text>
+  <line x1="30" y1="90" x2="134" y2="90" stroke="var(--s2)" stroke-width="2"/>
+  <path d="M128,85 L136,90 L128,95 z" fill="var(--s2)"/>
+  <text class="small" x="30" y="76">follow the instruction</text>
+  <line x1="370" y1="90" x2="266" y2="90" stroke="var(--accent)" stroke-width="2"/>
+  <path d="M272,85 L264,90 L272,95 z" fill="var(--accent)"/>
+  <text class="small" x="370" y="76" text-anchor="end">refuse the request</text>
+  <text class="small muted" x="200" y="150" text-anchor="middle">a jailbreak makes the first objective win</text>
+</svg>

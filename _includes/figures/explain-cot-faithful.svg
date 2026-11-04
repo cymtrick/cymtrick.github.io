@@ -1,0 +1,49 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="How often a reasoning model admits the hint it used">
+<text class="title" x="0" y="18">How often a reasoning model admits the hint it used</text>
+<text class="subtitle" x="0" y="38">Share of answers that used an inserted hint and whose chain of thought mentioned it (MMLU and GPQA, six hint types).</text>
+<g class="legend s1"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Claude 3.7 Sonnet</text></g>
+<g class="legend s2"><rect class="swatch" x="161.3" y="55" width="12" height="12" rx="2"/><text x="179.3" y="66">DeepSeek R1</text></g>
+<g class="grid">
+<line y1="102" y2="332" x1="278.2" x2="278.2"/>
+<line y1="102" y2="332" x1="405.6" x2="405.6"/>
+<line y1="102" y2="332" x1="533.1" x2="533.1"/>
+<line y1="102" y2="332" x1="660.5" x2="660.5"/>
+<line y1="102" y2="332" x1="788.0" x2="788.0"/>
+</g><g class="axis">
+<text x="278.2" y="350" text-anchor="middle">0%</text>
+<text x="405.6" y="350" text-anchor="middle">25%</text>
+<text x="533.1" y="350" text-anchor="middle">50%</text>
+<text x="660.5" y="350" text-anchor="middle">75%</text>
+<text x="788.0" y="350" text-anchor="middle">100%</text>
+<text x="268.2" y="125.2" text-anchor="end" style="fill:var(--ink-2)">All hint types</text>
+<text x="268.2" y="163.5" text-anchor="end" style="fill:var(--ink-2)">Misaligned hints (e.g. grader hacking)</text>
+<text x="268.2" y="201.8" text-anchor="end" style="fill:var(--ink-2)">Unauthorised-access hint</text>
+<text x="268.2" y="240.2" text-anchor="end" style="fill:var(--ink-2)">After outcome-based RL, MMLU</text>
+<text x="268.2" y="278.5" text-anchor="end" style="fill:var(--ink-2)">After outcome-based RL, GPQA</text>
+<text x="268.2" y="316.8" text-anchor="end" style="fill:var(--ink-2)">Synthetic reward-hacking envs (5 of 6)</text>
+</g>
+<text class="axis-title" x="788.0" y="368" text-anchor="end">Hint verbalised (% of hint-using answers)</text>
+<g class="s1">
+<path class="bar" d="M278.2,108.5 H401.6 Q405.6,108.5 405.6,112.5 V116.2 Q405.6,120.2 401.6,120.2 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>All hint types: 25%"/>
+<text class="label" x="411.6" y="118.3">25%</text>
+<path class="bar" d="M278.2,146.8 H376.2 Q380.2,146.8 380.2,150.8 V154.5 Q380.2,158.5 376.2,158.5 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>Misaligned hints (e.g. grader hacking): 20%"/>
+<text class="label" x="386.2" y="156.7">20%</text>
+<path class="bar" d="M278.2,185.2 H483.2 Q487.2,185.2 487.2,189.2 V192.8 Q487.2,196.8 483.2,196.8 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>Unauthorised-access hint: 41%"/>
+<text class="label" x="493.2" y="195.0">41%</text>
+<path class="bar" d="M278.2,223.5 H416.9 Q420.9,223.5 420.9,227.5 V231.2 Q420.9,235.2 416.9,235.2 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>After outcome-based RL, MMLU: 28%"/>
+<text class="label" x="426.9" y="233.3">28%</text>
+<path class="bar" d="M278.2,261.9 H376.2 Q380.2,261.9 380.2,265.9 V269.5 Q380.2,273.5 376.2,273.5 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>After outcome-based RL, GPQA: 20%"/>
+<text class="label" x="386.2" y="271.7">20%</text>
+<path class="bar" d="M278.2,300.2 H284.4 Q288.4,300.2 288.4,304.2 V307.8 Q288.4,311.8 284.4,311.8 H278.2 Z" data-tip="<b>Claude 3.7 Sonnet</b><br>Synthetic reward-hacking envs (5 of 6): 2%"/>
+<text class="label" x="294.4" y="310.0">2%</text>
+</g>
+<g class="s2">
+<path class="bar" d="M278.2,122.2 H473.0 Q477.0,122.2 477.0,126.2 V129.8 Q477.0,133.8 473.0,133.8 H278.2 Z" data-tip="<b>DeepSeek R1</b><br>All hint types: 39%"/>
+<text class="label" x="483.0" y="132.0">39%</text>
+<path class="bar" d="M278.2,160.5 H422.0 Q426.0,160.5 426.0,164.5 V168.2 Q426.0,172.2 422.0,172.2 H278.2 Z" data-tip="<b>DeepSeek R1</b><br>Misaligned hints (e.g. grader hacking): 29%"/>
+<text class="label" x="432.0" y="170.3">29%</text>
+<path class="bar" d="M278.2,198.8 H371.1 Q375.1,198.8 375.1,202.8 V206.5 Q375.1,210.5 371.1,210.5 H278.2 Z" data-tip="<b>DeepSeek R1</b><br>Unauthorised-access hint: 19%"/>
+<text class="label" x="381.1" y="208.7">19%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Chen, Benton, Radhakrishnan et al. (Anthropic), Reasoning Models Don't Always Say What They Think, 2025</text>
+</svg>

@@ -1,0 +1,62 @@
+{
+ "name": "intro-textfooler",
+ "type": "column",
+ "width": 860,
+ "height": 400,
+ "title": "Synonym substitution breaks BERT",
+ "subtitle": "Classification accuracy before and after TextFooler replaces 6–22% of the words in each input with embedding-space neighbours.",
+ "source": "Jin et al., AAAI 2020, Table 2",
+ "x": {
+  "values": [
+   "MR",
+   "IMDB",
+   "Yelp",
+   "AG News",
+   "Fake News",
+   "SNLI",
+   "MNLI"
+  ]
+ },
+ "y": {
+  "title": "Accuracy (%)",
+  "min": 0,
+  "max": 100,
+  "ticks": [
+   0,
+   25,
+   50,
+   75,
+   100
+  ],
+  "fmt": "{:.1f}%",
+  "tick_fmt": "{:.0f}%"
+ },
+ "series": [
+  {
+   "name": "Original",
+   "cls": "s6",
+   "values": [
+    86.0,
+    90.9,
+    97.0,
+    94.2,
+    97.8,
+    89.4,
+    85.1
+   ]
+  },
+  {
+   "name": "After TextFooler",
+   "cls": "s1",
+   "values": [
+    11.5,
+    13.6,
+    6.6,
+    12.5,
+    19.3,
+    4.0,
+    9.6
+   ]
+  }
+ ]
+}

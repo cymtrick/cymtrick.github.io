@@ -1,0 +1,12 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A certified ball around an input that stays on one side of the decision boundary">
+  <rect class="region-a" x="0" y="0" width="230" height="180" rx="4"/>
+  <rect class="region-b" x="230" y="0" width="170" height="180" rx="4"/>
+  <path class="boundary" d="M230,0 C 245,45 215,90 235,135 C 242,160 230,172 230,180"/>
+  <circle cx="130" cy="90" r="62" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="130" y1="90" x2="192" y2="90" stroke="var(--accent)" stroke-width="1.5"/>
+  <text class="mono small" x="161" y="82" text-anchor="middle" style="fill:var(--accent-ink)">r</text>
+  <circle class="pt" cx="130" cy="90" r="7"/>
+  <text class="mono small" x="130" y="116" text-anchor="middle">x</text>
+  <text class="small muted" x="300" y="100" text-anchor="middle">no adversarial</text>
+  <text class="small muted" x="300" y="116" text-anchor="middle">example inside r</text>
+</svg>

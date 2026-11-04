@@ -1,0 +1,49 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Synonym substitution breaks BERT">
+<text class="title" x="0" y="18">Synonym substitution breaks BERT</text>
+<text class="subtitle" x="0" y="38">Classification accuracy before and after TextFooler replaces 6–22% of the words in each input with embedding-space neighbours.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Original</text></g>
+<g class="legend s1"><rect class="swatch" x="99.2" y="55" width="12" height="12" rx="2"/><text x="117.2" y="66">After TextFooler</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="274.5" y2="274.5"/>
+<line x1="56" x2="836" y1="217.0" y2="217.0"/>
+<line x1="56" x2="836" y1="159.5" y2="159.5"/>
+<line x1="56" x2="836" y1="102.0" y2="102.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0%</text>
+<text x="48" y="278.5" text-anchor="end">25%</text>
+<text x="48" y="221.0" text-anchor="end">50%</text>
+<text x="48" y="163.5" text-anchor="end">75%</text>
+<text x="48" y="106.0" text-anchor="end">100%</text>
+</g>
+<text class="axis-title" x="56" y="94" text-anchor="start">Accuracy (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="111.7" y="350.0" text-anchor="middle">MR</text>
+<text x="223.1" y="350.0" text-anchor="middle">IMDB</text>
+<text x="334.6" y="350.0" text-anchor="middle">Yelp</text>
+<text x="446.0" y="350.0" text-anchor="middle">AG News</text>
+<text x="557.4" y="350.0" text-anchor="middle">Fake News</text>
+<text x="668.9" y="350.0" text-anchor="middle">SNLI</text>
+<text x="780.3" y="350.0" text-anchor="middle">MNLI</text>
+</g>
+<g class="s6">
+<path class="bar" d="M86.7,332.0 V138.2 Q86.7,134.2 90.7,134.2 H106.7 Q110.7,134.2 110.7,138.2 V332.0 Z" data-tip="<b>Original</b><br>MR: 86.0%"/>
+<path class="bar" d="M198.1,332.0 V126.9 Q198.1,122.9 202.1,122.9 H218.1 Q222.1,122.9 222.1,126.9 V332.0 Z" data-tip="<b>Original</b><br>IMDB: 90.9%"/>
+<path class="bar" d="M309.6,332.0 V112.9 Q309.6,108.9 313.6,108.9 H329.6 Q333.6,108.9 333.6,112.9 V332.0 Z" data-tip="<b>Original</b><br>Yelp: 97.0%"/>
+<path class="bar" d="M421.0,332.0 V119.3 Q421.0,115.3 425.0,115.3 H441.0 Q445.0,115.3 445.0,119.3 V332.0 Z" data-tip="<b>Original</b><br>AG News: 94.2%"/>
+<path class="bar" d="M532.4,332.0 V111.1 Q532.4,107.1 536.4,107.1 H552.4 Q556.4,107.1 556.4,111.1 V332.0 Z" data-tip="<b>Original</b><br>Fake News: 97.8%"/>
+<path class="bar" d="M643.9,332.0 V130.4 Q643.9,126.4 647.9,126.4 H663.9 Q667.9,126.4 667.9,130.4 V332.0 Z" data-tip="<b>Original</b><br>SNLI: 89.4%"/>
+<path class="bar" d="M755.3,332.0 V140.3 Q755.3,136.3 759.3,136.3 H775.3 Q779.3,136.3 779.3,140.3 V332.0 Z" data-tip="<b>Original</b><br>MNLI: 85.1%"/>
+</g>
+<g class="s1">
+<path class="bar" d="M112.7,332.0 V309.6 Q112.7,305.6 116.7,305.6 H132.7 Q136.7,305.6 136.7,309.6 V332.0 Z" data-tip="<b>After TextFooler</b><br>MR: 11.5%"/>
+<path class="bar" d="M224.1,332.0 V304.7 Q224.1,300.7 228.1,300.7 H244.1 Q248.1,300.7 248.1,304.7 V332.0 Z" data-tip="<b>After TextFooler</b><br>IMDB: 13.6%"/>
+<path class="bar" d="M335.6,332.0 V320.8 Q335.6,316.8 339.6,316.8 H355.6 Q359.6,316.8 359.6,320.8 V332.0 Z" data-tip="<b>After TextFooler</b><br>Yelp: 6.6%"/>
+<path class="bar" d="M447.0,332.0 V307.2 Q447.0,303.2 451.0,303.2 H467.0 Q471.0,303.2 471.0,307.2 V332.0 Z" data-tip="<b>After TextFooler</b><br>AG News: 12.5%"/>
+<path class="bar" d="M558.4,332.0 V291.6 Q558.4,287.6 562.4,287.6 H578.4 Q582.4,287.6 582.4,291.6 V332.0 Z" data-tip="<b>After TextFooler</b><br>Fake News: 19.3%"/>
+<path class="bar" d="M669.9,332.0 V326.8 Q669.9,322.8 673.9,322.8 H689.9 Q693.9,322.8 693.9,326.8 V332.0 Z" data-tip="<b>After TextFooler</b><br>SNLI: 4.0%"/>
+<path class="bar" d="M781.3,332.0 V313.9 Q781.3,309.9 785.3,309.9 H801.3 Q805.3,309.9 805.3,313.9 V332.0 Z" data-tip="<b>After TextFooler</b><br>MNLI: 9.6%"/>
+</g>
+<text class="subtitle" x="0" y="394">Source: Jin et al., AAAI 2020, Table 2</text>
+</svg>

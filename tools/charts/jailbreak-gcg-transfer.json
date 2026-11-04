@@ -1,0 +1,8 @@
+{"name":"jailbreak-gcg-transfer","type":"column","width":860,"height":400,
+ "title":"GCG suffixes transfer to some black-box models and barely to others",
+ "subtitle":"Attack success rate on 388 harmful behaviours for a universal suffix optimised on Vicuna and Guanaco, then sent to closed models.",
+ "source":"Zou et al. 2023, Table 2 (ensemble of GCG suffixes)",
+ "x":{"values":["GPT-3.5","GPT-4","Claude 1","Claude 2","PaLM-2"]},
+ "y":{"title":"Attack success rate (%)","min":0,"max":100,"ticks":[0,20,40,60,80,100],"fmt":"{:.1f}%"},
+ "series":[{"name":"Harmful behaviour only (no suffix)","cls":"s6","values":[1.8,8.0,0.0,0.0,0.0]},
+           {"name":"With GCG suffix ensemble","cls":"s1","label_values":true,"values":[86.6,46.9,47.9,2.1,66.0]}]}

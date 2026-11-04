@@ -1,0 +1,5 @@
+{%- capture figpath %}figures/{{ include.name }}.svg{% endcapture -%}
+<figure class="fig{% if include.lead %} fig-lead{% endif %}{% if include.wide %} fig-wide{% endif %}" id="fig-{{ include.name }}">
+  <div class="fig-frame">{% include {{ figpath }} %}</div>
+  {%- if include.caption %}<figcaption class="fig-caption">{% if include.num %}<span class="fig-num">Figure {{ include.num }}.</span> {% endif %}{{ include.caption }}</figcaption>{% endif %}
+</figure>

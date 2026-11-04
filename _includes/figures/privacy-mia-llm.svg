@@ -1,0 +1,63 @@
+<svg class="chart" viewBox="0 0 860 420" width="860" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Membership inference on a 12B language model is close to a coin flip">
+<text class="title" x="0" y="18">Membership inference on a 12B language model is close to a coin flip</text>
+<text class="subtitle" x="0" y="38">AUC of four attacks on Pythia-dedup 12B by Pile domain; the temporal Wikipedia split only looks better because its non-members are</text>
+<text class="subtitle" x="0" y="56">newer.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="73" width="12" height="12" rx="2"/><text x="18" y="84">LOSS</text></g>
+<g class="legend s2"><rect class="swatch" x="71.6" y="73" width="12" height="12" rx="2"/><text x="89.6" y="84">Reference model</text></g>
+<g class="legend s1"><rect class="swatch" x="219.1" y="73" width="12" height="12" rx="2"/><text x="237.1" y="84">Min-K% Prob</text></g>
+<g class="legend s4"><rect class="swatch" x="339.0" y="73" width="12" height="12" rx="2"/><text x="357.0" y="84">zlib</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<line x1="56" x2="836" y1="300.4" y2="300.4"/>
+<line x1="56" x2="836" y1="248.9" y2="248.9"/>
+<line x1="56" x2="836" y1="197.3" y2="197.3"/>
+<line x1="56" x2="836" y1="145.8" y2="145.8"/>
+</g><g class="axis">
+<text x="48" y="356.0" text-anchor="end">0.40</text>
+<text x="48" y="304.4" text-anchor="end">0.50</text>
+<text x="48" y="252.9" text-anchor="end">0.60</text>
+<text x="48" y="201.3" text-anchor="end">0.70</text>
+<text x="48" y="149.8" text-anchor="end">0.80</text>
+</g>
+<text class="axis-title" x="56" y="112" text-anchor="start">AUC</text>
+<g class="axis">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<text x="134.0" y="370.0" text-anchor="middle">Wikipedia</text>
+<text x="290.0" y="370.0" text-anchor="middle">ArXiv</text>
+<text x="446.0" y="370.0" text-anchor="middle">PubMed</text>
+<text x="602.0" y="370.0" text-anchor="middle">GitHub</text>
+<text x="758.0" y="370.0" text-anchor="middle">Wikipedia</text>
+<text x="758.0" y="384.0" text-anchor="middle">(temporal split)</text>
+</g>
+<line class="ref" x1="56" x2="836" y1="300.4" y2="300.4"/>
+<text class="annot" x="60" y="295.4" text-anchor="start">chance</text>
+<g class="s6">
+<path class="bar" d="M85.6,352.0 V296.2 Q85.6,292.2 89.6,292.2 H104.3 Q108.3,292.2 108.3,296.2 V352.0 Z" data-tip="<b>LOSS</b><br>Wikipedia: 0.52"/>
+<path class="bar" d="M241.6,352.0 V290.5 Q241.6,286.5 245.6,286.5 H260.3 Q264.3,286.5 264.3,290.5 V352.0 Z" data-tip="<b>LOSS</b><br>ArXiv: 0.53"/>
+<path class="bar" d="M397.6,352.0 V301.4 Q397.6,297.4 401.6,297.4 H416.3 Q420.3,297.4 420.3,301.4 V352.0 Z" data-tip="<b>LOSS</b><br>PubMed: 0.51"/>
+<path class="bar" d="M553.6,352.0 V212.7 Q553.6,208.7 557.6,208.7 H572.3 Q576.3,208.7 576.3,212.7 V352.0 Z" data-tip="<b>LOSS</b><br>GitHub: 0.68"/>
+<path class="bar" d="M709.6,352.0 V211.6 Q709.6,207.6 713.6,207.6 H728.3 Q732.3,207.6 732.3,211.6 V352.0 Z" data-tip="<b>LOSS</b><br>Wikipedia (temporal split): 0.68"/>
+</g>
+<g class="s2">
+<path class="bar" d="M110.3,352.0 V263.7 Q110.3,259.7 114.3,259.7 H129.0 Q133.0,259.7 133.0,263.7 V352.0 Z" data-tip="<b>Reference model</b><br>Wikipedia: 0.58"/>
+<path class="bar" d="M266.3,352.0 V276.1 Q266.3,272.1 270.3,272.1 H285.0 Q289.0,272.1 289.0,276.1 V352.0 Z" data-tip="<b>Reference model</b><br>ArXiv: 0.56"/>
+<path class="bar" d="M422.3,352.0 V274.0 Q422.3,270.0 426.3,270.0 H441.0 Q445.0,270.0 445.0,274.0 V352.0 Z" data-tip="<b>Reference model</b><br>PubMed: 0.56"/>
+<path class="bar" d="M578.3,352.0 V274.0 Q578.3,270.0 582.3,270.0 H597.0 Q601.0,270.0 601.0,274.0 V352.0 Z" data-tip="<b>Reference model</b><br>GitHub: 0.56"/>
+<path class="bar" d="M734.3,352.0 V151.8 Q734.3,147.8 738.3,147.8 H753.0 Q757.0,147.8 757.0,151.8 V352.0 Z" data-tip="<b>Reference model</b><br>Wikipedia (temporal split): 0.80"/>
+</g>
+<g class="s1">
+<path class="bar" d="M135.0,352.0 V295.7 Q135.0,291.7 139.0,291.7 H153.7 Q157.7,291.7 157.7,295.7 V352.0 Z" data-tip="<b>Min-K% Prob</b><br>Wikipedia: 0.52"/>
+<path class="bar" d="M291.0,352.0 V289.0 Q291.0,285.0 295.0,285.0 H309.7 Q313.7,285.0 313.7,289.0 V352.0 Z" data-tip="<b>Min-K% Prob</b><br>ArXiv: 0.53"/>
+<path class="bar" d="M447.0,352.0 V298.3 Q447.0,294.3 451.0,294.3 H465.7 Q469.7,294.3 469.7,298.3 V352.0 Z" data-tip="<b>Min-K% Prob</b><br>PubMed: 0.51"/>
+<path class="bar" d="M603.0,352.0 V210.1 Q603.0,206.1 607.0,206.1 H621.7 Q625.7,206.1 625.7,210.1 V352.0 Z" data-tip="<b>Min-K% Prob</b><br>GitHub: 0.68"/>
+<path class="bar" d="M759.0,352.0 V191.5 Q759.0,187.5 763.0,187.5 H777.7 Q781.7,187.5 781.7,191.5 V352.0 Z" data-tip="<b>Min-K% Prob</b><br>Wikipedia (temporal split): 0.72"/>
+</g>
+<g class="s4">
+<path class="bar" d="M159.7,352.0 V292.1 Q159.7,288.1 163.7,288.1 H178.4 Q182.4,288.1 182.4,292.1 V352.0 Z" data-tip="<b>zlib</b><br>Wikipedia: 0.52"/>
+<path class="bar" d="M315.7,352.0 V293.6 Q315.7,289.6 319.7,289.6 H334.4 Q338.4,289.6 338.4,293.6 V352.0 Z" data-tip="<b>zlib</b><br>ArXiv: 0.52"/>
+<path class="bar" d="M471.7,352.0 V301.4 Q471.7,297.4 475.7,297.4 H490.4 Q494.4,297.4 494.4,301.4 V352.0 Z" data-tip="<b>zlib</b><br>PubMed: 0.51"/>
+<path class="bar" d="M627.7,352.0 V206.5 Q627.7,202.5 631.7,202.5 H646.4 Q650.4,202.5 650.4,206.5 V352.0 Z" data-tip="<b>zlib</b><br>GitHub: 0.69"/>
+<path class="bar" d="M783.7,352.0 V249.3 Q783.7,245.3 787.7,245.3 H802.4 Q806.4,245.3 806.4,249.3 V352.0 Z" data-tip="<b>zlib</b><br>Wikipedia (temporal split): 0.61"/>
+</g>
+<text class="subtitle" x="0" y="414">Source: Duan et al., COLM 2024, Tables 1 and 3</text>
+</svg>

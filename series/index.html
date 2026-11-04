@@ -1,0 +1,19 @@
+---
+layout: default
+title: Series
+permalink: /series/
+---
+<div class="page">
+  <div class="page-inner">
+    <h1>The series, in reading order</h1>
+    <div class="post-body">
+      <p>These posts were written as a single course of study in secure and trustworthy machine learning. Each one stands alone, but they are meant to be read in this order: the threat model first, then the three families of attack, then the frameworks that try to give guarantees, then the questions about trust that no guarantee settles.</p>
+    </div>
+  </div>
+  <ol class="series-list" style="margin-top:32px">
+    {% assign ordered = site.posts | sort: "date" %}
+    {% for post in ordered %}
+    <li><a href="{{ post.url | relative_url }}"><span><span class="series-title">{{ post.title }}</span><span class="series-sub">{{ post.category }} · {{ post.read_time }} · {{ post.date | date: "%B %Y" }}</span></span></a></li>
+    {% endfor %}
+  </ol>
+</div>

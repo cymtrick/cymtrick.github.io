@@ -1,0 +1,111 @@
+{
+ "name": "pac-mi-success",
+ "type": "line",
+ "width": 860,
+ "height": 430,
+ "title": "From a mutual-information budget to an attacker's best possible success",
+ "subtitle": "Best achievable membership-inference success when the release leaks at most β nats about an individual, for two priors.",
+ "source": "Sridhar, Xiao & Devadas, IEEE S&P 2025, Table 1; ε equivalents from Table 2",
+ "x": {
+  "title": "Mutual-information budget β (nats, log scale)",
+  "log": true,
+  "values": [
+   0.0078125,
+   0.015625,
+   0.03125,
+   0.0625,
+   0.125,
+   0.25,
+   0.5,
+   1,
+   2,
+   4
+  ],
+  "ticks": [
+   0.0078125,
+   0.015625,
+   0.03125,
+   0.0625,
+   0.125,
+   0.25,
+   0.5,
+   1,
+   2,
+   4
+  ],
+  "labels": [
+   "1/128",
+   "1/64",
+   "1/32",
+   "1/16",
+   "1/8",
+   "1/4",
+   "1/2",
+   "1",
+   "2",
+   "4"
+  ],
+  "tip_prefix": "β = "
+ },
+ "y": {
+  "title": "Maximum posterior success (%)",
+  "min": 0,
+  "max": 100,
+  "ticks": [
+   0,
+   25,
+   50,
+   75,
+   100
+  ],
+  "fmt": "{:.0f}%"
+ },
+ "series": [
+  {
+   "name": "Prior 50% (is this record a member?)",
+   "cls": "s1",
+   "values": [
+    56.24,
+    58.82,
+    62.43,
+    67.49,
+    74.46,
+    83.79,
+    95.18,
+    100,
+    100,
+    100
+   ]
+  },
+  {
+   "name": "Prior 1% (rare attribute)",
+   "cls": "s2",
+   "values": [
+    2.48,
+    3.21,
+    4.36,
+    6.2,
+    9.17,
+    14.06,
+    22.18,
+    35.73,
+    58.1,
+    92.58
+   ]
+  }
+ ],
+ "ref_lines": [
+  {
+   "x": 0.015625,
+   "label": "≈ ε 0.36"
+  },
+  {
+   "x": 0.0625,
+   "label": "≈ ε 0.73"
+  },
+  {
+   "x": 0.25,
+   "label": "≈ ε 1.64"
+  }
+ ]
+}

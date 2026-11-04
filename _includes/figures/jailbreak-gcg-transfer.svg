@@ -1,0 +1,50 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GCG suffixes transfer to some black-box models and barely to others">
+<text class="title" x="0" y="18">GCG suffixes transfer to some black-box models and barely to others</text>
+<text class="subtitle" x="0" y="38">Attack success rate on 388 harmful behaviours for a universal suffix optimised on Vicuna and Guanaco, then sent to closed models.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Harmful behaviour only (no suffix)</text></g>
+<g class="legend s1"><rect class="swatch" x="278.6" y="55" width="12" height="12" rx="2"/><text x="296.6" y="66">With GCG suffix ensemble</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<line x1="56" x2="836" y1="288.8" y2="288.8"/>
+<line x1="56" x2="836" y1="245.6" y2="245.6"/>
+<line x1="56" x2="836" y1="202.4" y2="202.4"/>
+<line x1="56" x2="836" y1="159.2" y2="159.2"/>
+<line x1="56" x2="836" y1="116.0" y2="116.0"/>
+</g><g class="axis">
+<text x="48" y="336.0" text-anchor="end">0.0%</text>
+<text x="48" y="292.8" text-anchor="end">20.0%</text>
+<text x="48" y="249.6" text-anchor="end">40.0%</text>
+<text x="48" y="206.4" text-anchor="end">60.0%</text>
+<text x="48" y="163.2" text-anchor="end">80.0%</text>
+<text x="48" y="120.0" text-anchor="end">100.0%</text>
+</g>
+<text class="axis-title" x="56" y="108" text-anchor="start">Attack success rate (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="332.0" y2="332.0"/>
+<text x="134.0" y="350.0" text-anchor="middle">GPT-3.5</text>
+<text x="290.0" y="350.0" text-anchor="middle">GPT-4</text>
+<text x="446.0" y="350.0" text-anchor="middle">Claude 1</text>
+<text x="602.0" y="350.0" text-anchor="middle">Claude 2</text>
+<text x="758.0" y="350.0" text-anchor="middle">PaLM-2</text>
+</g>
+<g class="s6">
+<path class="bar" d="M109.0,332.0 V330.1 Q109.0,328.1 110.9,328.1 H131.1 Q133.0,328.1 133.0,330.1 V332.0 Z" data-tip="<b>Harmful behaviour only (no suffix)</b><br>GPT-3.5: 1.8%"/>
+<path class="bar" d="M265.0,332.0 V318.7 Q265.0,314.7 269.0,314.7 H285.0 Q289.0,314.7 289.0,318.7 V332.0 Z" data-tip="<b>Harmful behaviour only (no suffix)</b><br>GPT-4: 8.0%"/>
+<path class="bar" d="M421.0,332.0 V332.0 Q421.0,332.0 421.0,332.0 H445.0 Q445.0,332.0 445.0,332.0 V332.0 Z" data-tip="<b>Harmful behaviour only (no suffix)</b><br>Claude 1: 0.0%"/>
+<path class="bar" d="M577.0,332.0 V332.0 Q577.0,332.0 577.0,332.0 H601.0 Q601.0,332.0 601.0,332.0 V332.0 Z" data-tip="<b>Harmful behaviour only (no suffix)</b><br>Claude 2: 0.0%"/>
+<path class="bar" d="M733.0,332.0 V332.0 Q733.0,332.0 733.0,332.0 H757.0 Q757.0,332.0 757.0,332.0 V332.0 Z" data-tip="<b>Harmful behaviour only (no suffix)</b><br>PaLM-2: 0.0%"/>
+</g>
+<g class="s1">
+<path class="bar" d="M135.0,332.0 V148.9 Q135.0,144.9 139.0,144.9 H155.0 Q159.0,144.9 159.0,148.9 V332.0 Z" data-tip="<b>With GCG suffix ensemble</b><br>GPT-3.5: 86.6%"/>
+<text class="label" x="147.0" y="138.9" text-anchor="middle">86.6%</text>
+<path class="bar" d="M291.0,332.0 V234.7 Q291.0,230.7 295.0,230.7 H311.0 Q315.0,230.7 315.0,234.7 V332.0 Z" data-tip="<b>With GCG suffix ensemble</b><br>GPT-4: 46.9%"/>
+<text class="label" x="303.0" y="224.7" text-anchor="middle">46.9%</text>
+<path class="bar" d="M447.0,332.0 V232.5 Q447.0,228.5 451.0,228.5 H467.0 Q471.0,228.5 471.0,232.5 V332.0 Z" data-tip="<b>With GCG suffix ensemble</b><br>Claude 1: 47.9%"/>
+<text class="label" x="459.0" y="222.5" text-anchor="middle">47.9%</text>
+<path class="bar" d="M603.0,332.0 V329.7 Q603.0,327.5 605.3,327.5 H624.7 Q627.0,327.5 627.0,329.7 V332.0 Z" data-tip="<b>With GCG suffix ensemble</b><br>Claude 2: 2.1%"/>
+<text class="label" x="615.0" y="321.5" text-anchor="middle">2.1%</text>
+<path class="bar" d="M759.0,332.0 V193.4 Q759.0,189.4 763.0,189.4 H779.0 Q783.0,189.4 783.0,193.4 V332.0 Z" data-tip="<b>With GCG suffix ensemble</b><br>PaLM-2: 66.0%"/>
+<text class="label" x="771.0" y="183.4" text-anchor="middle">66.0%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Zou et al. 2023, Table 2 (ensemble of GCG suffixes)</text>
+</svg>

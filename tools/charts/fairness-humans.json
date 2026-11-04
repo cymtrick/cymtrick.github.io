@@ -1,0 +1,9 @@
+{"name":"fairness-humans","type":"column","width":860,"height":400,
+ "title":"Untrained crowd workers reproduce the same disparity as COMPAS",
+ "subtitle":"1,000 defendants from the ProPublica data; 400 Mechanical Turk workers shown seven facts per defendant, no race. Error rates by race.",
+ "source":"Dressel & Farid, Science Advances 2018",
+ "x":{"values":["COMPAS\nfalse positive rate","COMPAS\nfalse negative rate","Humans\nfalse positive rate","Humans\nfalse negative rate"]},
+ "y":{"title":"Rate (%)","min":0,"max":60,"ticks":[0,15,30,45,60],"fmt":"{:.1f}%"},
+ "label_values":true,
+ "series":[{"name":"Black defendants","cls":"s1","values":[40.4,30.9,37.1,29.2]},
+           {"name":"White defendants","cls":"s2","values":[25.4,47.9,27.2,40.3]}]}

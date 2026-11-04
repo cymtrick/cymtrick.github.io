@@ -1,0 +1,11 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One threshold applied to two groups with different base rates produces different error rates">
+  <line x1="30" y1="150" x2="380" y2="150" stroke="var(--rule-strong)" stroke-width="1"/>
+  <path d="M40,150 C 90,150 110,60 160,60 C 210,60 230,150 280,150" fill="var(--s2)" opacity="0.18"/>
+  <path d="M40,150 C 90,150 110,60 160,60 C 210,60 230,150 280,150" fill="none" stroke="var(--s2)" stroke-width="2"/>
+  <path d="M120,150 C 170,150 190,50 240,50 C 290,50 310,150 360,150" fill="var(--s1)" opacity="0.18"/>
+  <path d="M120,150 C 170,150 190,50 240,50 C 290,50 310,150 360,150" fill="none" stroke="var(--s1)" stroke-width="2"/>
+  <line x1="215" y1="30" x2="215" y2="150" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="small" x="215" y="22" text-anchor="middle">one threshold</text>
+  <text class="small muted" x="100" y="168" text-anchor="middle">group A, base rate 39%</text>
+  <text class="small muted" x="300" y="168" text-anchor="middle">group B, base rate 51%</text>
+</svg>

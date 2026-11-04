@@ -1,0 +1,7 @@
+{"name":"explain-sae","type":"line","width":860,"height":380,
+ "title":"Bigger dictionaries, more dead features",
+ "subtitle":"Sparse autoencoders on the residual stream of Claude 3 Sonnet: fraction of learned features that never fire, by dictionary size.",
+ "source":"Templeton, Conerly, Marcus et al. (Anthropic), Scaling Monosemanticity, 2024",
+ "x":{"title":"Dictionary size (features)","log":true,"values":[1048576,4194304,33554432],"ticks":[1048576,4194304,33554432],"labels":["1M","4M","34M"]},
+ "y":{"title":"Dead features (%)","min":0,"max":80,"ticks":[0,20,40,60,80],"fmt":"{:.0f}%"},
+ "series":[{"name":"Dead features","cls":"s1","values":[2,35,65],"label_end":true}]}

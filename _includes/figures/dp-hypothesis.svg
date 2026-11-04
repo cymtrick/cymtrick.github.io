@@ -1,0 +1,52 @@
+<svg class="diagram" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: output distributions of a mechanism on two neighbouring datasets overlap. Right: the ROC curve of any test distinguishing them is confined below the line TPR = e^ε·FPR + δ.">
+  <defs>
+    <marker id="dph" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <!-- Left: two overlapping Gaussians -->
+  <text x="0" y="18" style="font-weight:600">What the adversary sees</text>
+  <g transform="translate(0,40)">
+    <line class="arrow" x1="0" y1="200" x2="400" y2="200" marker-end="url(#dph)" style="color:var(--ink-2)"/>
+    <text class="small muted" x="400" y="222" text-anchor="end">mechanism output M(·)</text>
+    <!-- N(0,1) with you absent -->
+    <path d="M20,200 C 90,200 120,60 160,60 C 200,60 230,200 300,200" fill="var(--s2)" opacity="0.15"/>
+    <path d="M20,200 C 90,200 120,60 160,60 C 200,60 230,200 300,200" stroke="var(--s2)" stroke-width="2" fill="none"/>
+    <!-- N(mu,1) with you present -->
+    <path d="M100,200 C 170,200 200,60 240,60 C 280,60 310,200 380,200" fill="var(--s1)" opacity="0.15"/>
+    <path d="M100,200 C 170,200 200,60 240,60 C 280,60 310,200 380,200" stroke="var(--s1)" stroke-width="2" fill="none"/>
+    <line x1="160" y1="60" x2="160" y2="200" stroke="var(--s2)" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="240" y1="60" x2="240" y2="200" stroke="var(--s1)" stroke-width="1" stroke-dasharray="3 3"/>
+    <text class="small" x="120" y="48" text-anchor="middle" style="fill:var(--ink-2)">M(D), you absent</text>
+    <text class="small" x="282" y="48" text-anchor="middle" style="fill:var(--ink-2)">M(D′), you present</text>
+    <line x1="160" y1="120" x2="240" y2="120" stroke="var(--ink)" stroke-width="1.2" marker-end="url(#dph)" style="color:var(--ink)"/>
+    <text class="mono small" x="200" y="112" text-anchor="middle">μ</text>
+    <text class="small muted" x="0" y="248">Gaussian mechanism: the two cases differ by a shift μ = Δ₂f / σ.</text>
+    <text class="small muted" x="0" y="266">The adversary must decide which curve a single draw came from.</text>
+  </g>
+  <!-- Right: ROC / trade-off -->
+  <text x="460" y="18" style="font-weight:600">The best test any adversary can run</text>
+  <g transform="translate(470,40)">
+    <rect class="box" x="0" y="0" width="200" height="200" rx="2"/>
+    <!-- DP constraint region: TPR <= e^eps FPR + delta, drawn for eps ~ 1 -->
+    <path d="M0,190 L70,0 L0,0 Z" fill="var(--accent-wash)"/>
+    <path d="M10,200 L200,130 L200,200 Z" fill="var(--accent-wash)"/>
+    <path d="M0,190 L70,0" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+    <!-- symmetric constraint -->
+    <path d="M10,200 L200,130" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+    <!-- chance diagonal -->
+    <line x1="0" y1="200" x2="200" y2="0" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/>
+    <!-- GDP curve for mu ~ 1 -->
+    <path d="M0,200 C 10,120 60,60 200,0" stroke="var(--s2)" stroke-width="2" fill="none"/>
+    <text class="small muted" x="0" y="222">0</text>
+    <text class="small muted" x="200" y="222" text-anchor="end">FPR  1</text>
+    <text class="small muted" x="-6" y="8" text-anchor="end">1</text>
+    <text class="small muted" x="-6" y="200" text-anchor="end">TPR 0</text>
+    <text class="small" x="208" y="20" style="fill:var(--ink)">shaded: forbidden by (ε, δ)-DP</text>
+    <text class="mono small" x="208" y="38" style="fill:var(--accent)">TPR ≤ e^ε · FPR + δ</text>
+    <text class="small" x="208" y="70" style="fill:var(--ink)">Gaussian mechanism,</text>
+    <text class="small" x="208" y="86" style="fill:var(--ink)">actual trade-off (μ-GDP)</text>
+    <line x1="150" y1="60" x2="204" y2="76" stroke="var(--s2)" stroke-width="1"/>
+    <text class="small muted" x="208" y="118">chance (TPR = FPR)</text>
+    <text class="small muted" x="0" y="248">Any membership test lives under the red line. At ε = 1 an</text>
+    <text class="small muted" x="0" y="266">attacker held to 0.1% false positives gets at most 0.27% true positives.</text>
+  </g>
+</svg>

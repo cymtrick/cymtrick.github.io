@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title and page.url != "/" %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if page.dek %}{{ page.dek | strip_html | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% seo title=false %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 </head>
-<body>
+<body class="{% if page.layout == 'post' %}is-post{% endif %}">
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="site-logo" href="{{ '/' | relative_url }}">Adversarial<span>/</span>Minds</a>
-    <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}">Posts</a>
-      <a href="{{ '/about' | relative_url }}">About</a>
-    </nav>
+    <div class="site-header-inner">
+      <a class="wordmark" href="{{ '/' | relative_url }}">
+        <svg class="wordmark-mark" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1.5 20 20H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="11" cy="14.2" r="2.1" fill="currentColor"/></svg>
+        <span>Adversarial Minds</span>
+      </a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Posts</a>
+        <a href="{{ '/series/' | relative_url }}" {% if page.url == '/series/' %}aria-current="page"{% endif %}>Series</a>
+        <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
+        <a href="{{ '/feed.xml' | relative_url }}" title="RSS feed">RSS</a>
+      </nav>
+    </div>
   </header>
 
+  <main id="main">
   {{ content }}
+  </main>
 
   <footer class="site-footer">
-    <p>© {{ 'now' | date: '%Y' }} Adversarial Minds </p>
+    <div class="site-footer-inner">
+      <div>
+        <div class="footer-title">Adversarial Minds</div>
+        <p class="footer-blurb">Notes on secure and trustworthy machine learning, written by {{ site.author }}. Every claim links to a primary source; every chart is drawn from numbers reported in the cited papers.</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ '/' | relative_url }}">Posts</a>
+        <a href="{{ '/series/' | relative_url }}">Series</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <a href="https://github.com/cymtrick/cymtrick.github.io">Source</a>
+      </div>
+    </div>
+    <div class="site-footer-legal">© {{ 'now' | date: '%Y' }} {{ site.author }}. Text licensed CC BY 4.0; figures redrawn from the cited sources.</div>
   </footer>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>

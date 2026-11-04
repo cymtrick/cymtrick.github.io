@@ -1,0 +1,66 @@
+<svg class="diagram" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The machine-learning pipeline from data collection to output, with the four attack surfaces annotated and the adversary-knowledge axis along the bottom.">
+  <defs>
+    <marker id="ia" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <!-- pipeline boxes -->
+  <g style="color:var(--ink-2)">
+    <rect class="box" x="0" y="120" width="140" height="54" rx="6"/>
+    <text x="70" y="143" text-anchor="middle">Training data</text>
+    <text class="small muted" x="70" y="161" text-anchor="middle">scraped, labelled, bought</text>
+    <line class="arrow" x1="140" y1="147" x2="178" y2="147" marker-end="url(#ia)"/>
+    <rect class="box" x="180" y="120" width="140" height="54" rx="6"/>
+    <text x="250" y="143" text-anchor="middle">Training</text>
+    <text class="small muted" x="250" y="161" text-anchor="middle">pretraining, fine-tuning</text>
+    <line class="arrow" x1="320" y1="147" x2="358" y2="147" marker-end="url(#ia)"/>
+    <rect class="box" x="360" y="120" width="140" height="54" rx="6"/>
+    <text x="430" y="143" text-anchor="middle">Model</text>
+    <text class="small muted" x="430" y="161" text-anchor="middle">weights, architecture</text>
+    <line class="arrow" x1="500" y1="147" x2="538" y2="147" marker-end="url(#ia)"/>
+    <rect class="box" x="540" y="120" width="140" height="54" rx="6"/>
+    <text x="610" y="143" text-anchor="middle">Inference</text>
+    <text class="small muted" x="610" y="161" text-anchor="middle">user input, retrieved content</text>
+    <line class="arrow" x1="680" y1="147" x2="718" y2="147" marker-end="url(#ia)"/>
+    <rect class="box" x="720" y="120" width="140" height="54" rx="6"/>
+    <text x="790" y="143" text-anchor="middle">Output</text>
+    <text class="small muted" x="790" y="161" text-anchor="middle">prediction, action</text>
+  </g>
+  <!-- attack surfaces above -->
+  <g style="color:var(--accent)">
+    <rect class="box-accent" x="0" y="14" width="320" height="64" rx="6"/>
+    <text x="12" y="36" style="font-weight:600">1 · Training-time (poisoning)</text>
+    <text class="small" x="12" y="54">1% of a spam corpus · 250 web documents</text>
+    <text class="small muted" x="12" y="70">Barreno “causative”; NIST “poisoning”</text>
+    <line class="arrow-accent" x1="160" y1="78" x2="160" y2="116" marker-end="url(#ia)"/>
+    <rect class="box-accent" x="360" y="14" width="140" height="64" rx="6"/>
+    <text x="372" y="36" style="font-weight:600">2 · The model</text>
+    <text class="small" x="372" y="54">extraction, tampering,</text>
+    <text class="small" x="372" y="70">supply chain</text>
+    <line class="arrow-accent" x1="430" y1="78" x2="430" y2="116" marker-end="url(#ia)"/>
+    <rect class="box-accent" x="540" y="14" width="140" height="64" rx="6"/>
+    <text x="552" y="36" style="font-weight:600">3 · Inference-time</text>
+    <text class="small" x="552" y="54">evasion, TextFooler,</text>
+    <text class="small" x="552" y="70">prompt injection</text>
+    <line class="arrow-accent" x1="610" y1="78" x2="610" y2="116" marker-end="url(#ia)"/>
+    <rect class="box-accent" x="720" y="14" width="140" height="64" rx="6"/>
+    <text x="732" y="36" style="font-weight:600">4 · Outputs</text>
+    <text class="small" x="732" y="54">membership inference,</text>
+    <text class="small" x="732" y="70">data extraction</text>
+    <line class="arrow-accent" x1="790" y1="78" x2="790" y2="116" marker-end="url(#ia)"/>
+  </g>
+  <!-- indirect channel for LLM apps -->
+  <g style="color:var(--ink-2)">
+    <rect class="box" x="540" y="208" width="140" height="44" rx="6" stroke-dasharray="4 3"/>
+    <text class="small" x="610" y="226" text-anchor="middle">web pages, e-mails,</text>
+    <text class="small" x="610" y="242" text-anchor="middle">tool outputs</text>
+    <line class="arrow" x1="610" y1="208" x2="610" y2="178" marker-end="url(#ia)"/>
+    <text class="small muted" x="690" y="234">input the user never wrote</text>
+  </g>
+  <!-- adversary knowledge axis -->
+  <g style="color:var(--ink-3)">
+    <line x1="0" y1="300" x2="860" y2="300" stroke="var(--rule-strong)" stroke-width="1"/>
+    <text class="small muted" x="0" y="320">white-box: weights and gradients</text>
+    <text class="small muted" x="430" y="320" text-anchor="middle">grey-box: architecture or data, not weights</text>
+    <text class="small muted" x="860" y="320" text-anchor="end">black-box: queries only</text>
+    <text class="small muted" x="430" y="292" text-anchor="middle">what the adversary knows</text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pretraining buys privacy: ImageNet top-1 accuracy against ε">
+<text class="title" x="0" y="18">Pretraining buys privacy: ImageNet top-1 accuracy against ε</text>
+<text class="subtitle" x="0" y="38">An NFNet-F3 pretrained on JFT-4B and fine-tuned with DP-SGD on ImageNet (δ = 8·10⁻⁷), against the same recipe trained from</text>
+<text class="subtitle" x="0" y="56">scratch.</text>
+<g class="legend s1"><line class="key" x1="0" y1="80" x2="16" y2="80"/><circle class="dot" cx="8" cy="80" r="3.5"/><text x="22" y="84">Fine-tuned from JFT-4B pretraining</text></g>
+<g class="legend s6"><line class="key" x1="278.6" y1="80" x2="294.6" y2="80"/><circle class="dot" cx="286.6" cy="80" r="3.5"/><text x="300.6" y="84">Trained from scratch (NF-ResNet-50)</text></g>
+<g class="grid">
+<line x1="56" x2="796" y1="328.0" y2="328.0"/>
+<line x1="56" x2="796" y1="276.0" y2="276.0"/>
+<line x1="56" x2="796" y1="224.0" y2="224.0"/>
+<line x1="56" x2="796" y1="172.0" y2="172.0"/>
+<line x1="56" x2="796" y1="120.0" y2="120.0"/>
+</g><g class="axis">
+<text x="48" y="332.0" text-anchor="end">0.0%</text>
+<text x="48" y="280.0" text-anchor="end">25.0%</text>
+<text x="48" y="228.0" text-anchor="end">50.0%</text>
+<text x="48" y="176.0" text-anchor="end">75.0%</text>
+<text x="48" y="124.0" text-anchor="end">100.0%</text>
+</g>
+<text class="axis-title" x="56" y="112" text-anchor="start">Top-1 accuracy (%)</text>
+<g class="axis">
+<line x1="56" x2="796" y1="328.0" y2="328.0"/>
+<text x="90.2" y="346.0" text-anchor="middle">0.1</text>
+<text x="336.9" y="346.0" text-anchor="middle">0.5</text>
+<text x="443.1" y="346.0" text-anchor="middle">1</text>
+<text x="549.3" y="346.0" text-anchor="middle">2</text>
+<text x="655.6" y="346.0" text-anchor="middle">4</text>
+<text x="761.8" y="346.0" text-anchor="middle">8</text>
+</g>
+<text class="axis-title" x="796" y="364.0" text-anchor="end">Privacy budget ε (log scale)</text>
+<line class="ref" x1="56" x2="796" y1="143.9" y2="143.9"/>
+<text class="annot" x="792" y="138.9" text-anchor="end">non-private fine-tuning, 88.5%</text>
+<g class="s1">
+<path class="line" d="M90.2,166.6 L336.9,153.7 L443.1,152.4 L549.3,150.0 L655.6,149.1 L761.8,147.7"/>
+<circle class="dot" cx="90.2" cy="166.6" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>0.1: 77.6%"/>
+<circle class="dot" cx="336.9" cy="153.7" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>0.5: 83.8%"/>
+<circle class="dot" cx="443.1" cy="152.4" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>1: 84.4%"/>
+<circle class="dot" cx="549.3" cy="150.0" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>2: 85.6%"/>
+<circle class="dot" cx="655.6" cy="149.1" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>4: 86.0%"/>
+<circle class="dot" cx="761.8" cy="147.7" r="4" data-tip="<b>Fine-tuned from JFT-4B pretraining</b><br>8: 86.7%"/>
+</g>
+<g class="s6">
+<circle class="dot" cx="761.8" cy="260.6" r="4" data-tip="<b>Trained from scratch (NF-ResNet-50)</b><br>8: 32.4%"/>
+</g>
+<text class="label" x="769.8" y="151.7">86.7%</text>
+<text class="label" x="769.8" y="264.6">32.4%</text>
+<text class="subtitle" x="0" y="394">Source: De et al. 2022, Table 3 and §4</text>
+</svg>

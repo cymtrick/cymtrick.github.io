@@ -1,0 +1,42 @@
+<svg class="chart" viewBox="0 0 860 400" width="860" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="How much of a language model's output is verbatim training data?">
+<text class="title" x="0" y="18">How much of a language model's output is verbatim training data?</text>
+<text class="subtitle" x="0" y="38">Share of generated tokens inside a 50-token sequence found verbatim in the training corpus, over 1B generated tokens per model.</text>
+<g class="grid">
+<line y1="78" y2="332" x1="257.5" x2="257.5"/>
+<line y1="78" y2="332" x1="390.1" x2="390.1"/>
+<line y1="78" y2="332" x1="522.8" x2="522.8"/>
+<line y1="78" y2="332" x1="655.4" x2="655.4"/>
+<line y1="78" y2="332" x1="788.0" x2="788.0"/>
+</g><g class="axis">
+<text x="257.5" y="350" text-anchor="middle">0.000%</text>
+<text x="390.1" y="350" text-anchor="middle">0.400%</text>
+<text x="522.8" y="350" text-anchor="middle">0.800%</text>
+<text x="655.4" y="350" text-anchor="middle">1.200%</text>
+<text x="788.0" y="350" text-anchor="middle">1.600%</text>
+<text x="247.5" y="100.1" text-anchor="end" style="fill:var(--ink-2)">RedPajama 7B</text>
+<text x="247.5" y="136.4" text-anchor="end" style="fill:var(--ink-2)">gpt-3.5-turbo-instruct</text>
+<text x="247.5" y="172.7" text-anchor="end" style="fill:var(--ink-2)">LLaMA 65B</text>
+<text x="247.5" y="209.0" text-anchor="end" style="fill:var(--ink-2)">Pythia 6.9B</text>
+<text x="247.5" y="245.3" text-anchor="end" style="fill:var(--ink-2)">GPT-Neo 6B</text>
+<text x="247.5" y="281.6" text-anchor="end" style="fill:var(--ink-2)">Falcon 40B</text>
+<text x="247.5" y="317.9" text-anchor="end" style="fill:var(--ink-2)">ChatGPT (gpt-3.5-turbo), normal use</text>
+</g>
+<text class="axis-title" x="788.0" y="368" text-anchor="end">Memorised tokens (% of output)</text>
+<g class="s1">
+<path class="bar" d="M257.5,85.1 H730.3 Q734.3,85.1 734.3,89.1 V103.1 Q734.3,107.1 730.3,107.1 H257.5 Z" data-tip="<b>Memorised</b><br>RedPajama 7B: 1.438%"/>
+<text class="label" x="740.3" y="100.1">1.438%</text>
+<path class="bar" d="M257.5,121.4 H536.0 Q540.0,121.4 540.0,125.4 V139.4 Q540.0,143.4 536.0,143.4 H257.5 Z" data-tip="<b>Memorised</b><br>gpt-3.5-turbo-instruct: 0.852%"/>
+<text class="label" x="546.0" y="136.4">0.852%</text>
+<path class="bar" d="M257.5,157.7 H515.1 Q519.1,157.7 519.1,161.7 V175.7 Q519.1,179.7 515.1,179.7 H257.5 Z" data-tip="<b>Memorised</b><br>LLaMA 65B: 0.789%"/>
+<text class="label" x="525.1" y="172.7">0.789%</text>
+<path class="bar" d="M257.5,194.0 H435.2 Q439.2,194.0 439.2,198.0 V212.0 Q439.2,216.0 435.2,216.0 H257.5 Z" data-tip="<b>Memorised</b><br>Pythia 6.9B: 0.548%"/>
+<text class="label" x="445.2" y="209.0">0.548%</text>
+<path class="bar" d="M257.5,230.3 H326.4 Q330.4,230.3 330.4,234.3 V248.3 Q330.4,252.3 326.4,252.3 H257.5 Z" data-tip="<b>Memorised</b><br>GPT-Neo 6B: 0.220%"/>
+<text class="label" x="336.4" y="245.3">0.220%</text>
+<path class="bar" d="M257.5,266.6 H294.0 Q298.0,266.6 298.0,270.6 V284.6 Q298.0,288.6 294.0,288.6 H257.5 Z" data-tip="<b>Memorised</b><br>Falcon 40B: 0.122%"/>
+<text class="label" x="304.0" y="281.6">0.122%</text>
+<path class="bar" d="M257.5,302.9 H260.8 Q264.1,302.9 264.1,306.2 V321.5 Q264.1,324.9 260.8,324.9 H257.5 Z" data-tip="<b>Memorised</b><br>ChatGPT (gpt-3.5-turbo), normal use: 0.020%"/>
+<text class="label" x="270.1" y="317.9">0.020%</text>
+</g>
+<text class="subtitle" x="0" y="394">Source: Nasr et al., arXiv 2023 (2311.17035), Tables 1–2. ChatGPT row is the baseline prompting rate before the divergence attack.</text>
+</svg>

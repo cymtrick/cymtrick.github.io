@@ -1,0 +1,58 @@
+<svg class="chart" viewBox="0 0 860 420" width="860" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Clean-label poisoning of models trained from scratch">
+<text class="title" x="0" y="18">Clean-label poisoning of models trained from scratch</text>
+<text class="subtitle" x="0" y="38">CIFAR-10, 1% poison budget, ε = 8, 100 trials per cell. Success rate of each attack on three architectures.</text>
+<g class="legend s6"><rect class="swatch" x="0" y="55" width="12" height="12" rx="2"/><text x="18" y="66">Poison Frogs</text></g>
+<g class="legend s5"><rect class="swatch" x="126.80000000000001" y="55" width="12" height="12" rx="2"/><text x="144.8" y="66">Convex Polytopes</text></g>
+<g class="legend s4"><rect class="swatch" x="281.20000000000005" y="55" width="12" height="12" rx="2"/><text x="299.20000000000005" y="66">Hidden Trigger</text></g>
+<g class="legend s2"><rect class="swatch" x="421.80000000000007" y="55" width="12" height="12" rx="2"/><text x="439.80000000000007" y="66">Witches' Brew (K=1)</text></g>
+<g class="legend s1"><rect class="swatch" x="0" y="77" width="12" height="12" rx="2"/><text x="18" y="88">Witches' Brew (K=6, mixed models)</text></g>
+<g class="grid">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<line x1="56" x2="836" y1="299.0" y2="299.0"/>
+<line x1="56" x2="836" y1="246.0" y2="246.0"/>
+<line x1="56" x2="836" y1="193.0" y2="193.0"/>
+<line x1="56" x2="836" y1="140.0" y2="140.0"/>
+</g><g class="axis">
+<text x="48" y="356.0" text-anchor="end">0%</text>
+<text x="48" y="303.0" text-anchor="end">15%</text>
+<text x="48" y="250.0" text-anchor="end">30%</text>
+<text x="48" y="197.0" text-anchor="end">45%</text>
+<text x="48" y="144.0" text-anchor="end">60%</text>
+</g>
+<text class="axis-title" x="56" y="132" text-anchor="start">Attack success rate (%)</text>
+<g class="axis">
+<line x1="56" x2="836" y1="352.0" y2="352.0"/>
+<text x="186.0" y="370.0" text-anchor="middle">ResNet-18</text>
+<text x="446.0" y="370.0" text-anchor="middle">MobileNet-V2</text>
+<text x="706.0" y="370.0" text-anchor="middle">VGG11</text>
+</g>
+<g class="s6">
+<path class="bar" d="M122.0,352.0 V352.0 Q122.0,352.0 122.0,352.0 H146.0 Q146.0,352.0 146.0,352.0 V352.0 Z" data-tip="<b>Poison Frogs</b><br>ResNet-18: 0%"/>
+<path class="bar" d="M382.0,352.0 V350.2 Q382.0,348.5 383.8,348.5 H404.2 Q406.0,348.5 406.0,350.2 V352.0 Z" data-tip="<b>Poison Frogs</b><br>MobileNet-V2: 1%"/>
+<path class="bar" d="M642.0,352.0 V345.4 Q642.0,341.4 646.0,341.4 H662.0 Q666.0,341.4 666.0,345.4 V352.0 Z" data-tip="<b>Poison Frogs</b><br>VGG11: 3%"/>
+</g>
+<g class="s5">
+<path class="bar" d="M148.0,352.0 V352.0 Q148.0,352.0 148.0,352.0 H172.0 Q172.0,352.0 172.0,352.0 V352.0 Z" data-tip="<b>Convex Polytopes</b><br>ResNet-18: 0%"/>
+<path class="bar" d="M408.0,352.0 V350.2 Q408.0,348.5 409.8,348.5 H430.2 Q432.0,348.5 432.0,350.2 V352.0 Z" data-tip="<b>Convex Polytopes</b><br>MobileNet-V2: 1%"/>
+<path class="bar" d="M668.0,352.0 V350.2 Q668.0,348.5 669.8,348.5 H690.2 Q692.0,348.5 692.0,350.2 V352.0 Z" data-tip="<b>Convex Polytopes</b><br>VGG11: 1%"/>
+</g>
+<g class="s4">
+<path class="bar" d="M174.0,352.0 V352.0 Q174.0,352.0 174.0,352.0 H198.0 Q198.0,352.0 198.0,352.0 V352.0 Z" data-tip="<b>Hidden Trigger</b><br>ResNet-18: 0%"/>
+<path class="bar" d="M434.0,352.0 V341.9 Q434.0,337.9 438.0,337.9 H454.0 Q458.0,337.9 458.0,341.9 V352.0 Z" data-tip="<b>Hidden Trigger</b><br>MobileNet-V2: 4%"/>
+<path class="bar" d="M694.0,352.0 V350.2 Q694.0,348.5 695.8,348.5 H716.2 Q718.0,348.5 718.0,350.2 V352.0 Z" data-tip="<b>Hidden Trigger</b><br>VGG11: 1%"/>
+</g>
+<g class="s2">
+<path class="bar" d="M200.0,352.0 V197.0 Q200.0,193.0 204.0,193.0 H220.0 Q224.0,193.0 224.0,197.0 V352.0 Z" data-tip="<b>Witches' Brew (K=1)</b><br>ResNet-18: 45%"/>
+<path class="bar" d="M460.0,352.0 V228.8 Q460.0,224.8 464.0,224.8 H480.0 Q484.0,224.8 484.0,228.8 V352.0 Z" data-tip="<b>Witches' Brew (K=1)</b><br>MobileNet-V2: 36%"/>
+<path class="bar" d="M720.0,352.0 V327.7 Q720.0,323.7 724.0,323.7 H740.0 Q744.0,323.7 744.0,327.7 V352.0 Z" data-tip="<b>Witches' Brew (K=1)</b><br>VGG11: 8%"/>
+</g>
+<g class="s1">
+<path class="bar" d="M226.0,352.0 V182.9 Q226.0,178.9 230.0,178.9 H246.0 Q250.0,178.9 250.0,182.9 V352.0 Z" data-tip="<b>Witches' Brew (K=6, mixed models)</b><br>ResNet-18: 49%"/>
+<text class="label" x="238.0" y="172.9" text-anchor="middle">49%</text>
+<path class="bar" d="M486.0,352.0 V221.7 Q486.0,217.7 490.0,217.7 H506.0 Q510.0,217.7 510.0,221.7 V352.0 Z" data-tip="<b>Witches' Brew (K=6, mixed models)</b><br>MobileNet-V2: 38%"/>
+<text class="label" x="498.0" y="211.7" text-anchor="middle">38%</text>
+<path class="bar" d="M746.0,352.0 V232.3 Q746.0,228.3 750.0,228.3 H766.0 Q770.0,228.3 770.0,232.3 V352.0 Z" data-tip="<b>Witches' Brew (K=6, mixed models)</b><br>VGG11: 35%"/>
+<text class="label" x="758.0" y="222.3" text-anchor="middle">35%</text>
+</g>
+<text class="subtitle" x="0" y="414">Source: Geiping et al., ICLR 2021, Table 3</text>
+</svg>
