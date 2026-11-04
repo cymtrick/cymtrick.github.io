@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   Adversarial Minds — theme
+   Prashanth Varma (cymtrick) blog — theme
    Warm ivory page, serif display, sans body. The figures are the
    loud element; everything else stays quiet.
    ───────────────────────────────────────────────────────────── */
@@ -78,6 +78,7 @@ a:hover { text-decoration-color: var(--accent); }
   text-decoration: none; color: var(--ink);
 }
 .wordmark-mark { color: var(--accent); flex: none; }
+.wordmark-muted { color: var(--ink-3); font-weight: 400; }
 .site-nav { display: flex; gap: 22px; }
 .site-nav a { font-size: 15px; font-weight: 500; color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 1px solid transparent; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }

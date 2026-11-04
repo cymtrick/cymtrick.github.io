@@ -5,18 +5,29 @@ permalink: /about/
 ---
 <div class="page">
   <div class="page-inner">
-    <h1>About Adversarial Minds</h1>
+    <h1>Prashanth Varma Dommaraju</h1>
     <div class="post-body">
-      <p>Adversarial Minds is a set of long-form notes on secure and trustworthy machine learning, written by P. Rajan. The series covers the field from its foundations to current research: threat models, poisoning and evasion attacks, privacy attacks and the formal privacy frameworks that answer them, certified robustness, explainability, jailbreaking of language models, and algorithmic fairness.</p>
-      <p>The intended reader already knows machine learning reasonably well and wants to understand its security and privacy dimensions properly, rather than memorise definitions. The posts are technical, but every piece of mathematics is accompanied by the intuition that motivates it.</p>
-      <h2>How the posts are written</h2>
-      <p>Three rules hold across the series:</p>
-      <ol>
-        <li><strong>Every claim traces to a primary source.</strong> Bracketed numbers in the text link to a reference list at the end of each post; wherever possible the reference is the paper's own page at arXiv, OpenReview, or the conference proceedings.</li>
-        <li><strong>Every chart is drawn from reported numbers.</strong> The figures are redrawn from tables and plots in the cited papers, never estimated. If a result could not be verified, it is not plotted.</li>
-        <li><strong>Disagreement is reported as disagreement.</strong> Where the field has not settled a question — what ε is "private enough", whether chain-of-thought explanations are faithful, which fairness definition is the right one — the post says so and gives the strongest case on each side.</li>
-      </ol>
-      <p>Corrections are welcome. The source for the site, including the data behind every figure, is on <a href="https://github.com/cymtrick/cymtrick.github.io">GitHub</a>.</p>
+      <p class="post-dek" style="margin-top:-6px">Offensive security engineer, penetration tester and vulnerability researcher in Amsterdam. This blog is where I write up what I learned studying secure and trustworthy AI: how models are attacked, what the formal guarantees actually say, and what the numbers in the papers look like when you put them side by side.</p>
+
+      <h2>What I do</h2>
+      <p>I am an OSCP-certified offensive security engineer with a background in vulnerability research and in building large distributed systems. Since 2018 I have reported more than a hundred security vulnerabilities across major platforms, including remote code execution, SQL injection, authentication bypasses and insecure direct object references, and have been acknowledged by Google, Apple, Uber, Meta and Twitter for critical findings reported through HackerOne. I identified and helped patch <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-17082">CVE-2018-17082</a>, a cross-site scripting vulnerability in PHP's Apache 2 SAPI handler caused by bucket-brigade reuse, working with the PHP security maintainer from root-cause analysis through fix validation. From 2018 to 2020 I was a vetted member of the Synack Red Team, running authorised penetration tests against enterprise targets, and I have carried out red-teaming and VAPT engagements for government bodies and private firms.</p>
+      <p>On the engineering side, I spent four years at Hammoq, first as founding software engineer and then as senior software engineer: migrating a monolith to Kubernetes, building a state-machine-driven pipeline that processed 25 million images, running real-time machine-vision APIs at 99.9% uptime, and integrating a fine-tuned LLaVA-7B model into a retrieval-augmented generation system. A MIG-based Kubernetes orchestration I designed took inference throughput on a single A100 from one to seven requests per second.</p>
+
+      <h2>Research</h2>
+      <p>My master's thesis at Vrije Universiteit Amsterdam was on structure-aware fuzzing of Kubernetes. I built a fuzzer for the Kubelet that uses custom C++ mutators on libprotobuf-mutator to generate valid, deeply nested Pod and Node objects that get past the initial validation layers, with a feedback-driven corpus strategy that reached considerably more code than string-based fuzzing, and a standalone tool for exploring the serialisation and deserialisation state space of Go-based distributed components.</p>
+      <p>The posts on this site grew out of the Secure and Trustworthy AI course in the same programme. They cover adversarial machine learning from the threat model through poisoning, evasion and privacy attacks to differential privacy, PAC Privacy, certified robustness, explainability, jailbreaking and fairness, and they are written to the standard I would want from a paper: every claim cited to a primary source, every chart drawn from reported numbers, and disagreements reported as disagreements.</p>
+
+      <h2>Background</h2>
+      <ul>
+        <li>MSc Computer Science, Universiteit van Amsterdam and Vrije Universiteit Amsterdam (2026). Software security; Secure and Trustworthy AI; thesis on structure-aware fuzzing of Kubernetes.</li>
+        <li>BTech Electronics and Communication, Gandhi Institute of Technology and Management (2013–2018).</li>
+        <li>OSCP, Offensive Security Certified Professional (2018).</li>
+        <li>Runner-up, national CTF at the Ernst &amp; Young–DSCI Hackathon 2017, among more than 10,000 participants: web and application security, reverse engineering, forensics and cryptography.</li>
+        <li>Working languages and tools: C, C++, Go, Python, TypeScript; libFuzzer, AFL++, libprotobuf-mutator, sanitisers; Kubernetes, Docker, Google Cloud, GitHub Actions; PyTorch and LLM integration.</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>GitHub: <a href="https://github.com/cymtrick">github.com/cymtrick</a> · Email: <a href="mailto:prashanthdomma@gmail.com">prashanthdomma@gmail.com</a>. Corrections to any post are welcome; the source for the site, including the data behind every figure, is in the <a href="https://github.com/cymtrick/cymtrick.github.io">repository</a>.</p>
     </div>
   </div>
 </div>
