@@ -1,6 +1,6 @@
-# Adversarial Minds
+# Prashanth Varma (cymtrick) blog
 
-Long-form notes on secure and trustworthy machine learning, by P. Rajan. Ten posts, read in order, covering threat
+Long-form notes on secure and trustworthy machine learning, by Prashanth Varma Dommaraju. Ten posts, read in order, covering threat
 models, poisoning, explainability, evasion, privacy attacks, differential privacy, PAC Privacy, certified robustness,
 jailbreaking and algorithmic fairness.
 

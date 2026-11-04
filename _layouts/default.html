@@ -19,7 +19,7 @@
     <div class="site-header-inner">
       <a class="wordmark" href="{{ '/' | relative_url }}">
         <svg class="wordmark-mark" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1.5 20 20H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="11" cy="14.2" r="2.1" fill="currentColor"/></svg>
-        <span>Adversarial Minds</span>
+        <span>Prashanth Varma <span class="wordmark-muted">(cymtrick) blog</span></span>
       </a>
       <nav class="site-nav" aria-label="Site">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Posts</a>
@@ -37,14 +37,15 @@
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div>
-        <div class="footer-title">Adversarial Minds</div>
-        <p class="footer-blurb">Notes on secure and trustworthy machine learning, written by {{ site.author }}. Every claim links to a primary source; every chart is drawn from numbers reported in the cited papers.</p>
+        <div class="footer-title">Prashanth Varma (cymtrick) blog</div>
+        <p class="footer-blurb">Notes on secure and trustworthy machine learning by {{ site.author }}, an offensive security engineer in Amsterdam. Every claim links to a primary source; every chart is drawn from numbers reported in the cited papers.</p>
       </div>
       <div class="footer-links">
         <a href="{{ '/' | relative_url }}">Posts</a>
         <a href="{{ '/series/' | relative_url }}">Series</a>
         <a href="{{ '/about/' | relative_url }}">About</a>
         <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <a href="https://github.com/cymtrick">GitHub</a>
         <a href="https://github.com/cymtrick/cymtrick.github.io">Source</a>
       </div>
     </div>
