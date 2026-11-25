@@ -1,0 +1,61 @@
+<svg class="diagram" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three cases for where iOS delivers fbTARGET://authorize with the access token. Normal login: only the target's real app claims the scheme, so the token reaches it. Both apps installed: two apps claim the same scheme and iOS does not define which one opens. Target is web-only: the malicious app is the only app claiming the scheme, so it always receives the token, and Facebook still allowed this redirect for apps with no iOS app.">
+  <defs>
+    <marker id="fbr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <style>.diagram .m10 { font-family: var(--mono); font-size: 10.5px; } .diagram .ghost { fill: none; stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 4 4; }</style>
+
+  <!-- column 1: normal -->
+  <g>
+    <text x="140" y="18" text-anchor="middle" style="font-weight:600">Normal login</text>
+    <rect class="box" x="15" y="32" width="250" height="44" rx="6"/>
+    <text class="small" x="140" y="50" text-anchor="middle">facebook.com redirects to</text>
+    <text class="m10" x="140" y="66" text-anchor="middle" style="fill:var(--ink)">fbTARGET://authorize#access_token</text>
+    <g style="color:var(--ink-2)"><line class="arrow" x1="140" y1="76" x2="140" y2="104" marker-end="url(#fbr)"/></g>
+    <rect class="box" x="40" y="106" width="200" height="34" rx="6"/>
+    <text class="small" x="140" y="127" text-anchor="middle">iOS: who claims fbTARGET?</text>
+    <g style="color:var(--ink-2)"><line class="arrow" x1="140" y1="140" x2="140" y2="172" marker-end="url(#fbr)"/></g>
+    <rect class="box-ink" x="55" y="174" width="170" height="40" rx="6"/>
+    <text class="on-ink small" x="140" y="198" text-anchor="middle">TARGET's real iOS app</text>
+    <text class="small muted" x="140" y="240" text-anchor="middle">Only the real app claims the</text>
+    <text class="small muted" x="140" y="256" text-anchor="middle">scheme, so the token reaches it.</text>
+  </g>
+
+  <!-- column 2: both installed -->
+  <g>
+    <text x="430" y="18" text-anchor="middle" style="font-weight:600">Both apps installed</text>
+    <rect class="box" x="305" y="32" width="250" height="44" rx="6"/>
+    <text class="small" x="430" y="50" text-anchor="middle">facebook.com redirects to</text>
+    <text class="m10" x="430" y="66" text-anchor="middle" style="fill:var(--ink)">fbTARGET://authorize#access_token</text>
+    <g style="color:var(--ink-2)"><line class="arrow" x1="430" y1="76" x2="430" y2="104" marker-end="url(#fbr)"/></g>
+    <rect class="box" x="330" y="106" width="200" height="34" rx="6"/>
+    <text class="small" x="430" y="127" text-anchor="middle">iOS: who claims fbTARGET?</text>
+    <g style="color:var(--ink-2)"><line class="arrow" x1="400" y1="140" x2="365" y2="172" marker-end="url(#fbr)"/></g>
+    <g style="color:var(--accent)"><line class="arrow-accent" x1="460" y1="140" x2="495" y2="172" marker-end="url(#fbr)"/></g>
+    <text x="430" y="166" text-anchor="middle" style="font-weight:600;font-size:16px;fill:var(--ink-3)">?</text>
+    <rect class="box-ink" x="300" y="174" width="125" height="40" rx="6"/>
+    <text class="on-ink small" x="362" y="198" text-anchor="middle">real app</text>
+    <rect class="box-accent" x="435" y="174" width="125" height="40" rx="6"/>
+    <text class="small" x="497" y="198" text-anchor="middle" style="fill:var(--accent-ink)">malicious app</text>
+    <text class="small muted" x="430" y="240" text-anchor="middle">Two apps claim one scheme.</text>
+    <text class="small muted" x="430" y="256" text-anchor="middle">iOS doesn't define which one opens.</text>
+  </g>
+
+  <!-- column 3: web-only target -->
+  <g>
+    <text x="720" y="18" text-anchor="middle" style="font-weight:600;fill:var(--accent-ink)">Target has no iOS app</text>
+    <rect class="box" x="595" y="32" width="250" height="44" rx="6"/>
+    <text class="small" x="720" y="50" text-anchor="middle">facebook.com still redirects to</text>
+    <text class="m10" x="720" y="66" text-anchor="middle" style="fill:var(--ink)">fbTARGET://authorize#access_token</text>
+    <g style="color:var(--accent)"><line class="arrow-accent" x1="720" y1="76" x2="720" y2="104" marker-end="url(#fbr)"/></g>
+    <rect class="box" x="620" y="106" width="200" height="34" rx="6"/>
+    <text class="small" x="720" y="127" text-anchor="middle">iOS: who claims fbTARGET?</text>
+    <g style="color:var(--accent)"><line class="arrow-accent" x1="760" y1="140" x2="785" y2="172" marker-end="url(#fbr)"/></g>
+    <rect class="ghost" x="590" y="174" width="125" height="40" rx="6"/>
+    <text class="small muted" x="652" y="198" text-anchor="middle">no real app</text>
+    <rect class="box-accent" x="725" y="174" width="125" height="40" rx="6"/>
+    <text class="small" x="787" y="198" text-anchor="middle" style="fill:var(--accent-ink)">malicious app</text>
+    <text class="small" x="720" y="240" text-anchor="middle" style="fill:var(--accent-ink)">The malicious app is the only claimant,</text>
+    <text class="small" x="720" y="256" text-anchor="middle" style="fill:var(--accent-ink)">so it gets the token every time. This is</text>
+    <text class="small" x="720" y="272" text-anchor="middle" style="fill:var(--accent-ink)">the redirect Facebook agreed to lock down.</text>
+  </g>
+</svg>
