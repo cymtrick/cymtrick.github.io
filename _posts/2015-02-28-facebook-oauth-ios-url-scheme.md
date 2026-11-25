@@ -88,8 +88,18 @@ On the general problem, they considered it hard to fully lock down. OAuth has no
 
 On the specific gap, they agreed. My report showed that Facebook enabled mobile redirect URIs even for apps that hadn't indicated mobile support, and they said they planned to look at locking that down. That's what the bounty was for: $1,000.
 
+## What changed afterwards
+
+Facebook escalated the issue to Apple and Google. Later in 2015, both platforms changed how links open apps, and from what I understood, Facebook's escalation was part of the reason.
+
+- **iOS 9:** Safari started asking before handing a custom-scheme URL to an app, with a prompt like *Open this page in "App"?* A redirect to `fbTARGET://` no longer drops silently into whichever app claimed the scheme. iOS 9 also introduced Universal Links: ordinary `https` links tied to a domain the app has to prove it owns, so another app can't claim them.
+- **Android 6.0 Marshmallow:** added verified App Links, which work the same way. An app proves it owns a domain, and links to that domain open in that app instead of any app that registered for them.
+
+Neither change removes custom URL schemes, but both give apps a way to receive links that a malicious app can't intercept.
+
 ## Timeline
 
 - **Early 2015:** reported to Facebook as "oauth token capture due to custom url scheme in ios apps".
 - **February 2015:** I followed up asking for an update.
 - **27 February 2015:** Facebook replied with their findings and awarded a $1,000 bounty, asking that I not discuss the details until the issue had been patched.
+- **Later in 2015:** iOS 9 added a confirmation prompt for custom URL schemes along with Universal Links, and Android 6.0 added verified App Links.
