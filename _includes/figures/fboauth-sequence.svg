@@ -1,0 +1,72 @@
+<svg class="diagram" viewBox="0 0 860 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sequence diagram. The malicious iOS app opens Facebook's OAuth dialog for the target app in Safari with redirect_uri fbTARGET://authorize. Facebook shows the real login dialog for the target app, the user logs in, and Facebook redirects to fbTARGET://authorize with the access token. Safari asks iOS to open that URL, and iOS opens the malicious app, the only app that registered the fbTARGET scheme. The malicious app then calls the Graph API as the target app.">
+  <defs>
+    <marker id="fba" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+  </defs>
+  <style>.diagram .m10 { font-family: var(--mono); font-size: 10.5px; } .diagram .life { stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 3 4; } .diagram .dash { stroke-dasharray: 5 4; }</style>
+
+  <!-- lifelines -->
+  <line class="life" x1="95" y1="50" x2="95" y2="440"/>
+  <line class="life" x1="315" y1="50" x2="315" y2="440"/>
+  <line class="life" x1="545" y1="50" x2="545" y2="440"/>
+  <line class="life" x1="765" y1="50" x2="765" y2="440"/>
+
+  <!-- lane headers -->
+  <rect class="box-accent" x="10" y="8" width="170" height="42" rx="6"/>
+  <text x="95" y="27" text-anchor="middle" style="font-weight:600;fill:var(--accent-ink)">Malicious iOS app</text>
+  <text class="small" x="95" y="42" text-anchor="middle" style="fill:var(--accent-ink)">claims scheme fbTARGET</text>
+  <rect class="box" x="230" y="8" width="170" height="42" rx="6"/>
+  <text x="315" y="27" text-anchor="middle" style="font-weight:600">Safari</text>
+  <text class="small muted" x="315" y="42" text-anchor="middle">or the Facebook app</text>
+  <rect class="box" x="460" y="8" width="170" height="42" rx="6"/>
+  <text x="545" y="27" text-anchor="middle" style="font-weight:600">facebook.com</text>
+  <text class="small muted" x="545" y="42" text-anchor="middle">OAuth dialog</text>
+  <rect class="box" x="680" y="8" width="170" height="42" rx="6"/>
+  <text x="765" y="27" text-anchor="middle" style="font-weight:600">iOS</text>
+  <text class="small muted" x="765" y="42" text-anchor="middle">custom URL scheme routing</text>
+
+  <!-- 1 -->
+  <g style="color:var(--ink-2)">
+    <text class="small" x="205" y="80" text-anchor="middle">1 · open Facebook login for TARGET</text>
+    <text class="m10" x="205" y="94" text-anchor="middle" style="fill:var(--ink-2)">redirect_uri=fbTARGET://authorize</text>
+    <line class="arrow" x1="95" y1="104" x2="311" y2="104" marker-end="url(#fba)"/>
+  </g>
+  <!-- 2 -->
+  <g style="color:var(--ink-2)">
+    <text class="small" x="430" y="134" text-anchor="middle">2 · GET /dialog/oauth</text>
+    <text class="m10" x="430" y="148" text-anchor="middle" style="fill:var(--ink-2)">client_id=TARGET&amp;response_type=token</text>
+    <line class="arrow" x1="315" y1="158" x2="541" y2="158" marker-end="url(#fba)"/>
+  </g>
+  <!-- 3 -->
+  <g style="color:var(--ink-2)">
+    <text class="small" x="430" y="188" text-anchor="middle">3 · “Log in to TARGET” dialog</text>
+    <text class="small muted" x="430" y="202" text-anchor="middle">the real app's name, on facebook.com</text>
+    <line class="arrow dash" x1="545" y1="212" x2="319" y2="212" marker-end="url(#fba)"/>
+  </g>
+  <!-- 4 -->
+  <g style="color:var(--ink-2)">
+    <text class="small" x="430" y="246" text-anchor="middle">4 · user logs in and approves</text>
+    <line class="arrow" x1="315" y1="258" x2="541" y2="258" marker-end="url(#fba)"/>
+  </g>
+  <!-- 5 -->
+  <g style="color:var(--accent)">
+    <text class="small" x="430" y="288" text-anchor="middle" style="fill:var(--accent-ink)">5 · 302 redirect</text>
+    <text class="m10" x="430" y="302" text-anchor="middle" style="fill:var(--accent-ink)">fbTARGET://authorize#access_token=…</text>
+    <line class="arrow-accent" x1="545" y1="312" x2="319" y2="312" marker-end="url(#fba)"/>
+  </g>
+  <!-- 6 -->
+  <g style="color:var(--accent)">
+    <text class="small" x="540" y="346" text-anchor="middle" style="fill:var(--accent-ink)">6 · not an http URL, so Safari asks iOS to open fbTARGET://…</text>
+    <line class="arrow-accent" x1="315" y1="358" x2="761" y2="358" marker-end="url(#fba)"/>
+  </g>
+  <!-- 7 -->
+  <g style="color:var(--accent)">
+    <text class="small" x="430" y="390" text-anchor="middle" style="fill:var(--accent-ink);font-weight:600">7 · iOS opens the app that registered fbTARGET: the malicious one</text>
+    <text class="m10" x="430" y="404" text-anchor="middle" style="fill:var(--accent-ink)">application:openURL: fbTARGET://authorize#access_token=…</text>
+    <line class="arrow-accent" x1="765" y1="414" x2="99" y2="414" marker-end="url(#fba)"/>
+  </g>
+
+  <!-- 8 -->
+  <rect class="box-ink" x="10" y="444" width="420" height="44" rx="6"/>
+  <text class="on-ink" x="24" y="463" style="font-weight:600">8 · token captured</text>
+  <text class="on-ink small" x="24" y="479">calls the Graph API as TARGET, with TARGET's permissions</text>
+</svg>
