@@ -1,6 +1,6 @@
 # Prashanth Varma (cymtrick) blog
 
-Long-form notes on secure and trustworthy machine learning, by Prashanth Varma Dommaraju. Ten posts, read in order, covering threat
+Prashanth Varma Dommaraju's blog: bug write-ups, web security, and a ten-part series on machine learning security covering threat
 models, poisoning, explainability, evasion, privacy attacks, differential privacy, PAC Privacy, certified robustness,
 jailbreaking and algorithmic fairness.
 

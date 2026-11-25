@@ -3,8 +3,8 @@ layout: default
 ---
 <div class="home">
   <section class="hero">
-    <h1>When the model is the attack surface.</h1>
-    <p>Long-form notes on adversarial machine learning, privacy, and the gap between what we can measure about a model and what we can prove. Written for people who train models and want to know how they break.</p>
+    <h1>Hi, I'm Prashanth.</h1>
+    <p>I'm a security engineer in Amsterdam, working on penetration testing and vulnerability research. This is where I write things up: bugs I've found, how systems break, and a longer series on the security of machine learning.</p>
   </section>
 
   {% assign latest = site.posts | first %}
@@ -16,7 +16,7 @@ layout: default
     </div>
     {% endif %}
     <div class="featured-text">
-      <div class="card-category">Latest in {{ latest.category }}</div>
+      <div class="card-category">Latest · {{ latest.category }}</div>
       <h2>{{ latest.title }}</h2>
       <p>{{ latest.dek | default: latest.excerpt | strip_html | truncate: 220 }}</p>
       <div class="featured-meta">
@@ -28,7 +28,7 @@ layout: default
 
   <div class="section-head">
     <h2>All posts</h2>
-    <a href="{{ '/series/' | relative_url }}">Read in order</a>
+    <a href="{{ '/series/' | relative_url }}">The ML security series</a>
   </div>
   <div class="card-grid">
     {% for post in site.posts offset: 1 %}
@@ -50,14 +50,4 @@ layout: default
     {% endfor %}
   </div>
 
-  <section class="series-strip">
-    <h2>The series, in reading order</h2>
-    <p>The posts build on each other: threat model first, then attacks, then the privacy and robustness frameworks that try to answer them, then the harder questions about trust.</p>
-    <ol class="series-list">
-      {% assign ordered = site.posts | sort: "date" %}
-      {% for post in ordered %}
-      <li><a href="{{ post.url | relative_url }}"><span><span class="series-title">{{ post.title }}</span><span class="series-sub">{{ post.category }} · {{ post.read_time }}</span></span></a></li>
-      {% endfor %}
-    </ol>
-  </section>
 </div>
