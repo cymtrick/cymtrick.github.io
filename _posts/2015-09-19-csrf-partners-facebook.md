@@ -2,6 +2,7 @@
 title: "CSRF in partners.facebook.com"
 category: "Web Security"
 tags: [web-security, bug-bounty]
+thumb: csrf-thumb
 read_time: "3 min read"
 dek: "Every endpoint on partners.facebook.com accepted requests without the fb_dtsg token. Reported August 2015, fixed a month later, $5,000 bounty."
 ---
@@ -84,6 +85,8 @@ Pragma: no-cache
 X-FB-Debug: Dmgrhewc6N5fT+i20ldq1OlYtN45IWMAcGGzafxtVMGqClAKvDjbysUAbMhoR1YfQjL0S5p5deoLKdlEqkBb1w==
 Date: Mon, 24 Aug 2015 10:58:38 GMT
 ```
+
+{% include fig.html name="csrf-flow" num="1" caption="How the missing check plays out. Any page the victim visits can submit the form for them, because partners.facebook.com accepted requests without fb_dtsg." %}
 
 ## Timeline
 

@@ -1,0 +1,11 @@
+<svg class="diagram" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A bucket brigade where leftover request data goes out with the response">
+  <defs><marker id="pht" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker></defs>
+  <rect x="15" y="30" width="370" height="76" rx="38" style="fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:3 3"/>
+  <text class="small muted" x="200" y="22" text-anchor="middle">bucket brigade</text>
+  <rect x="40" y="48" width="90" height="40" rx="5" style="fill:var(--panel-2);stroke:var(--rule-strong)"/><text class="small" x="85" y="72" text-anchor="middle">request</text>
+  <rect class="box-accent" x="140" y="48" width="90" height="40" rx="5"/><text class="small" x="185" y="72" text-anchor="middle" style="fill:var(--accent-ink)">body</text>
+  <rect class="box-ink" x="240" y="48" width="60" height="40" rx="5"/><text class="on-ink small" x="270" y="72" text-anchor="middle">EOS</text>
+  <g style="color:var(--accent)"><line class="arrow-accent" x1="200" y1="106" x2="200" y2="134" marker-end="url(#pht)"/></g>
+  <rect class="box-accent" x="110" y="136" width="180" height="32" rx="5"/>
+  <text class="small" x="200" y="156" text-anchor="middle" style="fill:var(--accent-ink);font-weight:600">leaks into the response</text>
+</svg>

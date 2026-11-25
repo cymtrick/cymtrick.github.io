@@ -3,6 +3,7 @@ title: "Stored XSS in iCloud Notes"
 date: 2014-12-19 20:28:00 +0530
 category: "Web Security"
 tags: [web-security, xss, apple, icloud]
+thumb: icloud-thumb
 read_time: "4 min read"
 dek: "In 2014, iCloud Notes on icloud.com turned anything that looked like scheme:/something into a clickable link, including javascript: URLs. A line break hidden behind a // comment was enough to get script running on icloud.com without touching a proxy."
 ---
@@ -20,6 +21,8 @@ So I started feeding it things to see what it would and wouldn't link:
 - `SOMETHING://SOMETHING` became a link
 - `SOMETHING:/SOMETHING` became a link
 - `SOMETHING:SOMETHING` did not
+
+{% include fig.html name="icloud-linkify" num="1" caption="What the Notes auto-linker turned into a link. It accepted any scheme as long as a slash followed the colon." %}
 
 The rule looked like "any scheme, as long as a slash follows the colon". It didn't check which scheme, which means `javascript:` was fair game. The only thing in the way was the slash, because `javascript:alert(0)` has no slash after the colon and was left as plain text.
 
@@ -52,6 +55,8 @@ This passes the auto-linker because it has `://` after the scheme. When the link
 - `//` starts a JavaScript comment, so whatever follows on that line is ignored.
 - `%0D%0A` decodes to a carriage return and line feed, which ends the comment.
 - `alert(document.domain)+20/10` sits on the next line and runs. The `+20/10` is plain arithmetic hanging off the end, and it makes the whole thing read a bit more like a URL.
+
+{% include fig.html name="icloud-payload" num="2" caption="The no-proxy payload, piece by piece. The // satisfies the auto-linker and starts a comment; the encoded line break ends the comment so the next line runs." %}
 
 Because the link is saved into the note, it stays there and fires on `icloud.com` every time it's clicked. In the video, the `document.cookie` version pops an alert with the session cookies, including `X-APPLE-WEB-ID` and `X-APPLE-WEBAUTH-VALIDATE`, and the `document.domain` version shows `www.icloud.com`.
 

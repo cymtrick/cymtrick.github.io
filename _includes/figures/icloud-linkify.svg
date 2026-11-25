@@ -1,0 +1,22 @@
+<svg class="diagram" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What the iCloud Notes auto-linker did with each input. www, http, scheme double-slash and scheme single-slash inputs became links; scheme-colon with no slash did not. javascript:alert(0) was not linked, javascript:/alert(0) was linked but is not valid JavaScript, and javascript://%0D%0Aalert(…) was linked and runs.">
+  <style>.diagram .m13 { font-family: var(--mono); font-size: 13px; } .diagram .yes { fill: var(--ink); font-weight: 600; } .diagram .no { fill: var(--ink-3); }</style>
+  <text class="small muted" x="20" y="20" style="font-weight:600">TYPED INTO A NOTE</text>
+  <text class="small muted" x="420" y="20" style="font-weight:600">AUTO-LINKED?</text>
+  <text class="small muted" x="560" y="20" style="font-weight:600">WHAT IT MEANS</text>
+  <line x1="10" y1="30" x2="850" y2="30" style="stroke:var(--rule-strong)"/>
+  <g>
+    <text class="m13" x="20" y="54">www.SOMETHING</text><text class="small yes" x="420" y="54">✓ link</text><text class="small muted" x="560" y="54">only when it starts with www.</text>
+    <text class="m13" x="20" y="86">http://SOMETHING</text><text class="small yes" x="420" y="86">✓ link</text><text class="small muted" x="560" y="86">the expected case</text>
+    <text class="m13" x="20" y="118">SOMETHING://SOMETHING</text><text class="small yes" x="420" y="118">✓ link</text><text class="small muted" x="560" y="118">any scheme is accepted</text>
+    <text class="m13" x="20" y="150">SOMETHING:/SOMETHING</text><text class="small yes" x="420" y="150">✓ link</text><text class="small muted" x="560" y="150">one slash is enough</text>
+    <text class="m13" x="20" y="182">SOMETHING:SOMETHING</text><text class="small no" x="420" y="182">✗ text</text><text class="small muted" x="560" y="182">no slash, no link</text>
+  </g>
+  <line x1="10" y1="198" x2="850" y2="198" style="stroke:var(--rule)"/>
+  <g>
+    <text class="m13" x="20" y="224">javascript:alert(0)</text><text class="small no" x="420" y="224">✗ text</text><text class="small muted" x="560" y="224">no slash after the colon</text>
+    <text class="m13" x="20" y="256">javascript:/alert(0)</text><text class="small yes" x="420" y="256">✓ link</text><text class="small muted" x="560" y="256">linked, but /alert(0) isn't valid JS:</text>
+    <text class="small muted" x="560" y="271">version 1 fixed it in a proxy</text>
+    <rect class="box-accent" x="10" y="282" width="840" height="38" rx="6"/>
+    <text class="m13" x="20" y="306" style="fill:var(--accent-ink)">javascript://%0D%0Aalert(…)</text><text class="small" x="420" y="306" style="fill:var(--accent-ink);font-weight:600">✓ link</text><text class="small" x="560" y="306" style="fill:var(--accent-ink);font-weight:600">linked and runs: version 2, no proxy</text>
+  </g>
+</svg>

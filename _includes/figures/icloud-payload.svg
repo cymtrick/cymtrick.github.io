@@ -1,0 +1,22 @@
+<svg class="diagram" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The payload javascript://%0D%0Aalert(document.domain)+20/10 split into four parts: the javascript: scheme runs the rest as script; // starts a comment; %0D%0A decodes to a line break that ends the comment; alert(document.domain)+20/10 sits on the next line and runs on icloud.com.">
+  <defs><marker id="icp" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker></defs>
+  <style>.diagram .m15 { font-family: var(--mono); font-size: 15px; } .diagram .m13 { font-family: var(--mono); font-size: 13px; }</style>
+  <text class="small muted" x="114" y="18" style="font-weight:600">THE LINK SAVED IN THE NOTE</text>
+  <rect class="box" x="114" y="28" width="128" height="40" rx="5"/><text class="m15" x="178" y="53" text-anchor="middle">javascript:</text>
+  <rect class="box" x="250" y="28" width="52" height="40" rx="5"/><text class="m15" x="276" y="53" text-anchor="middle">//</text>
+  <rect class="box-accent" x="310" y="28" width="84" height="40" rx="5"/><text class="m15" x="352" y="53" text-anchor="middle" style="fill:var(--accent-ink)">%0D%0A</text>
+  <rect class="box-ink" x="402" y="28" width="344" height="40" rx="5"/><text class="m15 on-ink" x="574" y="53" text-anchor="middle">alert(document.domain)+20/10</text>
+  <text class="small muted" x="178" y="88" text-anchor="middle">run the rest</text><text class="small muted" x="178" y="102" text-anchor="middle">as JavaScript</text>
+  <text class="small muted" x="276" y="88" text-anchor="middle">starts a</text><text class="small muted" x="276" y="102" text-anchor="middle">comment</text>
+  <text class="small" x="352" y="88" text-anchor="middle" style="fill:var(--accent-ink)">CR LF: a line</text><text class="small" x="352" y="102" text-anchor="middle" style="fill:var(--accent-ink)">break, ends it</text>
+  <text class="small muted" x="574" y="88" text-anchor="middle">the next line: real code</text><text class="small muted" x="574" y="102" text-anchor="middle">(+20/10 is harmless arithmetic)</text>
+  <g style="color:var(--ink-2)"><line class="arrow" x1="430" y1="116" x2="430" y2="146" marker-end="url(#icp)"/></g>
+  <text class="small muted" x="440" y="136">clicked: the browser URL-decodes it and runs the script</text>
+  <text class="small muted" x="114" y="164" style="font-weight:600">WHAT ACTUALLY RUNS ON icloud.com</text>
+  <rect class="box" x="114" y="172" width="632" height="76" rx="6"/>
+  <text class="small muted" x="130" y="200">1</text><text class="m13" x="152" y="200" style="fill:var(--ink-3)">//</text><text class="small muted" x="196" y="200">a comment with nothing in it</text>
+  <text class="small muted" x="130" y="232">2</text><text class="m13" x="152" y="232" style="font-weight:600">alert(document.domain)+20/10</text>
+  <g style="color:var(--accent)"><line class="arrow-accent" x1="420" y1="228" x2="452" y2="228" marker-end="url(#icp)"/></g>
+  <text class="small" x="460" y="232" style="fill:var(--accent-ink);font-weight:600">runs with icloud.com's cookies</text>
+  <text class="small muted" x="114" y="278">The auto-linker only checked for a slash after the scheme. "//" satisfied it, and the line break made the code after it live.</text>
+</svg>
