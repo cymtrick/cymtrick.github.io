@@ -339,4 +339,4 @@ a:hover { text-decoration-color: var(--accent); }
 /* ── Embedded video ─────────────────────────────────────────── */
 .post-body .video { position: relative; aspect-ratio: 16 / 9; margin: 0 0 1.5em; }
 .post-body .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: var(--radius); }
-.post-body .post-video { display: block; width: 100%; height: auto; margin: 0 0 1.5em; border: 1px solid var(--rule); border-radius: var(--radius); background: #000; }
+.post-body .post-video { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto 1.5em; border: 1px solid var(--rule); border-radius: var(--radius); background: #000; }
