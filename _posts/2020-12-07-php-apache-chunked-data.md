@@ -4,7 +4,7 @@ category: "Web Security"
 tags: [web-security, php, apache, xss, cve]
 thumb: php-thumb
 read_time: "4 min read"
-dek: "CVE-2018-17082: how a chunked request with an oversized Content-Length made PHP's Apache handler echo the request body into the response, turning any PHP page on Apache into a reflected XSS, and the one-line fix in sapi_apache2.c."
+dek: "CVE-2018-17082: how a chunked request with an oversized Content-Length made PHP's Apache handler echo the request body into the response, a reflected XSS, and the one-line fix in sapi_apache2.c."
 ---
 
 First of all, What's a chunked data?
