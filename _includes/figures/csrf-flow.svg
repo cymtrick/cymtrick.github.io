@@ -1,0 +1,33 @@
+<svg class="diagram" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The CSRF. A page the attacker controls submits a form to partners.facebook.com/cp/onboarding/submit/ without the fb_dtsg token. The victim's browser attaches their Facebook cookies. partners.facebook.com did not check the token and returned 200, changing the submission. Below: with fb_dtsg the request returned 200, without it also 200 in August 2015, and after the fix in September 2015 a missing token returns 400.">
+  <defs><marker id="csf" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker></defs>
+  <style>.diagram .m11 { font-family: var(--mono); font-size: 11px; }</style>
+  <rect class="box-accent" x="10" y="20" width="240" height="96" rx="6"/>
+  <text x="24" y="44" style="font-weight:600;fill:var(--accent-ink)">Attacker's page</text>
+  <text class="small" x="24" y="64" style="fill:var(--accent-ink)">auto-submitting hidden form</text>
+  <text class="m11" x="24" y="84" style="fill:var(--accent-ink)">POST /cp/onboarding/submit/</text>
+  <text class="m11" x="24" y="100" style="fill:var(--accent-ink)">site_name=…&amp;submission_id=…</text>
+  <g style="color:var(--accent)"><line class="arrow-accent" x1="250" y1="68" x2="306" y2="68" marker-end="url(#csf)"/></g>
+  <rect class="box" x="310" y="20" width="240" height="96" rx="6"/>
+  <text x="324" y="44" style="font-weight:600">Victim's browser</text>
+  <text class="small muted" x="324" y="64">logged in to Facebook, so it</text>
+  <text class="small muted" x="324" y="80">attaches the session cookies</text>
+  <text class="m11" x="324" y="100" style="fill:var(--ink-3)">no fb_dtsg in the request</text>
+  <g style="color:var(--accent)"><line class="arrow-accent" x1="550" y1="68" x2="606" y2="68" marker-end="url(#csf)"/></g>
+  <rect class="box-ink" x="610" y="20" width="240" height="96" rx="6"/>
+  <text class="on-ink" x="624" y="44" style="font-weight:600">partners.facebook.com</text>
+  <text class="on-ink small" x="624" y="64">doesn't check the token</text>
+  <text class="on-ink m11" x="624" y="84">HTTP/1.1 200 OK</text>
+  <text class="on-ink small" x="624" y="100">site submission changed</text>
+  <text class="small muted" x="10" y="160" style="font-weight:600">THE SAME REQUEST, THREE WAYS</text>
+  <line x1="10" y1="170" x2="850" y2="170" style="stroke:var(--rule-strong)"/>
+  <text class="m11" x="20" y="198" style="fill:var(--ink)">fb_dtsg=[token]&amp;site_name=…</text>
+  <text class="small muted" x="330" y="198">August 2015, token present</text>
+  <rect class="box" x="640" y="182" width="120" height="24" rx="4"/><text class="m11" x="700" y="198" text-anchor="middle" style="fill:var(--ink)">200 OK</text>
+  <text class="m11" x="20" y="238" style="fill:var(--accent-ink)">site_name=…   (token removed)</text>
+  <text class="small" x="330" y="238" style="fill:var(--accent-ink)">August 2015, token missing: the bug</text>
+  <rect class="box-accent" x="640" y="222" width="120" height="24" rx="4"/><text class="m11" x="700" y="238" text-anchor="middle" style="fill:var(--accent-ink);font-weight:600">200 OK</text>
+  <text class="m11" x="20" y="278" style="fill:var(--ink)">site_name=…   (token removed)</text>
+  <text class="small muted" x="330" y="278">after the fix, 18 September 2015</text>
+  <rect class="box" x="640" y="262" width="120" height="24" rx="4"/><text class="m11" x="700" y="278" text-anchor="middle" style="fill:var(--ink)">400</text>
+  <text class="small muted" x="10" y="318">The banner-image upload, /cp/onboarding/images/submit/, had the same gap: every endpoint on the site skipped the check.</text>
+</svg>

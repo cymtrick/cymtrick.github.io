@@ -1,0 +1,24 @@
+<svg class="diagram" viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before and after the patch. Before: the end-of-stream bucket is inserted at the tail of the existing brigade, a ring that still holds leftover buckets, so everything in the ring goes out. After: apr_brigade_create makes a fresh brigade from the request pool and the end-of-stream bucket goes into that, so nothing else is sent.">
+  <style>.diagram .m11 { font-family: var(--mono); font-size: 11px; } .diagram .bk { fill: var(--panel-2); stroke: var(--rule-strong); } .diagram .ring { fill: none; stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 3 3; }</style>
+  <text x="20" y="22" style="font-weight:600">Before</text>
+  <text class="m11" x="20" y="42" style="fill:var(--ink-2)">APR_BRIGADE_INSERT_TAIL(brigade, bucket);</text>
+  <rect class="ring" x="20" y="60" width="390" height="90" rx="45"/>
+  <text class="small muted" x="215" y="76" text-anchor="middle">brigade (a ring of buckets), reused</text>
+  <rect class="bk" x="44" y="88" width="96" height="40" rx="5"/><text class="small" x="92" y="112" text-anchor="middle">leftover</text>
+  <rect class="bk" x="150" y="88" width="96" height="40" rx="5"/><text class="small" x="198" y="112" text-anchor="middle">leftover</text>
+  <rect class="box-accent" x="256" y="88" width="64" height="40" rx="5"/><text class="small" x="288" y="112" text-anchor="middle" style="fill:var(--accent-ink)">body</text>
+  <rect class="box-ink" x="330" y="88" width="64" height="40" rx="5"/><text class="on-ink small" x="362" y="112" text-anchor="middle">EOS</text>
+  <text class="small" x="20" y="178" style="fill:var(--accent-ink);font-weight:600">Everything in the ring goes out with the response,</text>
+  <text class="small" x="20" y="194" style="fill:var(--accent-ink)">including what was left there from the request.</text>
+
+  <line x1="430" y1="10" x2="430" y2="240" style="stroke:var(--rule)"/>
+
+  <text x="450" y="22" style="font-weight:600">Patch</text>
+  <text class="m11" x="450" y="42" style="fill:var(--ink-2)">brigade = apr_brigade_create(r-&gt;pool, …);</text>
+  <rect class="ring" x="450" y="60" width="390" height="90" rx="45"/>
+  <text class="small muted" x="645" y="76" text-anchor="middle">a fresh brigade</text>
+  <rect class="box-ink" x="613" y="88" width="64" height="40" rx="5"/><text class="on-ink small" x="645" y="112" text-anchor="middle">EOS</text>
+  <text class="small" x="450" y="178" style="font-weight:600">Only the end-of-stream bucket is sent.</text>
+  <text class="small muted" x="450" y="194">One added line in sapi_apache2.c.</text>
+  <text class="small muted" x="20" y="236">EOS: the end-of-stream bucket (apr_bucket_eos_create) that tells Apache the response is complete.</text>
+</svg>

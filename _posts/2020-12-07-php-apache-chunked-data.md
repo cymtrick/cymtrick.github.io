@@ -2,6 +2,7 @@
 title: "A Story of mishandling the Chunked Data"
 category: "Web Security"
 tags: [web-security, php, apache]
+thumb: php-thumb
 read_time: "4 min read"
 dek: "How a chunked request with an oversized Content-Length made PHP's Apache handler leak the request body into the response, and the one-line fix in sapi_apache2.c."
 ---
@@ -44,6 +45,8 @@ The input gets into Apache's "bucket brigade", even though PHP is not sending it
 #13 0x00007f5111c00ab9 in php_request_shutdown (dummy=dummy@entry=0x0) at ./main/main.c:1863
 ```
 
+{% include fig.html name="php-chunked-flow" num="1" caption="The path from a malformed chunked request to a response that echoes the request body." %}
+
 So, what's a bucket brigade?
 
 ### Buckets
@@ -83,6 +86,8 @@ Patch:
 		brigade = apr_brigade_create(r->pool, r->connection->bucket_alloc);
 		APR_BRIGADE_INSERT_TAIL(brigade, bucket);
 ```
+
+{% include fig.html name="php-brigade-patch" num="2" caption="What the one-line patch changes: the end-of-stream bucket goes into a fresh brigade instead of the one that still holds leftover data." %}
 
 Fix added to security repo as 65bc4f464e6a85aad3f578e9d55520601cbdeccf and to <https://gist.github.com/smalyshev/e956dbae936df9a7594750caae8a7cf2>
 
