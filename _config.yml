@@ -18,12 +18,22 @@ kramdown:
     block:
       line_numbers: false
 
+collections:
+  archive:
+    output: true
+    permalink: /archive/:name/
+
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "archive"
+    values:
+      layout: "archive"
 
 plugins:
   - jekyll-feed

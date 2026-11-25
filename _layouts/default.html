@@ -13,7 +13,7 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 </head>
-<body class="{% if page.layout == 'post' %}is-post{% endif %}">
+<body class="{% if page.layout == 'post' or page.layout == 'archive' %}is-post{% endif %}">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="site-header-inner">
@@ -24,6 +24,7 @@
       <nav class="site-nav" aria-label="Site">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Posts</a>
         <a href="{{ '/series/' | relative_url }}" {% if page.url == '/series/' %}aria-current="page"{% endif %}>Series</a>
+        <a href="{{ '/archive/' | relative_url }}" {% if page.url == '/archive/' or page.collection == 'archive' %}aria-current="page"{% endif %}>Archive</a>
         <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
         <a href="{{ '/feed.xml' | relative_url }}" title="RSS feed">RSS</a>
       </nav>
@@ -43,6 +44,7 @@
       <div class="footer-links">
         <a href="{{ '/' | relative_url }}">Posts</a>
         <a href="{{ '/series/' | relative_url }}">Series</a>
+        <a href="{{ '/archive/' | relative_url }}">Archive</a>
         <a href="{{ '/about/' | relative_url }}">About</a>
         <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
         <a href="https://github.com/cymtrick">GitHub</a>
