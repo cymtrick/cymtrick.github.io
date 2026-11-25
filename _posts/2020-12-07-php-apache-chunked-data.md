@@ -1,10 +1,10 @@
 ---
-title: "A Story of mishandling the Chunked Data"
+title: "A Story of mishandling the Chunked Data (CVE-2018-17082)"
 category: "Web Security"
-tags: [web-security, php, apache]
+tags: [web-security, php, apache, xss, cve]
 thumb: php-thumb
 read_time: "4 min read"
-dek: "How a chunked request with an oversized Content-Length made PHP's Apache handler leak the request body into the response, and the one-line fix in sapi_apache2.c."
+dek: "CVE-2018-17082: how a chunked request with an oversized Content-Length made PHP's Apache handler echo the request body into the response, turning any PHP page on Apache into a reflected XSS, and the one-line fix in sapi_apache2.c."
 ---
 
 First of all, What's a chunked data?
@@ -92,3 +92,14 @@ Patch:
 Fix added to security repo as 65bc4f464e6a85aad3f578e9d55520601cbdeccf and to <https://gist.github.com/smalyshev/e956dbae936df9a7594750caae8a7cf2>
 
 <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/syE9GAlA22s" title="Video demonstration" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+
+## CVE-2018-17082
+
+I reported this as [PHP bug #76582](https://bugs.php.net/bug.php?id=76582), "XSS due to the header Transfer-Encoding: chunked", on 5 July 2018. Because PHP echoed the request body back, a POST with `<script>…</script>` in the body came back as script in the response. It needs no authentication.
+
+It was assigned **CVE-2018-17082** and published on 16 September 2018.
+
+- **Affected:** PHP's Apache2 handler (`sapi/apache2handler/sapi_apache2.c`, `php_handler`) in PHP before 5.6.38, 7.0.x before 7.0.32, 7.1.x before 7.1.22, and 7.2.x before 7.2.10.
+- **Fixed in:** PHP 5.6.38, 7.0.32, 7.1.22 and 7.2.10.
+- **Patch:** [php/php-src@23b0577](https://github.com/php/php-src/commit/23b057742e3cf199612fa8050ae86cae675e214e)
+- **Records:** [NVD](https://nvd.nist.gov/vuln/detail/CVE-2018-17082) · [Red Hat](https://access.redhat.com/security/cve/CVE-2018-17082) · [Debian](https://security-tracker.debian.org/tracker/CVE-2018-17082)
