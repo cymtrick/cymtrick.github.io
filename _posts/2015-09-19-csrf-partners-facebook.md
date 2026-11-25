@@ -1,8 +1,7 @@
 ---
 title: "CSRF in partners.facebook.com"
-order: 2
-archived: 2020-12-07
-written: "2015"
+category: "Web Security"
+tags: [web-security, bug-bounty]
 read_time: "3 min read"
 dek: "Every endpoint on partners.facebook.com accepted requests without the fb_dtsg token. Reported August 2015, fixed a month later, $5,000 bounty."
 ---

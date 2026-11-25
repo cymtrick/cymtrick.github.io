@@ -1,7 +1,7 @@
 ---
 title: "A Story of mishandling the Chunked Data"
-order: 1
-archived: 2020-12-07
+category: "Web Security"
+tags: [web-security, php, apache]
 read_time: "4 min read"
 dek: "How a chunked request with an oversized Content-Length made PHP's Apache handler leak the request body into the response, and the one-line fix in sapi_apache2.c."
 ---

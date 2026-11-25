@@ -5,8 +5,8 @@ layout: default
   <header class="post-header">
     <div class="post-header-inner">
       <div class="post-kicker">
-        <a class="kicker-category" href="{{ '/series/' | relative_url }}">{{ page.category }}</a>
-        {% if page.series_index %}<span class="kicker-sep" aria-hidden="true"></span><span class="kicker-series">Part {{ page.series_index }} of {{ site.posts | size }}</span>{% endif %}
+        {% if page.series_index %}{% assign series_posts = site.posts | where_exp: "p", "p.series_index" %}<a class="kicker-category" href="{{ '/series/' | relative_url }}">{{ page.category }}</a>
+        <span class="kicker-sep" aria-hidden="true"></span><span class="kicker-series">Part {{ page.series_index }} of {{ series_posts | size }} in the ML security series</span>{% else %}<span class="kicker-category">{{ page.category }}</span>{% endif %}
       </div>
       <h1 class="post-title">{{ page.title }}</h1>
       {% if page.dek %}<p class="post-dek">{{ page.dek }}</p>{% endif %}
@@ -35,7 +35,7 @@ layout: default
     </div>
   </div>
 
-  <nav class="post-nav" aria-label="Series navigation">
+  <nav class="post-nav" aria-label="More posts">
     {% assign posts_sorted = site.posts | sort: "date" %}
     {% for p in posts_sorted %}
       {% if p.url == page.url %}
@@ -49,13 +49,13 @@ layout: default
     <div class="post-nav-inner">
       {% if prev %}
       <a class="post-nav-link prev" href="{{ prev.url | relative_url }}">
-        <span class="post-nav-label">Previous in the series</span>
+        <span class="post-nav-label">Previous post</span>
         <span class="post-nav-title">{{ prev.title }}</span>
       </a>
       {% else %}<span></span>{% endif %}
       {% if next %}
       <a class="post-nav-link next" href="{{ next.url | relative_url }}">
-        <span class="post-nav-label">Next in the series</span>
+        <span class="post-nav-label">Next post</span>
         <span class="post-nav-title">{{ next.title }}</span>
       </a>
       {% endif %}

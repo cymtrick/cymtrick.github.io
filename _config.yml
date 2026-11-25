@@ -1,6 +1,6 @@
 title: "Prashanth Varma (cymtrick) blog"
-tagline: "Notes on secure and trustworthy machine learning"
-description: "Long-form notes on adversarial machine learning, privacy, certified robustness, explainability, jailbreaking and fairness — every claim sourced, every chart drawn from the papers."
+tagline: "Security, bugs, and how systems break"
+description: "Prashanth Varma's blog: write-ups of bugs I've found, web and application security, and a series on the security of machine learning."
 author: "Prashanth Varma Dommaraju"
 baseurl: ""
 url: "https://cymtrick.github.io"
@@ -18,22 +18,12 @@ kramdown:
     block:
       line_numbers: false
 
-collections:
-  archive:
-    output: true
-    permalink: /archive/:name/
-
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  - scope:
-      path: ""
-      type: "archive"
-    values:
-      layout: "archive"
 
 plugins:
   - jekyll-feed

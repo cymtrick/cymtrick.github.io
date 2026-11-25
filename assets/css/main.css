@@ -160,6 +160,7 @@ a:hover { text-decoration-color: var(--accent); }
   display: grid; grid-template-columns: 200px minmax(0, var(--w-text)); gap: 56px;
 }
 .post-toc { position: sticky; top: 84px; align-self: start; font-size: 14px; }
+.post-body-wrap > .post-body { grid-column: 2; }
 .toc-title { font-weight: 600; color: var(--ink-3); margin-bottom: 10px; font-size: 13px; }
 .toc-list { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--rule); }
 .toc-list li a { display: block; padding: 5px 0 5px 14px; margin-left: -1px; border-left: 1px solid transparent; color: var(--ink-2); text-decoration: none; line-height: 1.35; }
@@ -309,6 +310,7 @@ a:hover { text-decoration-color: var(--accent); }
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1040px) {
   .post-body-wrap { grid-template-columns: minmax(0, var(--w-text)); }
+  .post-body-wrap > .post-body { grid-column: 1; }
   .post-toc { display: none; }
   .fig-wide { width: auto; max-width: none; }
 }
@@ -334,14 +336,6 @@ a:hover { text-decoration-color: var(--accent); }
   .site-nav a[title="RSS feed"] { display: none; }
 }
 
-/* ── Archive (pre-2021 site) ─────────────────────────────────── */
-.archive-note { margin: 0 0 2em; padding: 12px 16px; border-left: 2px solid var(--rule-strong); background: var(--panel); border-radius: var(--radius); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
-.archive-note a { color: inherit; }
+/* ── Embedded video ─────────────────────────────────────────── */
 .post-body .video { position: relative; aspect-ratio: 16 / 9; margin: 0 0 1.5em; }
 .post-body .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: var(--radius); }
-.archive-list { list-style: none; padding: 0; margin: 32px 0 72px; }
-.archive-list li { border-top: 1px solid var(--rule); }
-.archive-list a { display: block; padding: 20px 0; color: inherit; text-decoration: none; }
-.archive-list a:hover h3 { color: var(--accent-ink); }
-.archive-list h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; line-height: 1.2; margin: 0 0 6px; }
-.archive-list p { margin: 0; color: var(--ink-2); font-size: 16px; }
