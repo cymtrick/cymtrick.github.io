@@ -1,12 +1,13 @@
 ---
 title: "Stored XSS in iCloud Notes"
+date: 2014-12-19 20:28:00 +0530
 category: "Web Security"
 tags: [web-security, xss, apple, icloud]
 read_time: "4 min read"
 dek: "In 2014, iCloud Notes on icloud.com turned anything that looked like scheme:/something into a clickable link, including javascript: URLs. A line break hidden behind a // comment was enough to get script running on icloud.com without touching a proxy."
 ---
 
-This one goes back to October 2014. I was poking at the web version of iCloud Notes at `icloud.com/#notes`, in Firefox, and found a way to store a `javascript:` link inside a note that ran on `icloud.com` when clicked. I reported it to Apple Product Security on 4 October 2014. Here's how it worked and how the report went.
+In October 2014 I was poking at the web version of iCloud Notes at `icloud.com/#notes`, in Firefox, and found a way to store a `javascript:` link inside a note that ran on `icloud.com` when clicked. I reported it to Apple Product Security on 4 October 2014. Here's how it worked and how the report went.
 
 ## How Notes turned text into links
 
